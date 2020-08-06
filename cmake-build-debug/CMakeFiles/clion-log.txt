@@ -1,0 +1,7 @@
+/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/sgx/CLionProjects/LNTEESGX
+-- Looking for crypto library - found
+-- Looking for dl library - found
+/usr/include
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug

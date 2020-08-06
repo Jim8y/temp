@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/dh_genprime.dir/dh_genprime.c.o  -o dh_genprime  ../../library/libmbedcrypto.a 

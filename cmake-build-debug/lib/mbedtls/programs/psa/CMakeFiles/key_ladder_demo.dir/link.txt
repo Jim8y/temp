@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/key_ladder_demo.dir/key_ladder_demo.c.o  -o key_ladder_demo  ../../library/libmbedtls.a ../../library/libmbedx509.a ../../library/libmbedcrypto.a 

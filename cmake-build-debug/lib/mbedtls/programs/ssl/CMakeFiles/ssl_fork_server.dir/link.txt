@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/ssl_fork_server.dir/ssl_fork_server.c.o  -o ssl_fork_server  ../../library/libmbedtls.a ../../library/libmbedx509.a ../../library/libmbedcrypto.a 

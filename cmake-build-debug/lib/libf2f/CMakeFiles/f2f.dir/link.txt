@@ -1,0 +1,2 @@
+/usr/bin/ar qc libf2f.a  CMakeFiles/f2f.dir/src/router.cpp.o CMakeFiles/f2f.dir/src/protocol.cpp.o CMakeFiles/f2f.dir/src/connection.cpp.o
+/usr/bin/ranlib libf2f.a

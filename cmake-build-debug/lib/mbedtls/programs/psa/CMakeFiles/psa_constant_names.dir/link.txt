@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/psa_constant_names.dir/psa_constant_names.c.o  -o psa_constant_names  ../../library/libmbedtls.a ../../library/libmbedx509.a ../../library/libmbedcrypto.a 

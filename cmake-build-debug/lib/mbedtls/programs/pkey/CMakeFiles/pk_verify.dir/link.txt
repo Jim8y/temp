@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/pk_verify.dir/pk_verify.c.o  -o pk_verify  ../../library/libmbedcrypto.a 

@@ -1,0 +1,62 @@
+syntax = "proto2";
+
+option optimize_for = LITE_RUNTIME;
+package payload;
+
+enum MESSAGE_TYPE {
+    Internet_connection = 0;
+    Internet_connection_res = 1;
+    // Load the data from the blockchain, the data
+    // could be typed in by the host:
+    // blockchain-->> host -->> enclave
+    Initialize_from_blockchain = 2;
+
+    // register the tee account to the blockchain, this
+    // should be done by the host, enclave does not have
+    // to involve this.
+    // enclave(account)-->>host-->blockchain
+    Register_to_blockchain = 3;
+
+    // update the initial state of the TEE account with the
+    // new state from blockchain-->>host-->>enclave
+    Update_initial_state = 4;
+
+    // redeem the received asset to the master account, This
+    // should be processed immediately with a single
+    // transaction: enclave -->>blockchain
+    Claim_recv_asset = 5;
+
+    // Here we need to verify the initial state and the valid balance of the
+    // counterpart, a random number is needed to generate the instance id
+    Verify_initial_state = 6; // (initial state || contract address || random) attach
+    // its own signed initial state to its counterpart to
+    // verify its inital state. enclave -->> self.host -->
+    // other.host--> other.enclave
+
+    // the result of initial state verification
+    // result.self.enclave-->> self.host-->
+    // other.host-->other.enclave
+    Verify_initial_state_res = 7;
+
+    // Call from self.host to self.enclave
+    Send_host_to_enc = 8;
+
+    // Receive from the enclave to host, broadcast to the
+    // counterparts (Contract || instance id || script)
+    Send_transaction = 9;
+
+    //(From || contractaddr || instanceid || script)
+    Contract_transaction = 10;
+
+    // direct transaction without through contract
+    Direct_tranaction = 11;
+
+    // End the contract instance, this should be handled by
+    // both the enclave and contract engine
+    End_contract_instance = 12;
+}
+
+
+message Connect {
+    required string pubkey = 2;
+}

@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/ecdh_curve25519.dir/ecdh_curve25519.c.o  -o ecdh_curve25519  ../../library/libmbedcrypto.a 

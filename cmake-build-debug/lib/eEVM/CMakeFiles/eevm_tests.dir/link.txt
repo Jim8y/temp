@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -O3   CMakeFiles/eevm_tests.dir/tests/main.cpp.o CMakeFiles/eevm_tests.dir/tests/rlp.cpp.o CMakeFiles/eevm_tests.dir/3rdparty/intx/lib/intx/div.cpp.o  -o eevm_tests  libeevm.a -lgcov 
