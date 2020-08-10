@@ -100,28 +100,6 @@ install/local/fast: preinstall/fast
 	/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -143,6 +121,28 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -191,21 +191,6 @@ LNTEE_ENCLAVE/fast:
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build
 .PHONY : LNTEE_ENCLAVE/fast
 
-# Convenience name for target.
-lntee/enclave/CMakeFiles/sign.dir/rule:
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lntee/enclave/CMakeFiles/sign.dir/rule
-.PHONY : lntee/enclave/CMakeFiles/sign.dir/rule
-
-# Convenience name for target.
-sign: lntee/enclave/CMakeFiles/sign.dir/rule
-
-.PHONY : sign
-
-# fast build rule for target.
-sign/fast:
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/sign.dir/build.make lntee/enclave/CMakeFiles/sign.dir/build
-.PHONY : sign/fast
-
 __/__/lib/eEVM/3rdparty/intx/lib/intx/div.o: __/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o
 
 .PHONY : __/__/lib/eEVM/3rdparty/intx/lib/intx/div.o
@@ -233,32 +218,410 @@ __/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.s:
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.s
 .PHONY : __/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.s
 
-lntee_t.o: lntee_t.c.o
+__/__/lib/eEVM/3rdparty/keccak/KeccakHash.o: __/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.o
 
-.PHONY : lntee_t.o
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakHash.o
 
 # target to build an object file
-lntee_t.c.o:
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.o
-.PHONY : lntee_t.c.o
+__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.o
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.o
 
-lntee_t.i: lntee_t.c.i
+__/__/lib/eEVM/3rdparty/keccak/KeccakHash.i: __/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.i
 
-.PHONY : lntee_t.i
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakHash.i
 
 # target to preprocess a source file
-lntee_t.c.i:
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.i
-.PHONY : lntee_t.c.i
+__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.i
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.i
 
-lntee_t.s: lntee_t.c.s
+__/__/lib/eEVM/3rdparty/keccak/KeccakHash.s: __/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.s
 
-.PHONY : lntee_t.s
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakHash.s
 
 # target to generate assembly for a file
-lntee_t.c.s:
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.s
-.PHONY : lntee_t.c.s
+__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.s
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.s
+
+__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.o: __/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.o
+
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.o
+
+# target to build an object file
+__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.o
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.o
+
+__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.i: __/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.i
+
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.i
+
+# target to preprocess a source file
+__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.i
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.i
+
+__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.s: __/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.s
+
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.s
+
+# target to generate assembly for a file
+__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.s
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.s
+
+__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.o: __/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.o
+
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.o
+
+# target to build an object file
+__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.o
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.o
+
+__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.i: __/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.i
+
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.i
+
+# target to preprocess a source file
+__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.i
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.i
+
+__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.s: __/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.s
+
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.s
+
+# target to generate assembly for a file
+__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.s
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.s
+
+__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.o: __/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.o
+
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.o
+
+# target to build an object file
+__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.o
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.o
+
+__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.i: __/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.i
+
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.i
+
+# target to preprocess a source file
+__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.i
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.i
+
+__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.s: __/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.s
+
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.s
+
+# target to generate assembly for a file
+__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.s
+.PHONY : __/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.s
+
+__/__/lib/eEVM/src/common.o: __/__/lib/eEVM/src/common.cpp.o
+
+.PHONY : __/__/lib/eEVM/src/common.o
+
+# target to build an object file
+__/__/lib/eEVM/src/common.cpp.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.o
+.PHONY : __/__/lib/eEVM/src/common.cpp.o
+
+__/__/lib/eEVM/src/common.i: __/__/lib/eEVM/src/common.cpp.i
+
+.PHONY : __/__/lib/eEVM/src/common.i
+
+# target to preprocess a source file
+__/__/lib/eEVM/src/common.cpp.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.i
+.PHONY : __/__/lib/eEVM/src/common.cpp.i
+
+__/__/lib/eEVM/src/common.s: __/__/lib/eEVM/src/common.cpp.s
+
+.PHONY : __/__/lib/eEVM/src/common.s
+
+# target to generate assembly for a file
+__/__/lib/eEVM/src/common.cpp.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.s
+.PHONY : __/__/lib/eEVM/src/common.cpp.s
+
+__/__/lib/eEVM/src/disassembler.o: __/__/lib/eEVM/src/disassembler.cpp.o
+
+.PHONY : __/__/lib/eEVM/src/disassembler.o
+
+# target to build an object file
+__/__/lib/eEVM/src/disassembler.cpp.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.o
+.PHONY : __/__/lib/eEVM/src/disassembler.cpp.o
+
+__/__/lib/eEVM/src/disassembler.i: __/__/lib/eEVM/src/disassembler.cpp.i
+
+.PHONY : __/__/lib/eEVM/src/disassembler.i
+
+# target to preprocess a source file
+__/__/lib/eEVM/src/disassembler.cpp.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.i
+.PHONY : __/__/lib/eEVM/src/disassembler.cpp.i
+
+__/__/lib/eEVM/src/disassembler.s: __/__/lib/eEVM/src/disassembler.cpp.s
+
+.PHONY : __/__/lib/eEVM/src/disassembler.s
+
+# target to generate assembly for a file
+__/__/lib/eEVM/src/disassembler.cpp.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.s
+.PHONY : __/__/lib/eEVM/src/disassembler.cpp.s
+
+__/__/lib/eEVM/src/encoding.o: __/__/lib/eEVM/src/encoding.cpp.o
+
+.PHONY : __/__/lib/eEVM/src/encoding.o
+
+# target to build an object file
+__/__/lib/eEVM/src/encoding.cpp.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.o
+.PHONY : __/__/lib/eEVM/src/encoding.cpp.o
+
+__/__/lib/eEVM/src/encoding.i: __/__/lib/eEVM/src/encoding.cpp.i
+
+.PHONY : __/__/lib/eEVM/src/encoding.i
+
+# target to preprocess a source file
+__/__/lib/eEVM/src/encoding.cpp.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.i
+.PHONY : __/__/lib/eEVM/src/encoding.cpp.i
+
+__/__/lib/eEVM/src/encoding.s: __/__/lib/eEVM/src/encoding.cpp.s
+
+.PHONY : __/__/lib/eEVM/src/encoding.s
+
+# target to generate assembly for a file
+__/__/lib/eEVM/src/encoding.cpp.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.s
+.PHONY : __/__/lib/eEVM/src/encoding.cpp.s
+
+__/__/lib/eEVM/src/processor.o: __/__/lib/eEVM/src/processor.cpp.o
+
+.PHONY : __/__/lib/eEVM/src/processor.o
+
+# target to build an object file
+__/__/lib/eEVM/src/processor.cpp.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.o
+.PHONY : __/__/lib/eEVM/src/processor.cpp.o
+
+__/__/lib/eEVM/src/processor.i: __/__/lib/eEVM/src/processor.cpp.i
+
+.PHONY : __/__/lib/eEVM/src/processor.i
+
+# target to preprocess a source file
+__/__/lib/eEVM/src/processor.cpp.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.i
+.PHONY : __/__/lib/eEVM/src/processor.cpp.i
+
+__/__/lib/eEVM/src/processor.s: __/__/lib/eEVM/src/processor.cpp.s
+
+.PHONY : __/__/lib/eEVM/src/processor.s
+
+# target to generate assembly for a file
+__/__/lib/eEVM/src/processor.cpp.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.s
+.PHONY : __/__/lib/eEVM/src/processor.cpp.s
+
+__/__/lib/eEVM/src/simple/simpleaccount.o: __/__/lib/eEVM/src/simple/simpleaccount.cpp.o
+
+.PHONY : __/__/lib/eEVM/src/simple/simpleaccount.o
+
+# target to build an object file
+__/__/lib/eEVM/src/simple/simpleaccount.cpp.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.o
+.PHONY : __/__/lib/eEVM/src/simple/simpleaccount.cpp.o
+
+__/__/lib/eEVM/src/simple/simpleaccount.i: __/__/lib/eEVM/src/simple/simpleaccount.cpp.i
+
+.PHONY : __/__/lib/eEVM/src/simple/simpleaccount.i
+
+# target to preprocess a source file
+__/__/lib/eEVM/src/simple/simpleaccount.cpp.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.i
+.PHONY : __/__/lib/eEVM/src/simple/simpleaccount.cpp.i
+
+__/__/lib/eEVM/src/simple/simpleaccount.s: __/__/lib/eEVM/src/simple/simpleaccount.cpp.s
+
+.PHONY : __/__/lib/eEVM/src/simple/simpleaccount.s
+
+# target to generate assembly for a file
+__/__/lib/eEVM/src/simple/simpleaccount.cpp.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.s
+.PHONY : __/__/lib/eEVM/src/simple/simpleaccount.cpp.s
+
+__/__/lib/eEVM/src/simple/simpleglobalstate.o: __/__/lib/eEVM/src/simple/simpleglobalstate.cpp.o
+
+.PHONY : __/__/lib/eEVM/src/simple/simpleglobalstate.o
+
+# target to build an object file
+__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.o
+.PHONY : __/__/lib/eEVM/src/simple/simpleglobalstate.cpp.o
+
+__/__/lib/eEVM/src/simple/simpleglobalstate.i: __/__/lib/eEVM/src/simple/simpleglobalstate.cpp.i
+
+.PHONY : __/__/lib/eEVM/src/simple/simpleglobalstate.i
+
+# target to preprocess a source file
+__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.i
+.PHONY : __/__/lib/eEVM/src/simple/simpleglobalstate.cpp.i
+
+__/__/lib/eEVM/src/simple/simpleglobalstate.s: __/__/lib/eEVM/src/simple/simpleglobalstate.cpp.s
+
+.PHONY : __/__/lib/eEVM/src/simple/simpleglobalstate.s
+
+# target to generate assembly for a file
+__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.s
+.PHONY : __/__/lib/eEVM/src/simple/simpleglobalstate.cpp.s
+
+__/__/lib/eEVM/src/simple/simplestorage.o: __/__/lib/eEVM/src/simple/simplestorage.cpp.o
+
+.PHONY : __/__/lib/eEVM/src/simple/simplestorage.o
+
+# target to build an object file
+__/__/lib/eEVM/src/simple/simplestorage.cpp.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.o
+.PHONY : __/__/lib/eEVM/src/simple/simplestorage.cpp.o
+
+__/__/lib/eEVM/src/simple/simplestorage.i: __/__/lib/eEVM/src/simple/simplestorage.cpp.i
+
+.PHONY : __/__/lib/eEVM/src/simple/simplestorage.i
+
+# target to preprocess a source file
+__/__/lib/eEVM/src/simple/simplestorage.cpp.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.i
+.PHONY : __/__/lib/eEVM/src/simple/simplestorage.cpp.i
+
+__/__/lib/eEVM/src/simple/simplestorage.s: __/__/lib/eEVM/src/simple/simplestorage.cpp.s
+
+.PHONY : __/__/lib/eEVM/src/simple/simplestorage.s
+
+# target to generate assembly for a file
+__/__/lib/eEVM/src/simple/simplestorage.cpp.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.s
+.PHONY : __/__/lib/eEVM/src/simple/simplestorage.cpp.s
+
+__/__/lib/eEVM/src/stack.o: __/__/lib/eEVM/src/stack.cpp.o
+
+.PHONY : __/__/lib/eEVM/src/stack.o
+
+# target to build an object file
+__/__/lib/eEVM/src/stack.cpp.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.o
+.PHONY : __/__/lib/eEVM/src/stack.cpp.o
+
+__/__/lib/eEVM/src/stack.i: __/__/lib/eEVM/src/stack.cpp.i
+
+.PHONY : __/__/lib/eEVM/src/stack.i
+
+# target to preprocess a source file
+__/__/lib/eEVM/src/stack.cpp.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.i
+.PHONY : __/__/lib/eEVM/src/stack.cpp.i
+
+__/__/lib/eEVM/src/stack.s: __/__/lib/eEVM/src/stack.cpp.s
+
+.PHONY : __/__/lib/eEVM/src/stack.s
+
+# target to generate assembly for a file
+__/__/lib/eEVM/src/stack.cpp.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.s
+.PHONY : __/__/lib/eEVM/src/stack.cpp.s
+
+__/__/lib/eEVM/src/transaction.o: __/__/lib/eEVM/src/transaction.cpp.o
+
+.PHONY : __/__/lib/eEVM/src/transaction.o
+
+# target to build an object file
+__/__/lib/eEVM/src/transaction.cpp.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.o
+.PHONY : __/__/lib/eEVM/src/transaction.cpp.o
+
+__/__/lib/eEVM/src/transaction.i: __/__/lib/eEVM/src/transaction.cpp.i
+
+.PHONY : __/__/lib/eEVM/src/transaction.i
+
+# target to preprocess a source file
+__/__/lib/eEVM/src/transaction.cpp.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.i
+.PHONY : __/__/lib/eEVM/src/transaction.cpp.i
+
+__/__/lib/eEVM/src/transaction.s: __/__/lib/eEVM/src/transaction.cpp.s
+
+.PHONY : __/__/lib/eEVM/src/transaction.s
+
+# target to generate assembly for a file
+__/__/lib/eEVM/src/transaction.cpp.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.s
+.PHONY : __/__/lib/eEVM/src/transaction.cpp.s
+
+__/__/lib/eEVM/src/util.o: __/__/lib/eEVM/src/util.cpp.o
+
+.PHONY : __/__/lib/eEVM/src/util.o
+
+# target to build an object file
+__/__/lib/eEVM/src/util.cpp.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.o
+.PHONY : __/__/lib/eEVM/src/util.cpp.o
+
+__/__/lib/eEVM/src/util.i: __/__/lib/eEVM/src/util.cpp.i
+
+.PHONY : __/__/lib/eEVM/src/util.i
+
+# target to preprocess a source file
+__/__/lib/eEVM/src/util.cpp.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.i
+.PHONY : __/__/lib/eEVM/src/util.cpp.i
+
+__/__/lib/eEVM/src/util.s: __/__/lib/eEVM/src/util.cpp.s
+
+.PHONY : __/__/lib/eEVM/src/util.s
+
+# target to generate assembly for a file
+__/__/lib/eEVM/src/util.cpp.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.s
+.PHONY : __/__/lib/eEVM/src/util.cpp.s
+
+__/__/lntee_t.o: __/__/lntee_t.c.o
+
+.PHONY : __/__/lntee_t.o
+
+# target to build an object file
+__/__/lntee_t.c.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.o
+.PHONY : __/__/lntee_t.c.o
+
+__/__/lntee_t.i: __/__/lntee_t.c.i
+
+.PHONY : __/__/lntee_t.i
+
+# target to preprocess a source file
+__/__/lntee_t.c.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.i
+.PHONY : __/__/lntee_t.c.i
+
+__/__/lntee_t.s: __/__/lntee_t.c.s
+
+.PHONY : __/__/lntee_t.s
+
+# target to generate assembly for a file
+__/__/lntee_t.c.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.s
+.PHONY : __/__/lntee_t.c.s
 
 src/dispatcher.o: src/dispatcher.cpp.o
 
@@ -515,14 +878,55 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... sign"
 	@echo "... LNTEE_ENCLAVE"
 	@echo "... __/__/lib/eEVM/3rdparty/intx/lib/intx/div.o"
 	@echo "... __/__/lib/eEVM/3rdparty/intx/lib/intx/div.i"
 	@echo "... __/__/lib/eEVM/3rdparty/intx/lib/intx/div.s"
-	@echo "... lntee_t.o"
-	@echo "... lntee_t.i"
-	@echo "... lntee_t.s"
+	@echo "... __/__/lib/eEVM/3rdparty/keccak/KeccakHash.o"
+	@echo "... __/__/lib/eEVM/3rdparty/keccak/KeccakHash.i"
+	@echo "... __/__/lib/eEVM/3rdparty/keccak/KeccakHash.s"
+	@echo "... __/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.o"
+	@echo "... __/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.i"
+	@echo "... __/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.s"
+	@echo "... __/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.o"
+	@echo "... __/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.i"
+	@echo "... __/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.s"
+	@echo "... __/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.o"
+	@echo "... __/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.i"
+	@echo "... __/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.s"
+	@echo "... __/__/lib/eEVM/src/common.o"
+	@echo "... __/__/lib/eEVM/src/common.i"
+	@echo "... __/__/lib/eEVM/src/common.s"
+	@echo "... __/__/lib/eEVM/src/disassembler.o"
+	@echo "... __/__/lib/eEVM/src/disassembler.i"
+	@echo "... __/__/lib/eEVM/src/disassembler.s"
+	@echo "... __/__/lib/eEVM/src/encoding.o"
+	@echo "... __/__/lib/eEVM/src/encoding.i"
+	@echo "... __/__/lib/eEVM/src/encoding.s"
+	@echo "... __/__/lib/eEVM/src/processor.o"
+	@echo "... __/__/lib/eEVM/src/processor.i"
+	@echo "... __/__/lib/eEVM/src/processor.s"
+	@echo "... __/__/lib/eEVM/src/simple/simpleaccount.o"
+	@echo "... __/__/lib/eEVM/src/simple/simpleaccount.i"
+	@echo "... __/__/lib/eEVM/src/simple/simpleaccount.s"
+	@echo "... __/__/lib/eEVM/src/simple/simpleglobalstate.o"
+	@echo "... __/__/lib/eEVM/src/simple/simpleglobalstate.i"
+	@echo "... __/__/lib/eEVM/src/simple/simpleglobalstate.s"
+	@echo "... __/__/lib/eEVM/src/simple/simplestorage.o"
+	@echo "... __/__/lib/eEVM/src/simple/simplestorage.i"
+	@echo "... __/__/lib/eEVM/src/simple/simplestorage.s"
+	@echo "... __/__/lib/eEVM/src/stack.o"
+	@echo "... __/__/lib/eEVM/src/stack.i"
+	@echo "... __/__/lib/eEVM/src/stack.s"
+	@echo "... __/__/lib/eEVM/src/transaction.o"
+	@echo "... __/__/lib/eEVM/src/transaction.i"
+	@echo "... __/__/lib/eEVM/src/transaction.s"
+	@echo "... __/__/lib/eEVM/src/util.o"
+	@echo "... __/__/lib/eEVM/src/util.i"
+	@echo "... __/__/lib/eEVM/src/util.s"
+	@echo "... __/__/lntee_t.o"
+	@echo "... __/__/lntee_t.i"
+	@echo "... __/__/lntee_t.s"
 	@echo "... src/dispatcher.o"
 	@echo "... src/dispatcher.i"
 	@echo "... src/dispatcher.s"

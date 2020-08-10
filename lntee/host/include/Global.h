@@ -11,6 +11,30 @@
 //#define TEST_TRANSACTION_THROUGHPUT
 // #define  HOST_MAIN
 
+#define _CONTRACT_GOMOKU_
+//#define _CONTRACT_ERC20_
+//#define _CONTRACT_MONOPOLY_
+//#define _CONTRACT_RPC_
+//#define _TEST_ECDSA_
+
+
+#ifdef _CONTRACT_ERC20_
+#define _CONTRACT_ "ERC20"
+#endif
+
+#ifdef _CONTRACT_GOMOKU_
+#define _CONTRACT_ "gomoku"
+#endif
+
+#ifdef _CONTRACT_MONOPOLY_
+#define _CONTRACT_ "monopoly"
+#endif
+
+#ifdef _CONTRACT_RPC_
+#define _CONTRACT_ "rpc"
+#endif
+
+
 typedef struct {
     std::string ip;
     int port;

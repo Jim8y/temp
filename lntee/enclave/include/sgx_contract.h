@@ -6,7 +6,7 @@
 #include <eEVM/common.h>
 #include <random>
 #include <stdio.h>
-#include "../build/lntee_t.h"
+#include "lntee_t.h"
 class SGX_Contract {
 public:
     // using Addresses = ;

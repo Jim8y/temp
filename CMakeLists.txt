@@ -1,37 +1,66 @@
 cmake_minimum_required(VERSION 3.15)
-project("LNTEESGX" LANGUAGES C CXX)
-
-if (LVI_MITIGATION MATCHES ControlFlow)
-    # Configure the cmake to use customized compilation toolchain.
-    # This package has to be added before `project()`.
-    find_package(OpenEnclave-LVI-Mitigation CONFIG REQUIRED)
-endif()
-
-# Currently the `OpenEnclave` package depends on `project()`.
-find_package(OpenEnclave CONFIG REQUIRED)
+project(LNTEESGX)
 
 set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_BUILD_TYPE Release)
 
-#set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
+set(EEVM_INCLUDE_DIRS
+        ${CMAKE_SOURCE_DIR}/lib/eEVM/3rdparty
+        ${CMAKE_SOURCE_DIR}/lib/eEVM/include
+        ${CMAKE_SOURCE_DIR}/lib/libf2f/include
+        )
 
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/eEVM/)
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/libf2f)
+if (LVI_MITIGATION MATCHES ControlFlow)
+    # Configure the cmake to use customized compilation toolchain.
+    # This package has to be added before `project()`.
+    find_package(OpenEnclave-LVI-Mitigation CONFIG REQUIRED)
+endif ()
 
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -nostdinc -m64 -fPIC -I/opt/openenclave/include/openenclave/3rdparty/libcxx -I/opt/openenclave/include/openenclave/3rdparty/libc -I/opt/openenclave/include/openenclave/3rdparty -I/opt/openenclave/include")
-#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -nostdinc -m64 -fPIC -I/opt/openenclave/include/openenclave/3rdparty/libc -I/opt/openenclave/include/openenclave/3rdparty -I/opt/openenclave/include")
-#set(CMAKE_EXE_LINKER_FLAGS "-L/opt/openenclave/lib/openenclave/enclave -nostdlib -nodefaultlibs -nostartfiles -Wl,--no-undefined -Wl,-Bstatic -Wl,-Bsymbolic -Wl,--export-dynamic -Wl,-pie -Wl,--build-id -loeenclave -lmbedx509 -lmbedcrypto -loelibcxx -loelibc -loecore ")
-#
+find_package(OpenEnclave CONFIG REQUIRED)
+
+add_subdirectory(lib/eEVM)
+add_subdirectory(lib/libf2f)
 
 add_subdirectory(lntee/enclave)
 add_subdirectory(lntee/host)
 
-#target_compile_definitions(LNTEE PUBLIC OE_API_VERSION=2)
+# Generate key
+add_custom_command(OUTPUT private.pem public.pem
+        COMMAND openssl genrsa -out private.pem -3 3072
+        COMMAND openssl rsa -in private.pem -pubout -out public.pem)
 
-add_custom_target(LNTEE DEPENDS LNTEE_ENCLAVE LNTEE_HOST sign
+# Sign enclave
+add_custom_command(OUTPUT LNTEE_ENCLAVE.signed
+        DEPENDS LNTEE_ENCLAVE ${CMAKE_SOURCE_DIR}/lntee/lntee.conf private.pem
+        COMMAND openenclave::oesign sign -e $<TARGET_FILE:LNTEE_ENCLAVE> -c ${CMAKE_SOURCE_DIR}/lntee/lntee.conf -k private.pem)
 
-        )
+add_custom_target(sign ALL DEPENDS LNTEE_ENCLAVE.signed)
+
+################################ # # # # # # # #
+# TEST
+################################ # # # # # # # #
+
+add_custom_target(run1
+        DEPENDS LNTEE_HOST LNTEE_ENCLAVE sign
+        COMMAND LNTEE_HOST ${CMAKE_SOURCE_DIR}/lntee/host/contract ${CMAKE_BINARY_DIR}/lntee/enclave/LNTEE_ENCLAVE.signed 127.0.0.1 10000)
+
+add_custom_target(run2
+        DEPENDS LNTEE_HOST LNTEE_ENCLAVE sign
+        COMMAND LNTEE_HOST ${CMAKE_SOURCE_DIR}/lntee/host/contract ${CMAKE_BINARY_DIR}/lntee/enclave/LNTEE_ENCLAVE.signed 127.0.0.1 10001)
+
+
+
+
+# add_custom_command(TARGET LNTEE_ENCLAVE
+#         POST_BUILD
+#         COMMAND scp LNTEE_ENCLAVE sev@141.217.220.162:LNTEE_ENCLAVE
+#         COMMAND scp LNTEE_ENCLAVE sev@141.217.220.95:LNTEE_ENCLAVE)
+
+#add_program(LNTEECMAKE)
+# ssh sev@141.217.220.160
+# ssh sev@141.217.220.224

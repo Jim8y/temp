@@ -84,7 +84,7 @@
 		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/../../../../opt/openenclave/lib/openenclave/cmake/openenclave-config.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\opt\openenclave\lib\openenclave\cmake\"/>
 		</Unit>
-		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/../../../../opt/openenclave/lib/openenclave/cmake/openenclave-targets-relwithdebinfo.cmake">
+		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/../../../../opt/openenclave/lib/openenclave/cmake/openenclave-targets-debug.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\opt\openenclave\lib\openenclave\cmake\"/>
 		</Unit>
 		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/../../../../opt/openenclave/lib/openenclave/cmake/openenclave-targets.cmake">

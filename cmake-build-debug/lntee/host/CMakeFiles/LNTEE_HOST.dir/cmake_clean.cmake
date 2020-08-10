@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/LNTEE_HOST.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o"
-  "CMakeFiles/LNTEE_HOST.dir/lntee_u.c.o"
+  "CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.o"
   "CMakeFiles/LNTEE_HOST.dir/src/Global.cpp.o"
   "CMakeFiles/LNTEE_HOST.dir/src/Helper.cpp.o"
   "CMakeFiles/LNTEE_HOST.dir/src/command.cpp.o"
@@ -12,9 +12,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/LNTEE_HOST.dir/src/test_direct_transaction.cpp.o"
   "LNTEE_HOST"
   "LNTEE_HOST.pdb"
-  "lntee_args.h"
-  "lntee_u.c"
-  "lntee_u.h"
 )
 
 # Per-language clean rules from dependency scanning.

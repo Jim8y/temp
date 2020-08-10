@@ -7,6 +7,77 @@
 
 OE_EXTERNC_BEGIN
 
+/**** Trusted function IDs ****/
+enum
+{
+    lntee_fcn_id_ecall_lntee_main = 0,
+    lntee_fcn_id_ecall_lntee_init_tee = 1,
+    lntee_fcn_id_ecall_lntee_send = 2,
+    lntee_fcn_id_ecall_lntee_recv_transaction = 3,
+    lntee_fcn_id_ecall_lntee_direct_send = 4,
+    lntee_fcn_id_ecall_lntee_direct_recv = 5,
+    lntee_fcn_id_ecall_lntee_generate_contract_instance_id = 6,
+    lntee_fcn_id_trusted_call_id_max = OE_ENUM_MAX
+};
+
+/**** ECALL marshalling structs. ****/
+typedef struct _ecall_lntee_main_args_t
+{
+    oe_result_t _result;
+    char* contract_definition;
+    size_t contract_definition_len;
+    char* address;
+    size_t addr_size;
+} ecall_lntee_main_args_t;
+
+typedef struct _ecall_lntee_init_tee_args_t
+{
+    oe_result_t _result;
+    int _retval;
+    char* seed;
+    size_t seed_len;
+    char* pubkey;
+    char* addr;
+} ecall_lntee_init_tee_args_t;
+
+typedef struct _ecall_lntee_send_args_t
+{
+    oe_result_t _result;
+    char* function_call;
+    char* tx_str;
+} ecall_lntee_send_args_t;
+
+typedef struct _ecall_lntee_recv_transaction_args_t
+{
+    oe_result_t _result;
+    int _retval;
+    char* transaction;
+    size_t transaction_len;
+} ecall_lntee_recv_transaction_args_t;
+
+typedef struct _ecall_lntee_direct_send_args_t
+{
+    oe_result_t _result;
+    char* pubkey;
+    size_t pubkey_len;
+    int amt;
+    char* tx;
+} ecall_lntee_direct_send_args_t;
+
+typedef struct _ecall_lntee_direct_recv_args_t
+{
+    oe_result_t _result;
+    int _retval;
+    char* tx;
+    size_t tx_len;
+} ecall_lntee_direct_recv_args_t;
+
+typedef struct _ecall_lntee_generate_contract_instance_id_args_t
+{
+    oe_result_t _result;
+    int _retval;
+} ecall_lntee_generate_contract_instance_id_args_t;
+
 /**** ECALL functions. ****/
 
 static void ecall_ecall_lntee_main(
@@ -406,6 +477,48 @@ oe_ecall_func_t __oe_ecalls_table[] = {
 };
 
 size_t __oe_ecalls_table_size = OE_COUNTOF(__oe_ecalls_table);
+
+/**** Untrusted function IDs. ****/
+enum
+{
+    lntee_fcn_id_ocall_lntee_broadcast = 0,
+    lntee_fcn_id_ocall_lntee_send_transaction = 1,
+    lntee_fcn_id_ocall_lntee_time_log = 2,
+    lntee_fcn_id_ocall_lntee_pubkey = 3,
+    lntee_fcn_id_untrusted_call_max = OE_ENUM_MAX
+};
+
+/**** OCALL marshalling structs. ****/
+typedef struct _ocall_lntee_broadcast_args_t
+{
+    oe_result_t _result;
+    char* tx;
+    size_t tx_len;
+    char* instance_id;
+    size_t instance_id_len;
+} ocall_lntee_broadcast_args_t;
+
+typedef struct _ocall_lntee_send_transaction_args_t
+{
+    oe_result_t _result;
+    char* target_pubkey;
+    size_t target_pubkey_len;
+    char* tx;
+    size_t tx_len;
+} ocall_lntee_send_transaction_args_t;
+
+typedef struct _ocall_lntee_time_log_args_t
+{
+    oe_result_t _result;
+} ocall_lntee_time_log_args_t;
+
+typedef struct _ocall_lntee_pubkey_args_t
+{
+    oe_result_t _result;
+    char* pubkey;
+    size_t pubkey_len;
+    size_t len;
+} ocall_lntee_pubkey_args_t;
 
 /**** OCALL function wrappers. ****/
 

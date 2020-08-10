@@ -100,28 +100,6 @@ install/local/fast: preinstall/fast
 	/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -143,6 +121,28 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -191,6 +191,21 @@ eevm/fast:
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm.dir/build.make lib/eEVM/CMakeFiles/eevm.dir/build
 .PHONY : eevm/fast
 
+# Convenience name for target.
+lib/eEVM/CMakeFiles/eevm_tests.dir/rule:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/eEVM/CMakeFiles/eevm_tests.dir/rule
+.PHONY : lib/eEVM/CMakeFiles/eevm_tests.dir/rule
+
+# Convenience name for target.
+eevm_tests: lib/eEVM/CMakeFiles/eevm_tests.dir/rule
+
+.PHONY : eevm_tests
+
+# fast build rule for target.
+eevm_tests/fast:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/build
+.PHONY : eevm_tests/fast
+
 3rdparty/intx/lib/intx/div.o: 3rdparty/intx/lib/intx/div.cpp.o
 
 .PHONY : 3rdparty/intx/lib/intx/div.o
@@ -198,6 +213,7 @@ eevm/fast:
 # target to build an object file
 3rdparty/intx/lib/intx/div.cpp.o:
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm.dir/build.make lib/eEVM/CMakeFiles/eevm.dir/3rdparty/intx/lib/intx/div.cpp.o
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/3rdparty/intx/lib/intx/div.cpp.o
 .PHONY : 3rdparty/intx/lib/intx/div.cpp.o
 
 3rdparty/intx/lib/intx/div.i: 3rdparty/intx/lib/intx/div.cpp.i
@@ -207,6 +223,7 @@ eevm/fast:
 # target to preprocess a source file
 3rdparty/intx/lib/intx/div.cpp.i:
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm.dir/build.make lib/eEVM/CMakeFiles/eevm.dir/3rdparty/intx/lib/intx/div.cpp.i
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/3rdparty/intx/lib/intx/div.cpp.i
 .PHONY : 3rdparty/intx/lib/intx/div.cpp.i
 
 3rdparty/intx/lib/intx/div.s: 3rdparty/intx/lib/intx/div.cpp.s
@@ -216,6 +233,7 @@ eevm/fast:
 # target to generate assembly for a file
 3rdparty/intx/lib/intx/div.cpp.s:
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm.dir/build.make lib/eEVM/CMakeFiles/eevm.dir/3rdparty/intx/lib/intx/div.cpp.s
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/3rdparty/intx/lib/intx/div.cpp.s
 .PHONY : 3rdparty/intx/lib/intx/div.cpp.s
 
 3rdparty/keccak/KeccakHash.o: 3rdparty/keccak/KeccakHash.c.o
@@ -596,6 +614,60 @@ src/util.cpp.s:
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm.dir/build.make lib/eEVM/CMakeFiles/eevm.dir/src/util.cpp.s
 .PHONY : src/util.cpp.s
 
+tests/main.o: tests/main.cpp.o
+
+.PHONY : tests/main.o
+
+# target to build an object file
+tests/main.cpp.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/tests/main.cpp.o
+.PHONY : tests/main.cpp.o
+
+tests/main.i: tests/main.cpp.i
+
+.PHONY : tests/main.i
+
+# target to preprocess a source file
+tests/main.cpp.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/tests/main.cpp.i
+.PHONY : tests/main.cpp.i
+
+tests/main.s: tests/main.cpp.s
+
+.PHONY : tests/main.s
+
+# target to generate assembly for a file
+tests/main.cpp.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/tests/main.cpp.s
+.PHONY : tests/main.cpp.s
+
+tests/rlp.o: tests/rlp.cpp.o
+
+.PHONY : tests/rlp.o
+
+# target to build an object file
+tests/rlp.cpp.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/tests/rlp.cpp.o
+.PHONY : tests/rlp.cpp.o
+
+tests/rlp.i: tests/rlp.cpp.i
+
+.PHONY : tests/rlp.i
+
+# target to preprocess a source file
+tests/rlp.cpp.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/tests/rlp.cpp.i
+.PHONY : tests/rlp.cpp.i
+
+tests/rlp.s: tests/rlp.cpp.s
+
+.PHONY : tests/rlp.s
+
+# target to generate assembly for a file
+tests/rlp.cpp.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/tests/rlp.cpp.s
+.PHONY : tests/rlp.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -609,6 +681,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... eevm"
+	@echo "... eevm_tests"
 	@echo "... 3rdparty/intx/lib/intx/div.o"
 	@echo "... 3rdparty/intx/lib/intx/div.i"
 	@echo "... 3rdparty/intx/lib/intx/div.s"
@@ -654,6 +727,12 @@ help:
 	@echo "... src/util.o"
 	@echo "... src/util.i"
 	@echo "... src/util.s"
+	@echo "... tests/main.o"
+	@echo "... tests/main.i"
+	@echo "... tests/main.s"
+	@echo "... tests/rlp.o"
+	@echo "... tests/rlp.i"
+	@echo "... tests/rlp.s"
 .PHONY : help
 
 

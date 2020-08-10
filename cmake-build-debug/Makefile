@@ -100,17 +100,6 @@ install/local/fast: preinstall/fast
 	/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -143,6 +132,17 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -177,17 +177,43 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named LNTEE
+# Target rules for targets named sign
 
 # Build rule for target.
-LNTEE: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LNTEE
-.PHONY : LNTEE
+sign: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sign
+.PHONY : sign
 
 # fast build rule for target.
-LNTEE/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LNTEE.dir/build.make CMakeFiles/LNTEE.dir/build
-.PHONY : LNTEE/fast
+sign/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sign.dir/build.make CMakeFiles/sign.dir/build
+.PHONY : sign/fast
+
+#=============================================================================
+# Target rules for targets named run1
+
+# Build rule for target.
+run1: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run1
+.PHONY : run1
+
+# fast build rule for target.
+run1/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run1.dir/build.make CMakeFiles/run1.dir/build
+.PHONY : run1/fast
+
+#=============================================================================
+# Target rules for targets named run2
+
+# Build rule for target.
+run2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run2
+.PHONY : run2
+
+# fast build rule for target.
+run2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run2.dir/build.make CMakeFiles/run2.dir/build
+.PHONY : run2/fast
 
 #=============================================================================
 # Target rules for targets named eevm
@@ -201,6 +227,19 @@ eevm: cmake_check_build_system
 eevm/fast:
 	$(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm.dir/build.make lib/eEVM/CMakeFiles/eevm.dir/build
 .PHONY : eevm/fast
+
+#=============================================================================
+# Target rules for targets named eevm_tests
+
+# Build rule for target.
+eevm_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 eevm_tests
+.PHONY : eevm_tests
+
+# fast build rule for target.
+eevm_tests/fast:
+	$(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/build
+.PHONY : eevm_tests/fast
 
 #=============================================================================
 # Target rules for targets named f2f
@@ -229,19 +268,6 @@ LNTEE_ENCLAVE/fast:
 .PHONY : LNTEE_ENCLAVE/fast
 
 #=============================================================================
-# Target rules for targets named sign
-
-# Build rule for target.
-sign: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sign
-.PHONY : sign
-
-# fast build rule for target.
-sign/fast:
-	$(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/sign.dir/build.make lntee/enclave/CMakeFiles/sign.dir/build
-.PHONY : sign/fast
-
-#=============================================================================
 # Target rules for targets named LNTEE_HOST
 
 # Build rule for target.
@@ -266,11 +292,13 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... LNTEE"
+	@echo "... run1"
+	@echo "... run2"
 	@echo "... sign"
 	@echo "... LNTEE_ENCLAVE"
 	@echo "... LNTEE_HOST"
 	@echo "... eevm"
+	@echo "... eevm_tests"
 	@echo "... f2f"
 .PHONY : help
 

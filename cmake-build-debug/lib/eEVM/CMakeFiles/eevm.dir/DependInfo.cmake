@@ -12,21 +12,11 @@ set(CMAKE_DEPENDS_CHECK_C
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_C
-  "INSIDE_ENCLAVE"
-  "OE_BUILD_ENCLAVE"
-  "OE_LINK_SGX_DCAP_QL"
-  "_LIBCPP_HAS_THREAD_API_PTHREAD"
-  )
-
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "../lib/eEVM/3rdparty/intx/include"
   "../lib/eEVM/3rdparty"
   "../lib/eEVM/include"
-  "/opt/openenclave/include"
-  "/opt/openenclave/include/openenclave/3rdparty/libc"
+  "../lib/eEVM/3rdparty/intx/include"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/lib/intx/div.cpp" "/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM/CMakeFiles/eevm.dir/3rdparty/intx/lib/intx/div.cpp.o"
@@ -43,22 +33,11 @@ set(CMAKE_DEPENDS_CHECK_CXX
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_CXX
-  "INSIDE_ENCLAVE"
-  "OE_BUILD_ENCLAVE"
-  "OE_LINK_SGX_DCAP_QL"
-  "_LIBCPP_HAS_THREAD_API_PTHREAD"
-  )
-
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../lib/eEVM/3rdparty/intx/include"
-  "/opt/openenclave/include/openenclave/3rdparty/libcxx"
   "../lib/eEVM/3rdparty"
   "../lib/eEVM/include"
-  "/opt/openenclave/include"
-  "/opt/openenclave/include/openenclave/3rdparty/libc"
+  "../lib/eEVM/3rdparty/intx/include"
   )
 
 # Targets to which this target links.

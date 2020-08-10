@@ -24,15 +24,9 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add option="-DINSIDE_ENCLAVE"/>
-					<Add option="-D_LIBCPP_HAS_THREAD_API_PTHREAD"/>
-					<Add option="-DOE_BUILD_ENCLAVE"/>
-					<Add option="-DOE_LINK_SGX_DCAP_QL"/>
-					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/include"/>
 					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty"/>
 					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/include"/>
-					<Add directory="/opt/openenclave/include"/>
-					<Add directory="/opt/openenclave/include/openenclave/3rdparty/libc"/>
+					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/include"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -56,15 +50,9 @@
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add option="-DINSIDE_ENCLAVE"/>
-					<Add option="-D_LIBCPP_HAS_THREAD_API_PTHREAD"/>
-					<Add option="-DOE_BUILD_ENCLAVE"/>
-					<Add option="-DOE_LINK_SGX_DCAP_QL"/>
-					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/include"/>
 					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty"/>
 					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/include"/>
-					<Add directory="/opt/openenclave/include"/>
-					<Add directory="/opt/openenclave/include/openenclave/3rdparty/libc"/>
+					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/include"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -81,15 +69,70 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="eevm_tests">
+				<Option output="/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM/eevm_tests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty"/>
+					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/include"/>
+					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM/Makefile&quot;  VERBOSE=1 eevm_tests"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="eevm_tests/fast">
+				<Option output="/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM/eevm_tests" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty"/>
+					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/include"/>
+					<Add directory="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM/Makefile&quot;  VERBOSE=1 eevm_tests/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/include/intx/intx.hpp">
 			<Option target="eevm"/>
+			<Option target="eevm_tests"/>
 		</Unit>
 		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/lib/intx/div.cpp">
 			<Option target="eevm"/>
+			<Option target="eevm_tests"/>
 		</Unit>
 		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/lib/intx/div.hpp">
 			<Option target="eevm"/>
+			<Option target="eevm_tests"/>
 		</Unit>
 		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/keccak/KeccakHash.c">
 			<Option target="eevm"/>
@@ -142,6 +185,12 @@
 		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/util.cpp">
 			<Option target="eevm"/>
 		</Unit>
+		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/tests/main.cpp">
+			<Option target="eevm_tests"/>
+		</Unit>
+		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/tests/rlp.cpp">
+			<Option target="eevm_tests"/>
+		</Unit>
 		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
@@ -151,7 +200,7 @@
 		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/../../../../opt/openenclave/lib/openenclave/cmake/openenclave-config.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\opt\openenclave\lib\openenclave\cmake\"/>
 		</Unit>
-		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/../../../../opt/openenclave/lib/openenclave/cmake/openenclave-targets-relwithdebinfo.cmake">
+		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/../../../../opt/openenclave/lib/openenclave/cmake/openenclave-targets-debug.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\opt\openenclave\lib\openenclave\cmake\"/>
 		</Unit>
 		<Unit filename="/home/sgx/CLionProjects/LNTEESGX/../../../../opt/openenclave/lib/openenclave/cmake/openenclave-targets.cmake">

@@ -73,6 +73,7 @@ CMAKE_BINARY_DIR = /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/sign.dir/all
 all: lib/eEVM/all
 all: lib/libf2f/all
 all: lntee/enclave/all
@@ -89,7 +90,9 @@ preinstall: lntee/host/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/LNTEE.dir/clean
+clean: CMakeFiles/sign.dir/clean
+clean: CMakeFiles/run1.dir/clean
+clean: CMakeFiles/run2.dir/clean
 clean: lib/eEVM/clean
 clean: lib/libf2f/clean
 clean: lntee/enclave/clean
@@ -102,6 +105,7 @@ clean: lntee/host/clean
 
 # Recursive "all" directory target.
 lib/eEVM/all: lib/eEVM/CMakeFiles/eevm.dir/all
+lib/eEVM/all: lib/eEVM/CMakeFiles/eevm_tests.dir/all
 lib/eEVM/all: lib/eEVM/3rdparty/all
 
 .PHONY : lib/eEVM/all
@@ -113,6 +117,7 @@ lib/eEVM/preinstall: lib/eEVM/3rdparty/preinstall
 
 # Recursive "clean" directory target.
 lib/eEVM/clean: lib/eEVM/CMakeFiles/eevm.dir/clean
+lib/eEVM/clean: lib/eEVM/CMakeFiles/eevm_tests.dir/clean
 lib/eEVM/clean: lib/eEVM/3rdparty/clean
 
 .PHONY : lib/eEVM/clean
@@ -158,7 +163,6 @@ lib/libf2f/clean: lib/libf2f/CMakeFiles/f2f.dir/clean
 
 # Recursive "all" directory target.
 lntee/enclave/all: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/all
-lntee/enclave/all: lntee/enclave/CMakeFiles/sign.dir/all
 
 .PHONY : lntee/enclave/all
 
@@ -169,7 +173,6 @@ lntee/enclave/preinstall:
 
 # Recursive "clean" directory target.
 lntee/enclave/clean: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/clean
-lntee/enclave/clean: lntee/enclave/CMakeFiles/sign.dir/clean
 
 .PHONY : lntee/enclave/clean
 
@@ -192,33 +195,89 @@ lntee/host/clean: lntee/host/CMakeFiles/LNTEE_HOST.dir/clean
 .PHONY : lntee/host/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/LNTEE.dir
+# Target rules for target CMakeFiles/sign.dir
 
 # All Build rule for target.
-CMakeFiles/LNTEE.dir/all: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/all
-CMakeFiles/LNTEE.dir/all: lntee/enclave/CMakeFiles/sign.dir/all
-CMakeFiles/LNTEE.dir/all: lntee/host/CMakeFiles/LNTEE_HOST.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LNTEE.dir/build.make CMakeFiles/LNTEE.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LNTEE.dir/build.make CMakeFiles/LNTEE.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num= "Built target LNTEE"
-.PHONY : CMakeFiles/LNTEE.dir/all
+CMakeFiles/sign.dir/all: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sign.dir/build.make CMakeFiles/sign.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sign.dir/build.make CMakeFiles/sign.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=63,64 "Built target sign"
+.PHONY : CMakeFiles/sign.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/LNTEE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 48
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/LNTEE.dir/all
+CMakeFiles/sign.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 28
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/sign.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/LNTEE.dir/rule
+.PHONY : CMakeFiles/sign.dir/rule
 
 # Convenience name for target.
-LNTEE: CMakeFiles/LNTEE.dir/rule
+sign: CMakeFiles/sign.dir/rule
 
-.PHONY : LNTEE
+.PHONY : sign
 
 # clean rule for target.
-CMakeFiles/LNTEE.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LNTEE.dir/build.make CMakeFiles/LNTEE.dir/clean
-.PHONY : CMakeFiles/LNTEE.dir/clean
+CMakeFiles/sign.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sign.dir/build.make CMakeFiles/sign.dir/clean
+.PHONY : CMakeFiles/sign.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/run1.dir
+
+# All Build rule for target.
+CMakeFiles/run1.dir/all: CMakeFiles/sign.dir/all
+CMakeFiles/run1.dir/all: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/all
+CMakeFiles/run1.dir/all: lntee/host/CMakeFiles/LNTEE_HOST.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run1.dir/build.make CMakeFiles/run1.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run1.dir/build.make CMakeFiles/run1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num= "Built target run1"
+.PHONY : CMakeFiles/run1.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/run1.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 60
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/run1.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/run1.dir/rule
+
+# Convenience name for target.
+run1: CMakeFiles/run1.dir/rule
+
+.PHONY : run1
+
+# clean rule for target.
+CMakeFiles/run1.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run1.dir/build.make CMakeFiles/run1.dir/clean
+.PHONY : CMakeFiles/run1.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/run2.dir
+
+# All Build rule for target.
+CMakeFiles/run2.dir/all: CMakeFiles/sign.dir/all
+CMakeFiles/run2.dir/all: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/all
+CMakeFiles/run2.dir/all: lntee/host/CMakeFiles/LNTEE_HOST.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run2.dir/build.make CMakeFiles/run2.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run2.dir/build.make CMakeFiles/run2.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num= "Built target run2"
+.PHONY : CMakeFiles/run2.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/run2.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 60
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/run2.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/run2.dir/rule
+
+# Convenience name for target.
+run2: CMakeFiles/run2.dir/rule
+
+.PHONY : run2
+
+# clean rule for target.
+CMakeFiles/run2.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run2.dir/build.make CMakeFiles/run2.dir/clean
+.PHONY : CMakeFiles/run2.dir/clean
 
 #=============================================================================
 # Target rules for target lib/eEVM/CMakeFiles/eevm.dir
@@ -227,7 +286,7 @@ CMakeFiles/LNTEE.dir/clean:
 lib/eEVM/CMakeFiles/eevm.dir/all:
 	$(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm.dir/build.make lib/eEVM/CMakeFiles/eevm.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm.dir/build.make lib/eEVM/CMakeFiles/eevm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42 "Built target eevm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54 "Built target eevm"
 .PHONY : lib/eEVM/CMakeFiles/eevm.dir/all
 
 # Build rule for subdir invocation for target.
@@ -248,13 +307,40 @@ lib/eEVM/CMakeFiles/eevm.dir/clean:
 .PHONY : lib/eEVM/CMakeFiles/eevm.dir/clean
 
 #=============================================================================
+# Target rules for target lib/eEVM/CMakeFiles/eevm_tests.dir
+
+# All Build rule for target.
+lib/eEVM/CMakeFiles/eevm_tests.dir/all: lib/eEVM/CMakeFiles/eevm.dir/all
+	$(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/depend
+	$(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=55,56,57,58 "Built target eevm_tests"
+.PHONY : lib/eEVM/CMakeFiles/eevm_tests.dir/all
+
+# Build rule for subdir invocation for target.
+lib/eEVM/CMakeFiles/eevm_tests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 20
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/eEVM/CMakeFiles/eevm_tests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 0
+.PHONY : lib/eEVM/CMakeFiles/eevm_tests.dir/rule
+
+# Convenience name for target.
+eevm_tests: lib/eEVM/CMakeFiles/eevm_tests.dir/rule
+
+.PHONY : eevm_tests
+
+# clean rule for target.
+lib/eEVM/CMakeFiles/eevm_tests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f lib/eEVM/CMakeFiles/eevm_tests.dir/build.make lib/eEVM/CMakeFiles/eevm_tests.dir/clean
+.PHONY : lib/eEVM/CMakeFiles/eevm_tests.dir/clean
+
+#=============================================================================
 # Target rules for target lib/libf2f/CMakeFiles/f2f.dir
 
 # All Build rule for target.
 lib/libf2f/CMakeFiles/f2f.dir/all:
 	$(MAKE) $(MAKESILENT) -f lib/libf2f/CMakeFiles/f2f.dir/build.make lib/libf2f/CMakeFiles/f2f.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/libf2f/CMakeFiles/f2f.dir/build.make lib/libf2f/CMakeFiles/f2f.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=43,44,45,46 "Built target f2f"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=59,60,61,62 "Built target f2f"
 .PHONY : lib/libf2f/CMakeFiles/f2f.dir/all
 
 # Build rule for subdir invocation for target.
@@ -278,15 +364,15 @@ lib/libf2f/CMakeFiles/f2f.dir/clean:
 # Target rules for target lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir
 
 # All Build rule for target.
-lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/all: lib/eEVM/CMakeFiles/eevm.dir/all
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/all:
 	$(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/depend
 	$(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target LNTEE_ENCLAVE"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26 "Built target LNTEE_ENCLAVE"
 .PHONY : lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/all
 
 # Build rule for subdir invocation for target.
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 26
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 0
 .PHONY : lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/rule
@@ -302,33 +388,6 @@ lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/clean:
 .PHONY : lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/clean
 
 #=============================================================================
-# Target rules for target lntee/enclave/CMakeFiles/sign.dir
-
-# All Build rule for target.
-lntee/enclave/CMakeFiles/sign.dir/all: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/all
-	$(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/sign.dir/build.make lntee/enclave/CMakeFiles/sign.dir/depend
-	$(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/sign.dir/build.make lntee/enclave/CMakeFiles/sign.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=47,48 "Built target sign"
-.PHONY : lntee/enclave/CMakeFiles/sign.dir/all
-
-# Build rule for subdir invocation for target.
-lntee/enclave/CMakeFiles/sign.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 31
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lntee/enclave/CMakeFiles/sign.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 0
-.PHONY : lntee/enclave/CMakeFiles/sign.dir/rule
-
-# Convenience name for target.
-sign: lntee/enclave/CMakeFiles/sign.dir/rule
-
-.PHONY : sign
-
-# clean rule for target.
-lntee/enclave/CMakeFiles/sign.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lntee/enclave/CMakeFiles/sign.dir/build.make lntee/enclave/CMakeFiles/sign.dir/clean
-.PHONY : lntee/enclave/CMakeFiles/sign.dir/clean
-
-#=============================================================================
 # Target rules for target lntee/host/CMakeFiles/LNTEE_HOST.dir
 
 # All Build rule for target.
@@ -336,12 +395,12 @@ lntee/host/CMakeFiles/LNTEE_HOST.dir/all: lib/eEVM/CMakeFiles/eevm.dir/all
 lntee/host/CMakeFiles/LNTEE_HOST.dir/all: lib/libf2f/CMakeFiles/f2f.dir/all
 	$(MAKE) $(MAKESILENT) -f lntee/host/CMakeFiles/LNTEE_HOST.dir/build.make lntee/host/CMakeFiles/LNTEE_HOST.dir/depend
 	$(MAKE) $(MAKESILENT) -f lntee/host/CMakeFiles/LNTEE_HOST.dir/build.make lntee/host/CMakeFiles/LNTEE_HOST.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=14,15,16,17,18,19,20,21,22,23,24,25,26 "Built target LNTEE_HOST"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=27,28,29,30,31,32,33,34,35,36,37,38 "Built target LNTEE_HOST"
 .PHONY : lntee/host/CMakeFiles/LNTEE_HOST.dir/all
 
 # Build rule for subdir invocation for target.
 lntee/host/CMakeFiles/LNTEE_HOST.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 33
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 32
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lntee/host/CMakeFiles/LNTEE_HOST.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles 0
 .PHONY : lntee/host/CMakeFiles/LNTEE_HOST.dir/rule

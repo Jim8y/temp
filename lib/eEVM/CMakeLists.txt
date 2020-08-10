@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(eevm)
-find_package(OpenEnclave CONFIG REQUIRED)
+
 set(CMAKE_CXX_STANDARD 17)
 
 # set(Boost_ADDITIONAL_VERSIONS "1.67" "1.67.0")
@@ -13,7 +13,6 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 # Set Linux compiler options
 add_compile_options(-Wall)
-
 
 # -Werror)
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
@@ -31,7 +30,7 @@ file(GLOB KECCAK_SOURCES
 add_subdirectory(3rdparty)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# Options 
+# Options
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 option(RECORD_TRACE "Record a detailed trace of EVM execution during test runs" OFF)
 if (RECORD_TRACE)
@@ -40,7 +39,7 @@ endif (RECORD_TRACE)
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# Common variables 
+# Common variables
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 set(EEVM_INCLUDE_DIRS
         ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty
@@ -68,36 +67,43 @@ add_library(eevm STATIC
         ${KECCAK_SOURCES}
         )
 
-
-target_compile_definitions(eevm PRIVATE
-        INSIDE_ENCLAVE
-        _LIBCPP_HAS_THREAD_API_PTHREAD)
-
-set(CMAKE_C_FLAGS "${SGX_COMMON_CFLAGS} ${CMAKE_C_FLAGS} \
-    -Wall -Werror=return-type -nostdinc -fvisibility=hidden -fpie -fstack-protector")
-
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CMAKE_C_FLAGS} \
-#    -std=c++17 -nostdinc++")
-
-
-target_compile_options(eevm PRIVATE
-        -Wno-undef
-        -nostdlib
-        -nodefaultlibs
-        -nostartfiles
-        -std=c++11
-        -nostdinc++
-        -U__linux__)
-
-target_include_directories(eevm SYSTEM PRIVATE
+target_include_directories(eevm PRIVATE
         ${EEVM_INCLUDE_DIRS}
         )
 
 target_link_libraries(eevm
         intx::intx
-        openenclave::libcxx
-        sgx_tcxx
-        sgx_tstdc
         )
 
-set_property(TARGET eevm PROPERTY POSITION_INDEPENDENT_CODE ON)
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Executables
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+add_executable(eevm_tests
+        tests/main.cpp
+        tests/rlp.cpp
+        ${EEVM_SIMPLE_SRCS}
+        )
+
+target_include_directories(eevm_tests PRIVATE
+        ${EEVM_INCLUDE_DIRS}
+        )
+
+target_compile_options(eevm_tests PRIVATE ${COVERAGE_FLAGS})
+target_link_libraries(eevm_tests eevm ${PLATFORM_SPECIFIC_TEST_LIBS})
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Tests
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+enable_testing()
+add_test(
+        NAME eevm_tests
+        COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/tests/unit_test_wrapper.sh eevm_tests
+)
+
+if (NOT ENV{TEST_DIR})
+    set_tests_properties(eevm_tests
+            PROPERTIES
+            ENVIRONMENT TEST_DIR=${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/test_cases
+            )
+endif ()

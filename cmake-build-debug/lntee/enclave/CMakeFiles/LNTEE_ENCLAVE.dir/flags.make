@@ -7,11 +7,11 @@ C_FLAGS = -O3 -DNDEBUG   -m64 -fPIE -nostdinc -fstack-protector-strong -fvisibil
 
 C_DEFINES = -DOE_API_VERSION=2 -DOE_BUILD_ENCLAVE -DOE_LINK_SGX_DCAP_QL
 
-C_INCLUDES = -I/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/include -I/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty -I/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/include -I/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave -I/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/include -isystem /opt/openenclave/include -isystem /opt/openenclave/include/openenclave/3rdparty/libc -isystem /opt/openenclave/include/openenclave/3rdparty 
+C_INCLUDES = -I/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty -I/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/include -I/home/sgx/CLionProjects/LNTEESGX/lib/libf2f/include -I/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/include -I/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug -I/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/include -isystem /opt/openenclave/include/openenclave/3rdparty -isystem /opt/openenclave/include -isystem /opt/openenclave/include/openenclave/3rdparty/libc 
 
-CXX_FLAGS = -O3   -m64 -fPIE -nostdinc -fstack-protector-strong -fvisibility=hidden -fno-omit-frame-pointer -ffunction-sections -fdata-sections -ftls-model=local-exec -nostdinc++ -std=gnu++1z
+CXX_FLAGS = -Wall -Wextra -O3   -m64 -fPIE -nostdinc -fstack-protector-strong -fvisibility=hidden -fno-omit-frame-pointer -ffunction-sections -fdata-sections -ftls-model=local-exec -nostdinc++ -std=gnu++1z
 
 CXX_DEFINES = -DOE_API_VERSION=2 -DOE_BUILD_ENCLAVE -DOE_LINK_SGX_DCAP_QL
 
-CXX_INCLUDES = -I/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/include -I/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty -I/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/include -I/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave -I/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/include -I/opt/openenclave/include/openenclave/3rdparty/libcxx -isystem /opt/openenclave/include -isystem /opt/openenclave/include/openenclave/3rdparty/libc -isystem /opt/openenclave/include/openenclave/3rdparty 
+CXX_INCLUDES = -I/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty -I/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/include -I/home/sgx/CLionProjects/LNTEESGX/lib/libf2f/include -I/home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/include -I/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug -I/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/include -I/opt/openenclave/include/openenclave/3rdparty/libcxx -isystem /opt/openenclave/include/openenclave/3rdparty -isystem /opt/openenclave/include -isystem /opt/openenclave/include/openenclave/3rdparty/libc 
 

@@ -296,6 +296,12 @@ LINK_WITH_PTHREAD:BOOL=OFF
 LINK_WITH_TRUSTED_STORAGE:BOOL=OFF
 
 //Value Computed by CMake
+LNTEECMAKE_BINARY_DIR:STATIC=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug
+
+//Value Computed by CMake
+LNTEECMAKE_SOURCE_DIR:STATIC=/home/sgx/CLionProjects/LNTEESGX
+
+//Value Computed by CMake
 LNTEESGX_BINARY_DIR:STATIC=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug
 
 //Value Computed by CMake
@@ -345,9 +351,6 @@ USE_STATIC_MBEDTLS_LIBRARY:BOOL=ON
 
 //Value Computed by CMake
 eevm_BINARY_DIR:STATIC=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lib/eEVM
-
-//Dependencies for the target
-eevm_LIB_DEPENDS:STATIC=general;sgx_tcxx;general;sgx_tstdc;
 
 //Value Computed by CMake
 eevm_SOURCE_DIR:STATIC=/home/sgx/CLionProjects/LNTEESGX/lib/eEVM

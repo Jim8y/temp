@@ -218,32 +218,32 @@ __/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.s:
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/host/CMakeFiles/LNTEE_HOST.dir/build.make lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.s
 .PHONY : __/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.s
 
-lntee_u.o: lntee_u.c.o
+__/__/lntee_u.o: __/__/lntee_u.c.o
 
-.PHONY : lntee_u.o
+.PHONY : __/__/lntee_u.o
 
 # target to build an object file
-lntee_u.c.o:
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/host/CMakeFiles/LNTEE_HOST.dir/build.make lntee/host/CMakeFiles/LNTEE_HOST.dir/lntee_u.c.o
-.PHONY : lntee_u.c.o
+__/__/lntee_u.c.o:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/host/CMakeFiles/LNTEE_HOST.dir/build.make lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.o
+.PHONY : __/__/lntee_u.c.o
 
-lntee_u.i: lntee_u.c.i
+__/__/lntee_u.i: __/__/lntee_u.c.i
 
-.PHONY : lntee_u.i
+.PHONY : __/__/lntee_u.i
 
 # target to preprocess a source file
-lntee_u.c.i:
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/host/CMakeFiles/LNTEE_HOST.dir/build.make lntee/host/CMakeFiles/LNTEE_HOST.dir/lntee_u.c.i
-.PHONY : lntee_u.c.i
+__/__/lntee_u.c.i:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/host/CMakeFiles/LNTEE_HOST.dir/build.make lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.i
+.PHONY : __/__/lntee_u.c.i
 
-lntee_u.s: lntee_u.c.s
+__/__/lntee_u.s: __/__/lntee_u.c.s
 
-.PHONY : lntee_u.s
+.PHONY : __/__/lntee_u.s
 
 # target to generate assembly for a file
-lntee_u.c.s:
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/host/CMakeFiles/LNTEE_HOST.dir/build.make lntee/host/CMakeFiles/LNTEE_HOST.dir/lntee_u.c.s
-.PHONY : lntee_u.c.s
+__/__/lntee_u.c.s:
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(MAKE) $(MAKESILENT) -f lntee/host/CMakeFiles/LNTEE_HOST.dir/build.make lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.s
+.PHONY : __/__/lntee_u.c.s
 
 src/Global.o: src/Global.cpp.o
 
@@ -504,9 +504,9 @@ help:
 	@echo "... __/__/lib/eEVM/3rdparty/intx/lib/intx/div.o"
 	@echo "... __/__/lib/eEVM/3rdparty/intx/lib/intx/div.i"
 	@echo "... __/__/lib/eEVM/3rdparty/intx/lib/intx/div.s"
-	@echo "... lntee_u.o"
-	@echo "... lntee_u.i"
-	@echo "... lntee_u.s"
+	@echo "... __/__/lntee_u.o"
+	@echo "... __/__/lntee_u.i"
+	@echo "... __/__/lntee_u.s"
 	@echo "... src/Global.o"
 	@echo "... src/Global.i"
 	@echo "... src/Global.s"

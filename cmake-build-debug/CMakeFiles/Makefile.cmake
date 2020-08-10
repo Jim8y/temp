@@ -52,7 +52,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/sgx/Downloads/clion-2020.1.1/bin/cmake/linux/share/cmake-3.17/Modules/ProcessorCount.cmake"
   "/opt/openenclave/lib/openenclave/cmake/openenclave-config-version.cmake"
   "/opt/openenclave/lib/openenclave/cmake/openenclave-config.cmake"
-  "/opt/openenclave/lib/openenclave/cmake/openenclave-targets-relwithdebinfo.cmake"
+  "/opt/openenclave/lib/openenclave/cmake/openenclave-targets-debug.cmake"
   "/opt/openenclave/lib/openenclave/cmake/openenclave-targets.cmake"
   )
 
@@ -74,10 +74,12 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/LNTEE.dir/DependInfo.cmake"
+  "CMakeFiles/sign.dir/DependInfo.cmake"
+  "CMakeFiles/run1.dir/DependInfo.cmake"
+  "CMakeFiles/run2.dir/DependInfo.cmake"
   "lib/eEVM/CMakeFiles/eevm.dir/DependInfo.cmake"
+  "lib/eEVM/CMakeFiles/eevm_tests.dir/DependInfo.cmake"
   "lib/libf2f/CMakeFiles/f2f.dir/DependInfo.cmake"
   "lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/DependInfo.cmake"
-  "lntee/enclave/CMakeFiles/sign.dir/DependInfo.cmake"
   "lntee/host/CMakeFiles/LNTEE_HOST.dir/DependInfo.cmake"
   )

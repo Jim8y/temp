@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/sign"
-  "enclave/LNTEE_ENCLAVE.signed"
+  "LNTEE_ENCLAVE.signed"
   "private.pem"
   "public.pem"
 )

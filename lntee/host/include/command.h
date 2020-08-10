@@ -41,10 +41,11 @@ namespace lntee {
         /**
          * Load the enclave, in the mean time an account will be created.
          *
+         * @param the root path of the contract file
          * @param enc: path to the enclave file
          * @return int: enclave load result
          */
-        int load_enclave(const char *enc);
+        int load_enclave(const char* con_path, const char *enc);
 
         /**
          * Terminate the enclave in case of error
@@ -54,10 +55,10 @@ namespace lntee {
 
         /**
          * Load contract from the file
-         *
+         * @param the root path of the contract file
          * @param contract_name path to the contract file
          */
-        void load_contract(std::string contract_name);
+        void load_contract(std::string con_path, std::string contract_name);
 
         /**
          * Generate a share key to process message exchanging

@@ -654,12 +654,6 @@ sstream
 vector
 -
 
-../lntee/enclave/build/lntee_t.h
-openenclave/enclave.h
--
-lntee_args.h
-../lntee/enclave/build/lntee_args.h
-
 ../lntee/enclave/include/dispatcher.h
 mbedtls/aes.h
 -
@@ -761,8 +755,8 @@ random
 -
 stdio.h
 -
-../build/lntee_t.h
-../lntee/enclave/build/lntee_t.h
+lntee_t.h
+../lntee/enclave/include/lntee_t.h
 
 ../lntee/enclave/include/shared.h
 stddef.h
@@ -786,6 +780,72 @@ eEVM/simple/simpleglobalstate.h
 message.h
 ../lntee/enclave/include/message.h
 atomic
+-
+
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/include/dispatcher.h
+mbedtls/aes.h
+-
+mbedtls/ctr_drbg.h
+-
+mbedtls/entropy.h
+-
+openenclave/enclave.h
+-
+string
+-
+shared.h
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/include/shared.h
+eEVM/simple/simpleglobalstate.h
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/include/eEVM/simple/simpleglobalstate.h
+
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/include/shared.h
+stddef.h
+-
+
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/dispatcher.cpp
+../include/dispatcher.h
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/include/dispatcher.h
+eEVM/common.h
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/eEVM/common.h
+stdio.h
+-
+string.h
+-
+
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/eth_ecdsa.cpp
+eth_ecdsa.h
+-
+stdexcept
+-
+string.h
+-
+string
+-
+mbedtls/entropy.h
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/mbedtls/entropy.h
+mbedtls/ctr_drbg.h
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/mbedtls/ctr_drbg.h
+mbedtls/ecdsa.h
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/mbedtls/ecdsa.h
+mbedtls/sha256.h
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/mbedtls/sha256.h
+mbedtls/platform.h
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/mbedtls/platform.h
+eEVM/debug.h
+-
+sys/time.h
+-
+
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/keys.cpp
+dispatcher.h
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/dispatcher.h
+eEVM/common.h
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/eEVM/common.h
+eEVM/debug.h
+-
+mbedtls/aes.h
+-
+mbedtls/md.h
 -
 
 /home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/main.cpp
@@ -826,6 +886,18 @@ eth_ecp.h
 map
 -
 eEVM/debug.h
+-
+
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/sgx_contract.cpp
+sgx_contract.h
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/sgx_contract.h
+eEVM/debug.h
+-
+
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/wallet.cpp
+wallet.h
+/home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/wallet.h
+time.h
 -
 
 /opt/openenclave/include/openenclave/3rdparty/libc/__endian.h
@@ -917,6 +989,14 @@ bits/deprecations.h
 -
 
 /opt/openenclave/include/openenclave/3rdparty/libc/sys/sysmacros.h
+bits/deprecations.h
+-
+
+/opt/openenclave/include/openenclave/3rdparty/libc/sys/time.h
+features.h
+-
+sys/select.h
+-
 bits/deprecations.h
 -
 
@@ -2246,6 +2326,14 @@ aes.h
 threading.h
 /opt/openenclave/include/openenclave/3rdparty/mbedtls/threading.h
 
+/opt/openenclave/include/openenclave/3rdparty/mbedtls/ecdsa.h
+config.h
+/opt/openenclave/include/openenclave/3rdparty/mbedtls/config.h
+ecp.h
+/opt/openenclave/include/openenclave/3rdparty/mbedtls/ecp.h
+md.h
+/opt/openenclave/include/openenclave/3rdparty/mbedtls/md.h
+
 /opt/openenclave/include/openenclave/3rdparty/mbedtls/ecp.h
 config.h
 /opt/openenclave/include/openenclave/3rdparty/mbedtls/config.h
@@ -2345,14 +2433,6 @@ openenclave/bits/result.h
 -
 
 /opt/openenclave/include/openenclave/bits/defs.h
-
-/opt/openenclave/include/openenclave/bits/evidence.h
-defs.h
-/opt/openenclave/include/openenclave/bits/defs.h
-types.h
-/opt/openenclave/include/openenclave/bits/types.h
-report.h
-/opt/openenclave/include/openenclave/bits/report.h
 
 /opt/openenclave/include/openenclave/bits/exception.h
 openenclave/bits/defs.h
@@ -2481,8 +2561,6 @@ openenclave/bits/asym_keys.h
 -
 bits/defs.h
 /opt/openenclave/include/openenclave/bits/defs.h
-bits/evidence.h
-/opt/openenclave/include/openenclave/bits/evidence.h
 bits/exception.h
 /opt/openenclave/include/openenclave/bits/exception.h
 bits/fs.h
@@ -2491,18 +2569,20 @@ bits/module.h
 /opt/openenclave/include/openenclave/bits/module.h
 bits/properties.h
 /opt/openenclave/include/openenclave/bits/properties.h
+bits/report.h
+/opt/openenclave/include/openenclave/bits/report.h
 bits/result.h
 /opt/openenclave/include/openenclave/bits/result.h
 bits/types.h
 /opt/openenclave/include/openenclave/bits/types.h
 
-lntee/enclave/lntee_args.h
+lntee_args.h
 openenclave/bits/result.h
 -
 
-lntee/enclave/lntee_t.h
+lntee_t.h
 openenclave/enclave.h
 -
 lntee_args.h
-lntee/enclave/lntee_args.h
+lntee_args.h
 

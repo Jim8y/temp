@@ -77,19 +77,9 @@ include lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/progress.make
 # Include the compile flags for this target's objects.
 include lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
 
-lntee/enclave/lntee_t.h: ../lntee/lntee.edl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating lntee_t.h, lntee_t.c, lntee_args.h"
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /opt/openenclave/bin/oeedger8r --trusted /home/sgx/CLionProjects/LNTEESGX/lntee/lntee.edl
-
-lntee/enclave/lntee_t.c: lntee/enclave/lntee_t.h
-	@$(CMAKE_COMMAND) -E touch_nocreate lntee/enclave/lntee_t.c
-
-lntee/enclave/lntee_args.h: lntee/enclave/lntee_t.h
-	@$(CMAKE_COMMAND) -E touch_nocreate lntee/enclave/lntee_args.h
-
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/dispatcher.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/dispatcher.cpp.o: ../lntee/enclave/src/dispatcher.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/dispatcher.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/dispatcher.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/src/dispatcher.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/dispatcher.cpp
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/dispatcher.cpp.i: cmake_force
@@ -102,7 +92,7 @@ lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/dispatcher.cpp.s: cmake_force
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_aes.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_aes.cpp.o: ../lntee/enclave/src/eth_aes.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_aes.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_aes.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_aes.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/eth_aes.cpp
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_aes.cpp.i: cmake_force
@@ -115,7 +105,7 @@ lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_aes.cpp.s: cmake_force
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdh.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdh.cpp.o: ../lntee/enclave/src/eth_ecdh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdh.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdh.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/eth_ecdh.cpp
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdh.cpp.i: cmake_force
@@ -128,7 +118,7 @@ lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdh.cpp.s: cmake_force
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdsa.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdsa.cpp.o: ../lntee/enclave/src/eth_ecdsa.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdsa.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdsa.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdsa.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/eth_ecdsa.cpp
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdsa.cpp.i: cmake_force
@@ -141,7 +131,7 @@ lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecdsa.cpp.s: cmake_force
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecp.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecp.cpp.o: ../lntee/enclave/src/eth_ecp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecp.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecp.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecp.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/eth_ecp.cpp
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecp.cpp.i: cmake_force
@@ -154,7 +144,7 @@ lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/eth_ecp.cpp.s: cmake_force
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/keys.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/keys.cpp.o: ../lntee/enclave/src/keys.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/keys.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/keys.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/src/keys.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/keys.cpp
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/keys.cpp.i: cmake_force
@@ -167,7 +157,7 @@ lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/keys.cpp.s: cmake_force
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/main.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/main.cpp.o: ../lntee/enclave/src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/main.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/src/main.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/main.cpp
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/main.cpp.i: cmake_force
@@ -180,7 +170,7 @@ lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/main.cpp.s: cmake_force
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/sgx_contract.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/sgx_contract.cpp.o: ../lntee/enclave/src/sgx_contract.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/sgx_contract.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/sgx_contract.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/src/sgx_contract.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/sgx_contract.cpp
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/sgx_contract.cpp.i: cmake_force
@@ -193,7 +183,7 @@ lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/sgx_contract.cpp.s: cmake_force
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/wallet.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/wallet.cpp.o: ../lntee/enclave/src/wallet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/wallet.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/wallet.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/src/wallet.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/wallet.cpp
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/wallet.cpp.i: cmake_force
@@ -204,22 +194,152 @@ lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/wallet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/src/wallet.cpp.s"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lntee/enclave/src/wallet.cpp -o CMakeFiles/LNTEE_ENCLAVE.dir/src/wallet.cpp.s
 
-lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
-lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.o: lntee/enclave/lntee_t.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.o"
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.o   -c /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave/lntee_t.c
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.o: lntee_t.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.o   -c /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee_t.c
 
-lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.i"
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave/lntee_t.c > CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.i
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee_t.c > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.i
 
-lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.s"
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave/lntee_t.c -o CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.s
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee_t.c -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.o: ../lib/eEVM/src/common.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/common.cpp
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/common.cpp > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/common.cpp -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.o: ../lib/eEVM/src/disassembler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/disassembler.cpp
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/disassembler.cpp > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/disassembler.cpp -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.o: ../lib/eEVM/src/encoding.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/encoding.cpp
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/encoding.cpp > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/encoding.cpp -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.o: ../lib/eEVM/src/processor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/processor.cpp
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/processor.cpp > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/processor.cpp -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.o: ../lib/eEVM/src/stack.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/stack.cpp
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/stack.cpp > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/stack.cpp -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.o: ../lib/eEVM/src/transaction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/transaction.cpp
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/transaction.cpp > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/transaction.cpp -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.o: ../lib/eEVM/src/util.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/util.cpp
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/util.cpp > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/util.cpp -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.o: ../lib/eEVM/src/simple/simpleaccount.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/simple/simpleaccount.cpp
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/simple/simpleaccount.cpp > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/simple/simpleaccount.cpp -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.o: ../lib/eEVM/src/simple/simpleglobalstate.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/simple/simpleglobalstate.cpp
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/simple/simpleglobalstate.cpp > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/simple/simpleglobalstate.cpp -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.o: ../lib/eEVM/src/simple/simplestorage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/simple/simplestorage.cpp
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/simple/simplestorage.cpp > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/src/simple/simplestorage.cpp -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.s
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o: ../lib/eEVM/3rdparty/intx/lib/intx/div.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/lib/intx/div.cpp
 
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.i: cmake_force
@@ -229,6 +349,58 @@ lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx
 lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.s"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/lib/intx/div.cpp -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.o: ../lib/eEVM/3rdparty/keccak/KeccakHash.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.o   -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/keccak/KeccakHash.c
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/keccak/KeccakHash.c > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/keccak/KeccakHash.c -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.o: ../lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.o   -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.o: ../lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.o   -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.s
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.o: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/flags.make
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.o: ../lib/eEVM/3rdparty/keccak/SimpleFIPS202.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.o   -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c > CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.i
+
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c -o CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.s
 
 # Object files for target LNTEE_ENCLAVE
 LNTEE_ENCLAVE_OBJECTS = \
@@ -241,8 +413,22 @@ LNTEE_ENCLAVE_OBJECTS = \
 "CMakeFiles/LNTEE_ENCLAVE.dir/src/main.cpp.o" \
 "CMakeFiles/LNTEE_ENCLAVE.dir/src/sgx_contract.cpp.o" \
 "CMakeFiles/LNTEE_ENCLAVE.dir/src/wallet.cpp.o" \
-"CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.o" \
-"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o"
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.o" \
+"CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.o"
 
 # External object files for target LNTEE_ENCLAVE
 LNTEE_ENCLAVE_EXTERNAL_OBJECTS =
@@ -256,11 +442,25 @@ lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/keys
 lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/main.cpp.o
 lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/sgx_contract.cpp.o
 lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/src/wallet.cpp.o
-lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lntee_t.c.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/common.cpp.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/disassembler.cpp.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/encoding.cpp.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/processor.cpp.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/stack.cpp.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/transaction.cpp.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/util.cpp.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleaccount.cpp.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simpleglobalstate.cpp.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/src/simple/simplestorage.cpp.o
 lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakHash.c.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakP-1600-opt64.c.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/KeccakSpongeWidth1600.c.o
+lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/__/__/lib/eEVM/3rdparty/keccak/SimpleFIPS202.c.o
 lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/build.make
-lntee/enclave/LNTEE_ENCLAVE: lib/eEVM/libeevm.a
 lntee/enclave/LNTEE_ENCLAVE: /opt/openenclave/lib/openenclave/enclave/liboeenclave.a
+lntee/enclave/LNTEE_ENCLAVE: /opt/openenclave/lib/openenclave/enclave/liboelibc.a
 lntee/enclave/LNTEE_ENCLAVE: /opt/openenclave/lib/openenclave/enclave/liboelibcxx.a
 lntee/enclave/LNTEE_ENCLAVE: /opt/openenclave/lib/openenclave/enclave/liboecryptombed.a
 lntee/enclave/LNTEE_ENCLAVE: /opt/openenclave/lib/openenclave/enclave/libmbedtls.a
@@ -270,7 +470,7 @@ lntee/enclave/LNTEE_ENCLAVE: /opt/openenclave/lib/openenclave/enclave/liboelibc.
 lntee/enclave/LNTEE_ENCLAVE: /opt/openenclave/lib/openenclave/enclave/liboesyscall.a
 lntee/enclave/LNTEE_ENCLAVE: /opt/openenclave/lib/openenclave/enclave/liboecore.a
 lntee/enclave/LNTEE_ENCLAVE: lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable LNTEE_ENCLAVE"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Linking CXX executable LNTEE_ENCLAVE"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LNTEE_ENCLAVE.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -282,9 +482,7 @@ lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/clean:
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave && $(CMAKE_COMMAND) -P CMakeFiles/LNTEE_ENCLAVE.dir/cmake_clean.cmake
 .PHONY : lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/clean
 
-lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/depend: lntee/enclave/lntee_t.h
-lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/depend: lntee/enclave/lntee_t.c
-lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/depend: lntee/enclave/lntee_args.h
+lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/depend:
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sgx/CLionProjects/LNTEESGX /home/sgx/CLionProjects/LNTEESGX/lntee/enclave /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : lntee/enclave/CMakeFiles/LNTEE_ENCLAVE.dir/depend
 

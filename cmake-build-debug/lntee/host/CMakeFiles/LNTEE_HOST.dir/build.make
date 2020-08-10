@@ -77,19 +77,9 @@ include lntee/host/CMakeFiles/LNTEE_HOST.dir/progress.make
 # Include the compile flags for this target's objects.
 include lntee/host/CMakeFiles/LNTEE_HOST.dir/flags.make
 
-lntee/host/lntee_u.h: ../lntee/lntee.edl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating lntee_u.h, lntee_u.c, lntee_args.h"
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /opt/openenclave/bin/oeedger8r --untrusted /home/sgx/CLionProjects/LNTEESGX/lntee/lntee.edl
-
-lntee/host/lntee_u.c: lntee/host/lntee_u.h
-	@$(CMAKE_COMMAND) -E touch_nocreate lntee/host/lntee_u.c
-
-lntee/host/lntee_args.h: lntee/host/lntee_u.h
-	@$(CMAKE_COMMAND) -E touch_nocreate lntee/host/lntee_args.h
-
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/Global.cpp.o: lntee/host/CMakeFiles/LNTEE_HOST.dir/flags.make
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/Global.cpp.o: ../lntee/host/src/Global.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/Global.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/Global.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_HOST.dir/src/Global.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/host/src/Global.cpp
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/Global.cpp.i: cmake_force
@@ -102,7 +92,7 @@ lntee/host/CMakeFiles/LNTEE_HOST.dir/src/Global.cpp.s: cmake_force
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/Helper.cpp.o: lntee/host/CMakeFiles/LNTEE_HOST.dir/flags.make
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/Helper.cpp.o: ../lntee/host/src/Helper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/Helper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/Helper.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_HOST.dir/src/Helper.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/host/src/Helper.cpp
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/Helper.cpp.i: cmake_force
@@ -115,7 +105,7 @@ lntee/host/CMakeFiles/LNTEE_HOST.dir/src/Helper.cpp.s: cmake_force
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/command.cpp.o: lntee/host/CMakeFiles/LNTEE_HOST.dir/flags.make
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/command.cpp.o: ../lntee/host/src/command.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/command.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/command.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_HOST.dir/src/command.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/host/src/command.cpp
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/command.cpp.i: cmake_force
@@ -128,7 +118,7 @@ lntee/host/CMakeFiles/LNTEE_HOST.dir/src/command.cpp.s: cmake_force
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/enclaveadapter.cpp.o: lntee/host/CMakeFiles/LNTEE_HOST.dir/flags.make
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/enclaveadapter.cpp.o: ../lntee/host/src/enclaveadapter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/enclaveadapter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/enclaveadapter.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_HOST.dir/src/enclaveadapter.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/host/src/enclaveadapter.cpp
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/enclaveadapter.cpp.i: cmake_force
@@ -141,7 +131,7 @@ lntee/host/CMakeFiles/LNTEE_HOST.dir/src/enclaveadapter.cpp.s: cmake_force
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/erc20_helper.cpp.o: lntee/host/CMakeFiles/LNTEE_HOST.dir/flags.make
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/erc20_helper.cpp.o: ../lntee/host/src/erc20_helper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/erc20_helper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/erc20_helper.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_HOST.dir/src/erc20_helper.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/host/src/erc20_helper.cpp
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/erc20_helper.cpp.i: cmake_force
@@ -154,7 +144,7 @@ lntee/host/CMakeFiles/LNTEE_HOST.dir/src/erc20_helper.cpp.s: cmake_force
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/gomoku_helper.cpp.o: lntee/host/CMakeFiles/LNTEE_HOST.dir/flags.make
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/gomoku_helper.cpp.o: ../lntee/host/src/gomoku_helper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/gomoku_helper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/gomoku_helper.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_HOST.dir/src/gomoku_helper.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/host/src/gomoku_helper.cpp
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/gomoku_helper.cpp.i: cmake_force
@@ -167,7 +157,7 @@ lntee/host/CMakeFiles/LNTEE_HOST.dir/src/gomoku_helper.cpp.s: cmake_force
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/main.cpp.o: lntee/host/CMakeFiles/LNTEE_HOST.dir/flags.make
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/main.cpp.o: ../lntee/host/src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/main.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_HOST.dir/src/main.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/host/src/main.cpp
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/main.cpp.i: cmake_force
@@ -180,7 +170,7 @@ lntee/host/CMakeFiles/LNTEE_HOST.dir/src/main.cpp.s: cmake_force
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/rpc_helper.cpp.o: lntee/host/CMakeFiles/LNTEE_HOST.dir/flags.make
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/rpc_helper.cpp.o: ../lntee/host/src/rpc_helper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/rpc_helper.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/rpc_helper.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_HOST.dir/src/rpc_helper.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/host/src/rpc_helper.cpp
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/rpc_helper.cpp.i: cmake_force
@@ -193,7 +183,7 @@ lntee/host/CMakeFiles/LNTEE_HOST.dir/src/rpc_helper.cpp.s: cmake_force
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/test_direct_transaction.cpp.o: lntee/host/CMakeFiles/LNTEE_HOST.dir/flags.make
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/test_direct_transaction.cpp.o: ../lntee/host/src/test_direct_transaction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/test_direct_transaction.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/src/test_direct_transaction.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_HOST.dir/src/test_direct_transaction.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lntee/host/src/test_direct_transaction.cpp
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/src/test_direct_transaction.cpp.i: cmake_force
@@ -204,22 +194,22 @@ lntee/host/CMakeFiles/LNTEE_HOST.dir/src/test_direct_transaction.cpp.s: cmake_fo
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LNTEE_HOST.dir/src/test_direct_transaction.cpp.s"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/lntee/host/src/test_direct_transaction.cpp -o CMakeFiles/LNTEE_HOST.dir/src/test_direct_transaction.cpp.s
 
-lntee/host/CMakeFiles/LNTEE_HOST.dir/lntee_u.c.o: lntee/host/CMakeFiles/LNTEE_HOST.dir/flags.make
-lntee/host/CMakeFiles/LNTEE_HOST.dir/lntee_u.c.o: lntee/host/lntee_u.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object lntee/host/CMakeFiles/LNTEE_HOST.dir/lntee_u.c.o"
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/LNTEE_HOST.dir/lntee_u.c.o   -c /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host/lntee_u.c
+lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.o: lntee/host/CMakeFiles/LNTEE_HOST.dir/flags.make
+lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.o: lntee_u.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.o"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.o   -c /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee_u.c
 
-lntee/host/CMakeFiles/LNTEE_HOST.dir/lntee_u.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LNTEE_HOST.dir/lntee_u.c.i"
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host/lntee_u.c > CMakeFiles/LNTEE_HOST.dir/lntee_u.c.i
+lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.i"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee_u.c > CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.i
 
-lntee/host/CMakeFiles/LNTEE_HOST.dir/lntee_u.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LNTEE_HOST.dir/lntee_u.c.s"
-	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host/lntee_u.c -o CMakeFiles/LNTEE_HOST.dir/lntee_u.c.s
+lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.s"
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee_u.c -o CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.s
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o: lntee/host/CMakeFiles/LNTEE_HOST.dir/flags.make
 lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o: ../lib/eEVM/3rdparty/intx/lib/intx/div.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LNTEE_HOST.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o -c /home/sgx/CLionProjects/LNTEESGX/lib/eEVM/3rdparty/intx/lib/intx/div.cpp
 
 lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.i: cmake_force
@@ -241,7 +231,7 @@ LNTEE_HOST_OBJECTS = \
 "CMakeFiles/LNTEE_HOST.dir/src/main.cpp.o" \
 "CMakeFiles/LNTEE_HOST.dir/src/rpc_helper.cpp.o" \
 "CMakeFiles/LNTEE_HOST.dir/src/test_direct_transaction.cpp.o" \
-"CMakeFiles/LNTEE_HOST.dir/lntee_u.c.o" \
+"CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.o" \
 "CMakeFiles/LNTEE_HOST.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o"
 
 # External object files for target LNTEE_HOST
@@ -256,15 +246,12 @@ lntee/host/LNTEE_HOST: lntee/host/CMakeFiles/LNTEE_HOST.dir/src/gomoku_helper.cp
 lntee/host/LNTEE_HOST: lntee/host/CMakeFiles/LNTEE_HOST.dir/src/main.cpp.o
 lntee/host/LNTEE_HOST: lntee/host/CMakeFiles/LNTEE_HOST.dir/src/rpc_helper.cpp.o
 lntee/host/LNTEE_HOST: lntee/host/CMakeFiles/LNTEE_HOST.dir/src/test_direct_transaction.cpp.o
-lntee/host/LNTEE_HOST: lntee/host/CMakeFiles/LNTEE_HOST.dir/lntee_u.c.o
+lntee/host/LNTEE_HOST: lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lntee_u.c.o
 lntee/host/LNTEE_HOST: lntee/host/CMakeFiles/LNTEE_HOST.dir/__/__/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o
 lntee/host/LNTEE_HOST: lntee/host/CMakeFiles/LNTEE_HOST.dir/build.make
 lntee/host/LNTEE_HOST: lib/eEVM/libeevm.a
 lntee/host/LNTEE_HOST: lib/libf2f/libf2f.a
 lntee/host/LNTEE_HOST: /opt/openenclave/lib/openenclave/host/liboehost.a
-lntee/host/LNTEE_HOST: /opt/openenclave/lib/openenclave/enclave/liboelibc.a
-lntee/host/LNTEE_HOST: /opt/openenclave/lib/openenclave/enclave/liboesyscall.a
-lntee/host/LNTEE_HOST: /opt/openenclave/lib/openenclave/enclave/liboecore.a
 lntee/host/LNTEE_HOST: /usr/lib/x86_64-linux-gnu/libboost_system.so
 lntee/host/LNTEE_HOST: /usr/lib/x86_64-linux-gnu/libboost_thread.so
 lntee/host/LNTEE_HOST: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
@@ -272,9 +259,13 @@ lntee/host/LNTEE_HOST: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 lntee/host/LNTEE_HOST: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 lntee/host/LNTEE_HOST: /usr/lib/x86_64-linux-gnu/libcrypto.so
 lntee/host/LNTEE_HOST: /usr/lib/x86_64-linux-gnu/libdl.so
+lntee/host/LNTEE_HOST: /usr/lib/x86_64-linux-gnu/libsgx_enclave_common.so
+lntee/host/LNTEE_HOST: /usr/lib/x86_64-linux-gnu/libsgx_dcap_ql.so
 lntee/host/LNTEE_HOST: lntee/host/CMakeFiles/LNTEE_HOST.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable LNTEE_HOST"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable LNTEE_HOST"
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LNTEE_HOST.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && scp -r /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/ fog@40.76.59.33:cmake-build-debug
+	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && scp -r /host/sgx/CLionProjects/LNTEESGX/cmake-build-debug/ fog@40.91.198.207:cmake-build-debug
 
 # Rule to build all files generated by this target.
 lntee/host/CMakeFiles/LNTEE_HOST.dir/build: lntee/host/LNTEE_HOST
@@ -285,9 +276,7 @@ lntee/host/CMakeFiles/LNTEE_HOST.dir/clean:
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host && $(CMAKE_COMMAND) -P CMakeFiles/LNTEE_HOST.dir/cmake_clean.cmake
 .PHONY : lntee/host/CMakeFiles/LNTEE_HOST.dir/clean
 
-lntee/host/CMakeFiles/LNTEE_HOST.dir/depend: lntee/host/lntee_u.h
-lntee/host/CMakeFiles/LNTEE_HOST.dir/depend: lntee/host/lntee_u.c
-lntee/host/CMakeFiles/LNTEE_HOST.dir/depend: lntee/host/lntee_args.h
+lntee/host/CMakeFiles/LNTEE_HOST.dir/depend:
 	cd /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sgx/CLionProjects/LNTEESGX /home/sgx/CLionProjects/LNTEESGX/lntee/host /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/lntee/host/CMakeFiles/LNTEE_HOST.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : lntee/host/CMakeFiles/LNTEE_HOST.dir/depend
 

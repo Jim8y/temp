@@ -48,7 +48,7 @@ void lntee::Command::connect(std::string peer_info) {
  * @param enc file path of enclave
  * @return
  */
-int lntee::Command::load_enclave(const char *enc) {
+int lntee::Command::load_enclave(const char* con_path, const char *enc) {
     oe_result_t result;
     // Create the enclave
     result = oe_create_lntee_enclave(
@@ -65,7 +65,7 @@ int lntee::Command::load_enclave(const char *enc) {
     int ret = 0;
     std::string rand = random_string(100);
     ecall_lntee_init_tee(Global::enclave, &ret, rand.c_str(), Global::pubkey, Global::addr);
-    this->load_contract("ERC20");
+    this->load_contract(con_path,"ERC20");
     return ret;
 }
 
@@ -77,7 +77,7 @@ void lntee::Command::terminate_enclave() {
 /**
  * Load the contract
  */
-void lntee::Command::load_contract(std::string contract_name) {
+void lntee::Command::load_contract(std::string con_path, std::string contract_name) {
 
     this->time_log("Satrt to Load contract");
     //    std::cout << "contract = " << contract_name << std::endl;
@@ -85,7 +85,7 @@ void lntee::Command::load_contract(std::string contract_name) {
     //    if (getcwd(cwd, sizeof(cwd)) != NULL) {
     //        printf("Current working dir: %s\n", cwd);
     //    }
-    std::string path = "./host/contract/" + contract_name + ".json";
+    std::string path = con_path+"/"+ contract_name + ".json";
     DEBUG("");
     std::cout << path << std::endl;
     // Open the contract definition file

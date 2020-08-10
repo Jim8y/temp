@@ -25,7 +25,11 @@
 #include "libf2f/protocol.h"
 #include "lntee_messages.h"
 #include "lntee_protocol.h"
+
 #include "erc20_helper.h"
+#include "gomoku_helper.h"
+#include "rpc_helper.h"
+
 #define HOST_MAIN
 #ifdef HOST_MAIN
 
@@ -42,11 +46,11 @@ void iorun(boost::asio::io_service *ios) {
     cout << "io ended" << endl;
 }
 
-void start_enclave(const char *enc_path) {
+void start_enclave(const char * con_path, const char *enc_path) {
 
     // Start the enclave
     cmd->time_log("Start to load the enclave");
-    cmd->load_enclave(enc_path);
+    cmd->load_enclave(con_path,enc_path);
     cmd->time_log("Loaded the enclave");
 
     //Show the connection info
@@ -65,9 +69,9 @@ void command_parser(Router &r, std::string line) {
     if (parts[0] == "connect" && parts.size() == 2) {
         cmd->connect(parts[1]);
     } else if (parts[0] == "contract" && parts.size() == 3) {
-        if (parts[1] == "load") {
-            cmd->load_contract(parts[2]);
-        }
+//        if (parts[1] == "load") {
+//            cmd->load_contract(parts[2]);
+//        }
     } else if (parts[0] == "send") {
         DEBUG("");
         if (parts[1] == "-d") {
@@ -76,11 +80,20 @@ void command_parser(Router &r, std::string line) {
             // Here should have contract instance id, but since this is just a demo, we fake one
             // ERC20 demo
             // send -c target_addr_hex target_pubkey_hex amount
-            DEBUG("");
+#ifdef _CONTRACT_GOMOKU_
+            gomoku_helper helper;
+            std::vector<uint8_t> call = helper.MakeMove(1, 1, 1); //
+#endif
+
+#ifdef _CONTRACT_ERC20_
             erc20_helper helper;
-            DEBUG("");
-            std::vector <uint8_t> call = helper.transfer(parts[2], atoi(parts[4].c_str()));
-            DEBUG("");
+            std::vector<uint8_t> call = helper.transfer(addr, 1);
+#endif
+
+#ifdef _CONTRACT_RPC_
+            rpc_helper helper;
+            std::vector<uint8_t> call = helper.play();
+#endif
             cmd->send_contract_tx(parts[3], Global::to_hex((unsigned char *) &call[0], call.size()).c_str(),
                                   call.size());
             DEBUG("");
@@ -90,11 +103,16 @@ void command_parser(Router &r, std::string line) {
 }
 
 int main(int argc, const char *argv[]) {
-    if (argc < 3) {
-        std::cout << "Error :./host [enc path] [p2p port]" << std::endl;
+    if (argc < 4) {
+//        std::cout << argv[1] <<std::endl;
+        std::cout << "Error :./host [root path of contract] [enc path] [p2p port]" << std::endl;
         return -1;
     }
-    short port = atoi(argv[2]);
+
+    string ip = argv[3];
+    Global::ip = ip;
+
+    short port = atoi(argv[4]);
     Global::port = port;
 
     boost::asio::io_service ios;
@@ -102,7 +120,7 @@ int main(int argc, const char *argv[]) {
     string line;
     char b[1024] = {'\0'};
     INFO();
-    start_enclave(argv[1]);
+    start_enclave(argv[1], argv[2]);
     DEBUG("");
 
     boost::shared_ptr <boost::asio::ip::tcp::acceptor> accp(

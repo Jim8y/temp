@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/LNTEE_ENCLAVE.dir/lib/eEVM/3rdparty/intx/lib/intx/div.cpp.o"
   "CMakeFiles/LNTEE_ENCLAVE.dir/lntee_t.c.o"
   "LNTEE_ENCLAVE"
   "LNTEE_ENCLAVE.pdb"
@@ -9,6 +8,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang C CXX)
+foreach(lang C)
   include(CMakeFiles/LNTEE_ENCLAVE.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()
