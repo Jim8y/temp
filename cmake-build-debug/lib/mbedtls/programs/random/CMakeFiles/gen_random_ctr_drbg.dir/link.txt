@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/gen_random_ctr_drbg.dir/gen_random_ctr_drbg.c.o  -o gen_random_ctr_drbg  ../../library/libmbedcrypto.a 

@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -Wno-unused-function -O2  -rdynamic CMakeFiles/test_suite_asn1write.dir/test_suite_asn1write.c.o  -o test_suite_asn1write  ../library/libmbedtls.a ../library/libmbedx509.a ../library/libmbedcrypto.a 

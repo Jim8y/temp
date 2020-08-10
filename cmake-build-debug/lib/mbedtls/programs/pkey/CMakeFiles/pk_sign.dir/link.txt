@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/pk_sign.dir/pk_sign.c.o  -o pk_sign  ../../library/libmbedcrypto.a 

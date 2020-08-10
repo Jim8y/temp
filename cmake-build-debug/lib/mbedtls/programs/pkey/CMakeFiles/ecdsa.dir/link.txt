@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/ecdsa.dir/ecdsa.c.o  -o ecdsa  ../../library/libmbedcrypto.a 

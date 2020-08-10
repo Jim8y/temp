@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/rsa_decrypt.dir/rsa_decrypt.c.o  -o rsa_decrypt  ../../library/libmbedcrypto.a 

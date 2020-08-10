@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/crypto_examples.dir/crypto_examples.c.o  -o crypto_examples  ../../library/libmbedtls.a ../../library/libmbedx509.a ../../library/libmbedcrypto.a 

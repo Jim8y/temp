@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/rsa_verify_pss.dir/rsa_verify_pss.c.o  -o rsa_verify_pss  ../../library/libmbedcrypto.a 

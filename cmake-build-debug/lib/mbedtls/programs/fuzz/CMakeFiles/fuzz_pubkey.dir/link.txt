@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/fuzz_pubkey.dir/fuzz_pubkey.c.o CMakeFiles/fuzz_pubkey.dir/onefile.c.o  -o fuzz_pubkey  ../../library/libmbedtls.a ../../library/libmbedx509.a ../../library/libmbedcrypto.a 

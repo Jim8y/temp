@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -Wextra -Wwrite-strings -Wvla -Wlogical-op -Wshadow -O2  -rdynamic CMakeFiles/rsa_sign_pss.dir/rsa_sign_pss.c.o  -o rsa_sign_pss  ../../library/libmbedcrypto.a 
