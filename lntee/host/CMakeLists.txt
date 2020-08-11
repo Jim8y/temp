@@ -22,8 +22,3 @@ target_include_directories(LNTEE_HOST PRIVATE
         )
 
 target_link_libraries(LNTEE_HOST eevm f2f openenclave::oehost)
-
-add_custom_command(TARGET LNTEE_HOST
-        POST_BUILD
-        COMMAND scp -r /home/sgx/CLionProjects/LNTEESGX/cmake-build-debug/ fog@40.76.59.33:cmake-build-debug
-        COMMAND scp -r /host/sgx/CLionProjects/LNTEESGX/cmake-build-debug/ fog@40.91.198.207:cmake-build-debug)

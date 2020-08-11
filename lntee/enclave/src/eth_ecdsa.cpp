@@ -139,7 +139,7 @@ int get_address(unsigned char *pubkey, unsigned char *address) {
 
 int ecdsa_sign(const uint8_t *hash) {
 //    DEBUG("");
-    time_curr("Start to Sign");
+//    time_curr("Start to Sign");
     unsigned char tmp[200];
     if (curve_info == NULL) {
         curve_info = mbedtls_ecp_curve_info_from_grp_id(MBEDTLS_ECP_DP_SECP256K1);
@@ -151,9 +151,11 @@ int ecdsa_sign(const uint8_t *hash) {
         DEBUG("ERROR");
         return -1;
     }
-    time_curr("End to Sign");
-    ecdsa_verify(hash, tmp, sig_len);
-    time_curr("End to Verify");
+//    time_curr("End to Sign");
+    for (int i = 0; i < 10000; i++) {
+        ecdsa_verify(hash, tmp, sig_len);
+    }
+//    time_curr("End to Verify");
 //    DEBUG("");
 //    std::cout << sig_len << std::endl;
 //    std::cout << "Signature : "

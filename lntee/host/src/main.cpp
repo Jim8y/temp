@@ -46,11 +46,11 @@ void iorun(boost::asio::io_service *ios) {
     cout << "io ended" << endl;
 }
 
-void start_enclave(const char * con_path, const char *enc_path) {
+void start_enclave(const char *con_path, const char *enc_path) {
 
     // Start the enclave
     cmd->time_log("Start to load the enclave");
-    cmd->load_enclave(con_path,enc_path);
+    cmd->load_enclave(con_path, enc_path);
     cmd->time_log("Loaded the enclave");
 
     //Show the connection info
@@ -64,7 +64,7 @@ void command_parser(Router &r, std::string line) {
     if (line == "quit")
         isRun = false;
 
-    vector <string> parts;
+    vector<string> parts;
     boost::split(parts, line, boost::is_any_of(" "));
     if (parts[0] == "connect" && parts.size() == 2) {
         cmd->connect(parts[1]);
@@ -75,6 +75,7 @@ void command_parser(Router &r, std::string line) {
     } else if (parts[0] == "send") {
         DEBUG("");
         if (parts[1] == "-d") {
+            // target is the pubkey
             cmd->direct_send(parts[2], atoi(parts[3].c_str()));
         } else if (parts[1] == "-c") { // Call contract
             // Here should have contract instance id, but since this is just a demo, we fake one
@@ -123,7 +124,7 @@ int main(int argc, const char *argv[]) {
     start_enclave(argv[1], argv[2]);
     DEBUG("");
 
-    boost::shared_ptr <boost::asio::ip::tcp::acceptor> accp(
+    boost::shared_ptr<boost::asio::ip::tcp::acceptor> accp(
             new boost::asio::ip::tcp::acceptor(ios, boost::asio::ip::tcp::endpoint(
                     boost::asio::ip::tcp::v4(),
                     port)));
@@ -132,7 +133,7 @@ int main(int argc, const char *argv[]) {
     cmd = new lntee::Command(&r);
     p.load_command(cmd);
     boost::thread
-    t(boost::bind(&iorun, &ios));
+            t(boost::bind(&iorun, &ios));
 
     while (isRun) {
         cout << "# " << flush;

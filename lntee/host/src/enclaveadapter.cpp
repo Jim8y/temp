@@ -9,7 +9,7 @@
  */
 void ocall_lntee_time_log()
 {
-    lntee::Command::time_log("");
+    lntee::Command::time_log("Log from the enclave");
 }
 
 /**

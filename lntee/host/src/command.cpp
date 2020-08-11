@@ -136,12 +136,12 @@ void lntee::Command::direct_send(std::string target, int amt) {
     unsigned char tx[16 + 64 + 32 + 32];
     unsigned char pubkey[64];
     Global::from_hex(target.c_str(), (char *) pubkey);
+    time_log("Start the direct send");
     for (int i = 0; i < 1000; i++) {
-        time_log("Start the direct send");
         ecall_lntee_direct_send(Global::enclave, (const char *) pubkey, amt, (char *) tx);
-        time_log("Start the direct send END");
     }
 
+    time_log("Start the direct send END");
 //    for (int i = 0; i < 1000; i++) {
     DEBUG("DIRECT SEND MSG");
 //    this->time_curr("DIRECT SEND INTERNET");

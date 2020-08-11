@@ -46,14 +46,26 @@ add_custom_target(sign ALL DEPENDS LNTEE_ENCLAVE.signed)
 ################################ # # # # # # # #
 
 add_custom_target(run1
-        DEPENDS LNTEE_HOST LNTEE_ENCLAVE sign
+        DEPENDS LNTEE_HOST LNTEE_ENCLAVE
         COMMAND LNTEE_HOST ${CMAKE_SOURCE_DIR}/lntee/host/contract ${CMAKE_BINARY_DIR}/lntee/enclave/LNTEE_ENCLAVE.signed 127.0.0.1 10000)
 
 add_custom_target(run2
         DEPENDS LNTEE_HOST LNTEE_ENCLAVE sign
         COMMAND LNTEE_HOST ${CMAKE_SOURCE_DIR}/lntee/host/contract ${CMAKE_BINARY_DIR}/lntee/enclave/LNTEE_ENCLAVE.signed 127.0.0.1 10001)
 
+add_custom_target(scp_contract
+        COMMAND scp -r ${CMAKE_SOURCE_DIR}/lntee/host/contract fog@40.76.59.33:contract
+        COMMAND scp -r ${CMAKE_SOURCE_DIR}/lntee/host/contract fog@40.91.198.207:contract
+        )
 
+add_custom_target(scp
+        DEPENDS LNTEE_HOST LNTEE_ENCLAVE sign
+
+        COMMAND scp -r ${CMAKE_BINARY_DIR}/lntee/host/LNTEE_HOST fog@40.76.59.33:LNTEE_HOST
+        COMMAND scp -r ${CMAKE_BINARY_DIR}/lntee/host/LNTEE_HOST fog@40.91.198.207:LNTEE_HOST
+
+        COMMAND scp -r ${CMAKE_BINARY_DIR}/lntee/enclave/LNTEE_ENCLAVE.signed fog@40.76.59.33:LNTEE_ENCLAVE.signed
+        COMMAND scp -r ${CMAKE_BINARY_DIR}/lntee/enclave/LNTEE_ENCLAVE.signed fog@40.91.198.207:LNTEE_ENCLAVE.signed)
 
 
 # add_custom_command(TARGET LNTEE_ENCLAVE

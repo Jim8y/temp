@@ -18,6 +18,12 @@
 #include <map>
 #include <eEVM/debug.h>
 
+//#define LEN_128
+//#define LEN_256
+//#define LEN_1024
+//#define _TEST_ECDSA_
+//#define _TEST_AES_
+
 static ecall_dispatcher dispatcher;
 static Contract_Instance contract_instance;
 static SGX_Contract contract;
@@ -136,19 +142,46 @@ int ecall_lntee_init_tee(const char *seed, const char *pubkey, const char *addr)
            ADDRESS_LEN * 2);
 
     initial_aes();
-//    char msg[1024] = "helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld";
-//    unsigned char output1[32];
-////    char cipher[1024] = {'\0'};
-////    char plain[1024] = {'\0'};
-////    print_hex("Method 1", output1, sizeof output1);
-////    ocall_lntee_time_log();
-////    for (int i = 0; i < 10000; i++) {
-//        mbedtls_sha256_ret((const unsigned char *) msg, 1024, output1, 0);
-//        ecdsa_sign(output1);
-//        aes_encrypt((unsigned char *) msg, 64, (unsigned char *) cipher);
-//        aes_decrypt((char *) cipher, 64, (unsigned char *) msg);
+
+
+#ifdef LEN_128
+#define LEN 128
+    char msg[LEN] = "nuocLTIIeYWhZjCg05taqAjPMw1usrHVN3zfXNK4s3LhJIg6mQzTFHTTfC0vnwC6uMb4VCdZyTBBA2bJRnzDlpRoKciVDNBoH44QO5YkudHq66zYh5HozOuGWdGK7M1";
+#endif
+
+#ifdef LEN_256
+#define LEN 256
+    char msg[LEN] ="1NqnGodGaHWEfdLZUqrCkT9mw4QsPZgOWSErhNxJwuAhhAHwNSDNhiv2pzy8N6YcDH6a1Owhn3UTz2UBJM1iw7aXNgkzm28ivLmCST9rqUyZYFuZ5sm6x5GduXburpbLK1NhJxe5Zh49XcxkKi2ZdVKG88coZSebkRUFJdbI7jrczHvc4vPLINzDUHwq1MmoWQpxqM7kspHXUDXop9AGa0iCyOg0jvgy4fefGqS97H21aZSRgYFqZXOtM4PgpCw";
+#endif
+
+#ifdef LEN_1024
+#define LEN 1024
+    char msg[LEN] = "ktsER8hRaw1hr3QkjO8QXd7G2ldhpTe7FcTTzt6WE0beFDTZJJ5H5z96HWSlgXdDLhEg4iyUz9VVlBky330XxvRLwkABgWIj8MCL2UtAMdiMOsQR2WfzRQoFo9W3Vx3Ci4JM2SnnyYzVCHoYs4svweKXIuOAun0mg321W02uxerjst0FEKyFbuZDnJHOpwkblHGXKJ9Z9ZR5ghwP3grlKFGXO6hH3W2RNJXOhx8BD6DocUEcTk8SIe4ElQHvPA53KyEYZgGTpF5NWR4G8IVZNekl7D8DKiyfNROJ0eViWQR7hw1krF0xEF9Jo8V0mc3eVgvEtwYbjoEhIZxIVO2TQTBrvvNAZHgQaJk2gnw4c7cnA6cobDqzZ3jX6W6cKAlh74xgmscjx75JkjIoMuU9FJy9EBlmkcuSQz63v9bvFLkzwsl5vpBhVpfpkuv06sf31my79kzymiMYGbIUdIKO3STdTmSaqbIoXRBHON3qMe3Cjw67wd2mVJv8dzTdg3t5R9CmIw8JIhnfyQfcUFIPhKIO6c8A57GzDlhfBcJZzoW4sn2EGab3YEB47wesiIv69DBVWahMWWQAMYWDEbKgAlbFh6aIlKc6zQtPTIOrjqZv99Gchx3O7A3jKndB9E9IgOB52kuQgG6EGrPiZDqgagCLnkKz96XGUAy2BNzDZL0M14nxOCkXlQjvM5phALG2c3BfqOsUhuJ6wmruY3GgX8plqDbVIL4hbWCRe62FFZrY8X3sQmqfB6K0ktxlcyLsGnVzuWWgHAZGPVCml0tEAFCgABrUqevohDC2YqXIrI7NTdL0MnYzj2uMytCSbhwgunLhcnKjQ5py6LuBmNvyU16HXke7pmPlaAra8xKYNOwZkH8jwHVLS55A0jiuZ9tz8IVQUq9jUvmFZ0N0C3lIVwUmnupAJGcEiI0B62LUMXs6qV2zLKPWqVUl0OwZ7PPKQAogfNbPXEo8A6aL9Q54R9PgKZq5qb7G3X6QE7kEMVzytAKoMPjDCvCSrEfvj1D";
+#endif
+
+#ifdef _TEST_ECDSA_
+    unsigned char output1[32];
+
+    mbedtls_sha256_ret((const unsigned char *) msg, LEN, output1, 0);
+//    for (int i = 0; i < 10000; i++) {
+    ocall_lntee_time_log();
+        ecdsa_sign(output1);
 //    }
-//    ocall_lntee_time_log();
+    ocall_lntee_time_log();
+#endif
+
+#ifdef _TEST_AES_
+
+    char cipher[LEN] = {'\0'};
+    char plain[LEN] = {'\0'};
+////    print_hex("Method 1", output1, sizeof output1);
+    aes_encrypt((unsigned char *) msg, LEN / 16, (unsigned char *) cipher);
+    ocall_lntee_time_log();
+    for (int i = 0; i < 10000; i++) {
+        aes_decrypt((char *) cipher, LEN / 16, (unsigned char *) msg);
+    }
+
+    ocall_lntee_time_log();
     //    char cipher[1024] = {'\0'};
 //    char plain[1024] = {'\0'};
 //    DEBUG("");
@@ -161,7 +194,7 @@ int ecall_lntee_init_tee(const char *seed, const char *pubkey, const char *addr)
 //    DEBUG("");
 //    aes_finish();
 //    aes_test();
-
+#endif
     return result;
 }
 
@@ -190,6 +223,10 @@ void process_transaction(eevm::Transaction *tx) {
 void ecall_lntee_direct_send(const char *pubkey,
                              int amt,
                              char *tx) {
+    char cipher[80];
+    char plain[80];
+    unsigned char py[64];
+
     if (Wallet::Instance()->direct_send(*(eevm::Pubkey *) pubkey, amt)) {
         // 0 -15 bytes amt
         // 16 - 79 bytes local_pubkey
@@ -201,15 +238,26 @@ void ecall_lntee_direct_send(const char *pubkey,
 //        DEBUG("");
 //        aes_encrypt((unsigned char *) tx, 5, (unsigned char *) cipher);
 //        aes_decrypt((char *) cipher, 5, (unsigned char *) plain);
-        char msg[1024] = "helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld";
+//        char msg[1024] = "helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld";
+#ifdef _TEST_ECDSA_
+
+        //        char msg[1024] = "helloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworldhelloworld";
         unsigned char output1[32];
 //    char cipher[1024] = {'\0'};
 //    char plain[1024] = {'\0'};
 //    print_hex("Method 1", output1, sizeof output1);
-//    ocall_lntee_time_log();
+
 //    for (int i = 0; i < 10000; i++) {
-        mbedtls_sha256_ret((const unsigned char *) msg, 1024, output1, 0);
+//        * \param input    buffer holding the  data
+//        * \param ilen     length of the input data
+//        * \param output   SHA-224/256 checksum result
+//        * \param is224    0 = use SHA256, 1 = use SHA224
+        mbedtls_sha256_ret((const unsigned char *) tx, 144, output1, 0);
         ecdsa_sign(output1);
+#else
+        aes_encrypt((unsigned char *) tx, 5, (unsigned char *) cipher);
+        aes_decrypt((char *) cipher, 5, (unsigned char *) plain);
+#endif
     } else {
         cout << "Balance not enough" << endl;
     }
@@ -238,6 +286,27 @@ void ecall_lntee_send(const char *function_call, char *tx_str) {
     eevm::Code script = lntee::from_hex(function_call);
     if (contract.invoke(Wallet::Instance()->get_account()->address, script)) {
         DEBUG("SUCCESS");
+
+
+#ifdef _TEST_ECDSA_
+
+        unsigned char output1[32];
+
+        ////    print_hex("Method 1", output1, sizeof output1);
+        ////    ocall_lntee_time_log();
+        //
+        ////    for (int i = 0; i < 10000; i++) {
+//        mbedtls_sha256_ret((unsigned char *) msg, LEN, output1, 0);
+//        ecdsa_sign(output1);
+//        this->time_log("End Enc");
+//    this->time_curr("Start Dec");
+        //    }
+        //        ocall_lntee_time_log();
+        //    } else {
+        //        DEBUG("FAILED");
+        //        ocall_lntee_time_log();
+        //    }
+#else
         int size = (script.size() % 16 == 0) ? script.size() / 16 : (script.size() / 16 + 1);
 
         char *plain = new char[size * 16];
@@ -246,6 +315,16 @@ void ecall_lntee_send(const char *function_call, char *tx_str) {
         memcpy((void *) plain, (unsigned char *) &script[0], script.size());
         DEBUG("");
         aes_encrypt((unsigned char *) plain, size, (unsigned char *) tx_str);
+
+//        char cipher[LEN] = {'\0'};
+//        char plain[LEN] = {'\0'};
+//        aes_encrypt((unsigned char *) msg, LEN/16, (unsigned char *) cipher);
+////    this->time_log("End Enc");
+////    this->time_log("Start Dec");
+//        aes_decrypt((char *) cipher, LEN/16, (unsigned char *) plain);
+//    this->time_log("End Dec");
+#endif
+
     } else {
         DEBUG("FAILED");
     }
