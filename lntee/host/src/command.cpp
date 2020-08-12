@@ -137,13 +137,13 @@ void lntee::Command::direct_send(std::string target, int amt) {
     unsigned char pubkey[64];
     Global::from_hex(target.c_str(), (char *) pubkey);
     time_log("Start the direct send");
-    for (int i = 0; i < 1000; i++) {
-        ecall_lntee_direct_send(Global::enclave, (const char *) pubkey, amt, (char *) tx);
-    }
-
-    time_log("Start the direct send END");
 //    for (int i = 0; i < 1000; i++) {
-    DEBUG("DIRECT SEND MSG");
+        ecall_lntee_direct_send(Global::enclave, (const char *) pubkey, amt, (char *) tx);
+//    }
+
+//    time_log("Start the direct send END");
+//    for (int i = 0; i < 1000; i++) {
+//    DEBUG("DIRECT SEND MSG");
 //    this->time_curr("DIRECT SEND INTERNET");
     router->send(target, message_ptr(
             new GeneralMessage(payload::MESSAGE_TYPE::Direct_tranaction, Global::to_hex(tx, 16 + 64 + 32 + 32))));
