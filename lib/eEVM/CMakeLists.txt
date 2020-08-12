@@ -30,7 +30,7 @@ file(GLOB KECCAK_SOURCES
 add_subdirectory(3rdparty)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# Options
+# Options 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 option(RECORD_TRACE "Record a detailed trace of EVM execution during test runs" OFF)
 if (RECORD_TRACE)
@@ -39,7 +39,7 @@ endif (RECORD_TRACE)
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# Common variables
+# Common variables 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 set(EEVM_INCLUDE_DIRS
         ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty
@@ -80,6 +80,7 @@ target_link_libraries(eevm
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 add_executable(eevm_tests
         tests/main.cpp
+        #        tests/harness.cpp
         tests/rlp.cpp
         ${EEVM_SIMPLE_SRCS}
         )

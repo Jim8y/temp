@@ -90,7 +90,8 @@ public:
                         new GeneralMessage(payload::MESSAGE_TYPE::Internet_test_res, "")));
                 break;
             case payload::MESSAGE_TYPE::Internet_test_res:
-                cmd->time_curr("Receive test ack from peer");
+                cmd->time_log("Receive test ack from peer");
+                break;
             default: {
                 std::cout << "Unhandled message type: " << msgp->type() << std::endl;
                 break;

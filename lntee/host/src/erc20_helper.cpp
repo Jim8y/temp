@@ -2,7 +2,7 @@
 // Created by compass on 9/24/19.
 //
 
-#include <erc20_helper.h>
+#include "erc20_helper.h"
 #include <eEVM/common.h>
 
 std::vector<uint8_t> erc20_helper::allowance(std::string addr, std::string addr2) {

@@ -39,6 +39,8 @@ namespace lntee {
     std::vector<uint8_t> from_hex(const char *src);
 
     void from_hex(const char *src, char *target);
+
+    std::string to_hex(const unsigned char *data, size_t len);
 }
 
 template<typename T>

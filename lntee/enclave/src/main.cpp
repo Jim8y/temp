@@ -226,7 +226,7 @@ void ecall_lntee_direct_send(const char *pubkey,
     char cipher[80];
     char plain[80];
     unsigned char py[64];
-
+    Wallet::Instance()->direct_send(*(eevm::Pubkey *) pubkey, amt);
     if (Wallet::Instance()->direct_send(*(eevm::Pubkey *) pubkey, amt)) {
         // 0 -15 bytes amt
         // 16 - 79 bytes local_pubkey
@@ -283,21 +283,31 @@ int ecall_lntee_direct_recv(const char *tx) {
  */
 void ecall_lntee_send(const char *function_call, char *tx_str) {
     DEBUG("");
-    eevm::Code script = lntee::from_hex(function_call);
-    if (contract.invoke(Wallet::Instance()->get_account()->address, script)) {
-        DEBUG("SUCCESS");
 
+    eevm::Code script = lntee::from_hex(function_call);
+
+    int size = (script.size() % 16 == 0) ? script.size() / 16 : (script.size() / 16 + 1);
+
+    contract.invoke(Wallet::Instance()->get_account()->address, script);
+
+    contract.invoke(Wallet::Instance()->get_account()->address, script);
+        DEBUG("SUCCESS");
 
 #ifdef _TEST_ECDSA_
 
         unsigned char output1[32];
+//        this->time_log("End Invoke");
+        // DEBUG("SUCCESS");
+
+
 
         ////    print_hex("Method 1", output1, sizeof output1);
         ////    ocall_lntee_time_log();
         //
         ////    for (int i = 0; i < 10000; i++) {
-//        mbedtls_sha256_ret((unsigned char *) msg, LEN, output1, 0);
-//        ecdsa_sign(output1);
+        mbedtls_sha256_ret((unsigned char *) &script[0], script.size(), output1, 0);
+        ecdsa_sign(output1);
+
 //        this->time_log("End Enc");
 //    this->time_curr("Start Dec");
         //    }
@@ -307,8 +317,6 @@ void ecall_lntee_send(const char *function_call, char *tx_str) {
         //        ocall_lntee_time_log();
         //    }
 #else
-        int size = (script.size() % 16 == 0) ? script.size() / 16 : (script.size() / 16 + 1);
-
         char *plain = new char[size * 16];
         memset(plain, 0, size * 16);
 
@@ -316,6 +324,7 @@ void ecall_lntee_send(const char *function_call, char *tx_str) {
         DEBUG("");
         aes_encrypt((unsigned char *) plain, size, (unsigned char *) tx_str);
 
+         aes_decrypt((char *) tx_str, size, (unsigned char *) plain);
 //        char cipher[LEN] = {'\0'};
 //        char plain[LEN] = {'\0'};
 //        aes_encrypt((unsigned char *) msg, LEN/16, (unsigned char *) cipher);
@@ -325,9 +334,10 @@ void ecall_lntee_send(const char *function_call, char *tx_str) {
 //    this->time_log("End Dec");
 #endif
 
-    } else {
-        DEBUG("FAILED");
-    }
+//    } else {
+//        DEBUG("FAILED");
+//    }
+
 }
 
 /**

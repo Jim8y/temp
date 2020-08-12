@@ -7,10 +7,6 @@
 #include <eEVM/simple/simpleaccount.h>
 #include <eEVM/simple/simplestorage.h>
 
-//#include <boost/endian/conversion.hpp>
-//#include <boost/functional/hash/hash.hpp>
-//#include <boost/multiprecision/cpp_int.hpp>
-
 namespace eevm {
     /**
      * Simple std::map-backed implementation of GlobalState

@@ -65,7 +65,7 @@ int lntee::Command::load_enclave(const char* con_path, const char *enc) {
     int ret = 0;
     std::string rand = random_string(100);
     ecall_lntee_init_tee(Global::enclave, &ret, rand.c_str(), Global::pubkey, Global::addr);
-    this->load_contract(con_path,"ERC20");
+    this->load_contract(con_path,_CONTRACT_);
     return ret;
 }
 
@@ -136,7 +136,7 @@ void lntee::Command::direct_send(std::string target, int amt) {
     unsigned char tx[16 + 64 + 32 + 32];
     unsigned char pubkey[64];
     Global::from_hex(target.c_str(), (char *) pubkey);
-    time_curr("Start the direct send");
+    time_log("Start the direct send");
     INFO();
 //    for (int i = 0; i < 1000; i++) {
         ecall_lntee_direct_send(Global::enclave, (const char *) pubkey, amt, (char *) tx);
@@ -198,7 +198,7 @@ void lntee::Command::send_contract_tx(std::string target, const char *tx, int le
     len = (len % 16 == 0) ? len : (len + 1);
     char sign_tx[512]; // = new char[len];
     //    for (int i = 0; i < 2000; i++) {
-    time_curr("Start the contract  send");
+    time_log("Start the contract  send");
     ecall_lntee_send(Global::enclave, tx, (char *) sign_tx);
 //    time_log("Start the contract  send END");
     //    }

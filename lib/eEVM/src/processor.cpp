@@ -5,7 +5,7 @@
 #include "eEVM/opcode.h"
 #include "eEVM/stack.h"
 #include "eEVM/util.h"
-
+#include "eEVM/debug.h"
 #include <algorithm>
 #include <exception>
 #include <functional>
@@ -186,11 +186,10 @@ namespace eevm {
             // run
             while (ctxt->get_pc() < ctxt->prog.code.size()) {
                 try {
-
                     dispatch();
                 }
                 catch (Exception &ex) {
-
+                    INFO();
                     ctxt->eh(ex);
                     pop_context();
                 }

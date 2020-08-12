@@ -1,5 +1,5 @@
 #include "sgx_contract.h"
-#include <eEVM/debug.h>
+
 SGX_Contract::SGX_Contract() {};
 
 void SGX_Contract::loadContract(nlohmann::json contract_definition, eevm::Address *owner) {
@@ -8,14 +8,15 @@ void SGX_Contract::loadContract(nlohmann::json contract_definition, eevm::Addres
     eevm::SimpleGlobalState *gs = new eevm::SimpleGlobalState();
 
     env = new Environment{gs, *owner, contract_definition};
+
     // Deploy the lntee contract
-    contract_address = deploy_lntee_contract();
+    contract_address = deploy_lnSGX_Contract();
 }
 
 int SGX_Contract::rand_range(int exclusive_upper_bound) {
     std::random_device rand_device;
     std::mt19937 generator(rand_device());
-    std::uniform_int_distribution <size_t> dist(0, exclusive_upper_bound - 1);
+    std::uniform_int_distribution<size_t> dist(0, exclusive_upper_bound - 1);
 
     return dist(generator);
 }
@@ -37,37 +38,45 @@ std::string SGX_Contract::short_name(const eevm::Address &address) {
 }
 
 // Run input as an EVM transaction, check the result and return the output
-std::vector <uint8_t> SGX_Contract::run_and_check_result(
+std::vector<uint8_t> SGX_Contract::run_and_check_result(
         const eevm::Address &from, const eevm::Address &to, const eevm::Code &input) {
-    DEBUG("");
+//    DEBUG("");
     // Ignore any logs produced by this transaction
     eevm::NullLogHandler ignore;
     eevm::Transaction tx(from, ignore, to);
     // Record a trace to aid debugging
     eevm::Trace tr;
     eevm::Processor p(*(env->gs));
-    DEBUG("");
+//    DEBUG("");
     // Run the transaction
+//    std::cout << "from = " << eevm::to_hex_string(from) << std::endl;
+//    std::cout << "to = " << eevm::to_hex_string(to) << std::endl;
+
     const auto exec_result = p.run(tx, from, env->gs->get(to), input, 0u, &tr);
+
+//    p.run(tx, from, env->gs->get(to), input, 0u, &tr);
+
+
+//    const auto exec_result = p.run(tx, from, env.gs.get(to), input, 0u, &tr);
 //    DEBUG("");
-//    if (exec_result.er != eevm::ExitReason::returned) {
-//        DEBUG("");
-//        // Print the trace if nothing was returned
-//        std::cerr << fmt::format("Trace:\n{}", tr) << std::endl;
-//        if (exec_result.er == eevm::ExitReason::threw) {
-//            DEBUG("");
-//            // Rethrow to highlight any exceptions raised in execution
-////            throw std::runtime_error(
-////                    fmt::format("Execution threw an error: {}", exec_result.exmsg));
-//        }
-//        DEBUG("");
-//        throw std::runtime_error("Deployment did not return");
-//    }
-//    DEBUG("");
-//
-//    return exec_result.output;
-    std::vector <uint8_t> ret =  std::vector <uint8_t>();
-    return ret;
+    if (exec_result.er != eevm::ExitReason::returned) {
+        std::cout <<"ERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR"<<std::endl;
+        // Print the trace if nothing was returned
+        std::cerr << fmt::format("Trace:\n{}", tr) << std::endl;
+        INFO();
+        if (exec_result.er == eevm::ExitReason::threw) {
+            INFO();
+            std::cout << "ERROR" << std::endl;
+            // Rethrow to highlight any exceptions raised in execution
+//            throw std::runtime_error(
+//                    fmt::format("Execution threw an error: {}", exec_result.exmsg));
+        }
+        INFO();
+        std::cout <<"Deployment did not return"<<std::endl;
+    }
+    INFO();
+    DEBUG("");
+    return exec_result.output;
 }
 
 // Modify code to append ABI-encoding of arg, suitable for passing to contract
@@ -85,7 +94,7 @@ void SGX_Contract::append_argument(
  * the address the contract was deployed to
  * @return
  */
-eevm::Address SGX_Contract::deploy_lntee_contract() {
+eevm::Address SGX_Contract::deploy_lnSGX_Contract() {
     /** Generate the contract address */
     const auto contract_address = eevm::generate_address(env->owner_address, 0u);
     /** Get the binary constructor of the contract */
@@ -94,6 +103,7 @@ eevm::Address SGX_Contract::deploy_lntee_contract() {
     append_argument(contract_constructor, total_supply);
     /** Set this constructor as the contract's code body */
     auto contract = env->gs->create(contract_address, 0u, contract_constructor);
+    INFO();
     /** Run a transaction to initialise this account */
     auto result = run_and_check_result(env->owner_address, contract_address, {});
 
@@ -111,6 +121,7 @@ uint256_t SGX_Contract::get_total_supply() {
     // const auto caller = get_random_address();
     const auto function_call =
             eevm::to_bytes(env->contract_definition["hashes"]["totalSupply()"]);
+    INFO();
     const auto output =
             run_and_check_result(env->owner_address, contract_address, function_call);
     return eevm::from_big_endian(output.data(), output.size());
@@ -123,7 +134,7 @@ uint256_t SGX_Contract::get_balance(const eevm::Address &target_address) {
     auto function_call =
             eevm::to_bytes(env->contract_definition["hashes"]["balanceOf(address)"]);
     append_argument(function_call, target_address);
-
+INFO();
     const auto output =
             run_and_check_result(target_address, contract_address, function_call);
     return eevm::from_big_endian(output.data(), output.size());
@@ -146,10 +157,23 @@ bool SGX_Contract::transfer(
 }
 
 bool SGX_Contract::invoke(
-        const eevm::Address &source_address, eevm::Code function_call) {
+        const eevm::Address &source_address, eevm::Code &function_call) {
     DEBUG("");
+//    std::cout << fmt::format(
+//            "<><><><><><<><{}",
+//            eevm::to_lower_hex_string(function_call)) << std::endl;
+//
+//
+//    std::cout << fmt::format(
+//            "Transferring {} from {} to {}",
+//            eevm::to_lower_hex_string(function_call),
+//            eevm::to_checksum_address(source_address),
+//            eevm::to_checksum_address(contract_address))
+//              << std::endl;
+INFO();
     const auto output =
             run_and_check_result(source_address, contract_address, function_call);
+
     if (output.size() != 32 || (output[31] != 0 && output[31] != 1)) {
         throw std::runtime_error("Unexpected output from call to transfer");
     }
@@ -160,7 +184,7 @@ bool SGX_Contract::invoke(
 // sending transactions to the given contract_address
 void SGX_Contract::print_lntee_state(const std::string &heading) {
     const auto total_supply = get_total_supply();
-    using Balances = std::vector <std::pair<eevm::Address, uint256_t>>;
+    using Balances = std::vector<std::pair<eevm::Address, uint256_t>>;
     Balances balances;
     for (const auto &user : users) {
         uint256_t balance = get_balance(user);

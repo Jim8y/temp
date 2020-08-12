@@ -1,18 +1,21 @@
-#include "message.h"
-#include "eEVM/simple/simpleglobalstate.h"
-#include "eEVM/bigint.h"
-#include "eEVM/opcode.h"
-#include "eEVM/processor.h"
+//#include <common/message.h>
+#include <eEVM/simple/simpleglobalstate.h>
+#include <eEVM/bigint.h>
+#include <eEVM/opcode.h>
+#include <eEVM/processor.h>
 #include <eEVM/common.h>
+#include <eEVM/debug.h>
 #include <random>
 #include <stdio.h>
-#include "lntee_t.h"
+#include "message.h"
+
+#ifndef SGX_Contract_HEADER_H
+#define SGX_Contract_HEADER_H
+
+
 class SGX_Contract {
 public:
-    // using Addresses = ;
-
-    std::vector <eevm::Address> users;
-
+    std::vector<eevm::Address> users;
     Environment *env;
     const uint256_t total_supply = 1000;
     eevm::Address contract_address;
@@ -22,12 +25,12 @@ private:
 
     uint256_t get_random_uint256(size_t bytes = 32);
 
-    std::vector <uint8_t> run_and_check_result(
+    std::vector<uint8_t> run_and_check_result(
             const eevm::Address &from, const eevm::Address &to, const eevm::Code &input);
 
-    void append_argument(std::vector <uint8_t> &code, const uint256_t &arg);
+    void append_argument(std::vector<uint8_t> &code, const uint256_t &arg);
 
-    eevm::Address deploy_lntee_contract();
+    eevm::Address deploy_lnSGX_Contract();
 
 public:
     SGX_Contract();
@@ -45,7 +48,9 @@ public:
             const eevm::Address &target_address,
             const uint256_t &amount);
 
-    bool invoke(const eevm::Address &source_address, eevm::Code function_call);
+    bool invoke(const eevm::Address &source_address, eevm::Code &function_call);
 
     void print_lntee_state(const std::string &heading);
 };
+
+#endif

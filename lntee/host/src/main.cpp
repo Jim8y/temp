@@ -88,7 +88,7 @@ void command_parser(Router &r, std::string line) {
 
 #ifdef _CONTRACT_ERC20_
             erc20_helper helper;
-            std::vector<uint8_t> call = helper.transfer(addr, 1);
+            std::vector<uint8_t> call = helper.transfer(parts[3], 1);
 #endif
 
 #ifdef _CONTRACT_RPC_

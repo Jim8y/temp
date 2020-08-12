@@ -52,3 +52,12 @@ void lntee::from_hex(const char *src, char *target) {
         src += 2;
     }
 }
+
+std::string lntee::to_hex(const unsigned char *data, size_t len) {
+    std::stringbuf sb;
+    for (unsigned i = 0; i < len; ++i) {
+        sb.sputc(hexmap[(data[i] & 0xF0) >> 4]);
+        sb.sputc(hexmap[data[i] & 0x0F]);
+    }
+    return sb.str();
+}

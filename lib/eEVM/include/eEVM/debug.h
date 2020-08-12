@@ -5,14 +5,9 @@
 #ifndef LNTEE_CONFIG_H
 #define LNTEE_CONFIG_H
 
-#define EVM_DEBUG
-
-#ifdef EVM_DEBUG
-#define  LNTEE_DEBUG
-#define  LNTEE_INFO
-#define  LNTEE_LOG
-
-#endif
+//#define  LNTEE_DEBUG
+//#define  LNTEE_INFO
+//#define  LNTEE_LOG
 
 #ifdef LNTEE_INFO
 #define INFO() \
@@ -37,7 +32,6 @@
     fprintf(stderr, "###DEBUG: %s: %s: %d => ", __FILE__,__func__, __LINE__); \
     fprintf(stderr, "%s\n", msg);\
     }while(0);
-
 #else
 #define DEBUG(msg) do{}while(0);
 #endif
