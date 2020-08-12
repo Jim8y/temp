@@ -47,8 +47,8 @@ class Global {
 public:
     static std::string ip;
     static int port;
-    static char pubkey[PUBKEY_LEN * 2 + 1];
-    static char addr[ADDRESS_LEN * 2 + 1];
+    static char pubkey[PUBKEY_LEN * 2 + 3];
+    static char addr[ADDRESS_LEN * 2 + 3];
     static oe_enclave_t *enclave;
     static void from_hex(const char *src, char *target);
 

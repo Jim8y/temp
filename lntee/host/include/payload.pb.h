@@ -25,7 +25,9 @@ enum MESSAGE_TYPE
     Send_transaction,
     Contract_transaction,
     Direct_tranaction,
-    End_contract_instance
+    End_contract_instance,
+    Internet_test,
+    Internet_test_res
 };
 }
 #endif // PROTOBUF_INCLUDED_payload_2eproto

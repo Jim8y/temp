@@ -81,12 +81,12 @@ namespace libf2f {
                 return;
             }
         }
-
-//        std::cout << "register "<< conn->get("pubkey")<<endl;
+        std::cout << "register "<< conn->get("pubkey")<<endl;
         m_connections.push_back(conn);
-//        cout << connections_str() << endl;
-        // Add the conn to the router
+        cout << connections_str() << endl;
+//         Add the conn to the router
         conn->set_name(conn->get("pubkey"));
+        std::cout << conn->name() << endl;
     }
 
     void Router::unregister_connection(connection_ptr conn) {
@@ -108,11 +108,16 @@ namespace libf2f {
         vector<connection_ptr>::iterator it;
         boost::mutex::scoped_lock lk(m_connections_mutex);
         for (it = m_connections.begin(); it < m_connections.end(); ++it) {
-//            cout << "Name: " << (*it)->name() << endl;
-            if ((*it)->name() == name) {
+//            cout << "Name: " << (*it)->name()<<endl<<(*it)->name().length() << endl;
+//            cout << "target name: " <<name<<endl<< name.length() << endl;
+//            if(name.compare((*it)->name())== 0)
+//                std::cout << "They match"<<std::endl;
+
+            if(name.compare((*it)->name()) == 0) {
                 return *it;
             }
         }
+
         std::cout << "Failed Find the connection" << std::endl;
         return connection_ptr();
     }

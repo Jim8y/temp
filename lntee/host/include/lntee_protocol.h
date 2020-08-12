@@ -10,6 +10,7 @@
 #include "Global.h"
 #include <eEVM/common.h>
 #include <eEVM/debug.h>
+
 using namespace libf2f;
 
 class LNTeeProtocol : public Protocol {
@@ -44,7 +45,7 @@ public:
     virtual bool new_incoming_connection(connection_ptr conn) {
         std::cout << "LNTeeProtocol::new_incoming_connection " << conn->str() << std::endl;
         //        conn->async_write(message_ptr(new GeneralMessage(ORDINARY, std::string("sss"), std::string("sss"))));
-
+        conn->set_name(conn->get("pubkey"));
         return true; // returning false rejects the connection
     }
 
@@ -68,19 +69,28 @@ public:
         nlohmann::json j;
         switch (msgp->type()) {
             case payload::MESSAGE_TYPE::Internet_connection:
+                INFO();
                 break;
             case payload::MESSAGE_TYPE::Internet_connection_res:
                 DEBUG("STEP2 of ECDH");
                 DEBUG(msgp->payload());
+                cmd->time_curr("Receive ack from peer");
                 break;
             case payload::MESSAGE_TYPE::Direct_tranaction:
                 DEBUG("RECEIVE DIRECT TRANSACTION");
                 cmd->time_curr("DIRECT SEND INTERNET RECV");
                 cmd->direct_recv(msgp->payload());
                 break;
-            case payload::MESSAGE_TYPE ::Contract_transaction:
+            case payload::MESSAGE_TYPE::Contract_transaction:
                 cmd->recv_contract_tx(msgp->payload());
                 break;
+            case payload::MESSAGE_TYPE::Internet_test:
+                INFO();
+                cmd->getRouter()->send(conn->name(), message_ptr(
+                        new GeneralMessage(payload::MESSAGE_TYPE::Internet_test_res, "")));
+                break;
+            case payload::MESSAGE_TYPE::Internet_test_res:
+                cmd->time_curr("Receive test ack from peer");
             default: {
                 std::cout << "Unhandled message type: " << msgp->type() << std::endl;
                 break;

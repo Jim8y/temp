@@ -136,17 +136,21 @@ void lntee::Command::direct_send(std::string target, int amt) {
     unsigned char tx[16 + 64 + 32 + 32];
     unsigned char pubkey[64];
     Global::from_hex(target.c_str(), (char *) pubkey);
-    time_log("Start the direct send");
+    time_curr("Start the direct send");
+    INFO();
 //    for (int i = 0; i < 1000; i++) {
         ecall_lntee_direct_send(Global::enclave, (const char *) pubkey, amt, (char *) tx);
 //    }
-
+    INFO();
+    int res =0;
+    ecall_lntee_generate_contract_instance_id(Global::enclave,&res);
 //    time_log("Start the direct send END");
 //    for (int i = 0; i < 1000; i++) {
 //    DEBUG("DIRECT SEND MSG");
 //    this->time_curr("DIRECT SEND INTERNET");
+    INFO();
     router->send(target, message_ptr(
-            new GeneralMessage(payload::MESSAGE_TYPE::Direct_tranaction, Global::to_hex(tx, 16 + 64 + 32 + 32))));
+            new GeneralMessage(payload::MESSAGE_TYPE::Internet_test, Global::to_hex(tx, 16 + 64 + 32 + 32))));
     DEBUG("DIRECT SEND MSG");
 //    }
 }
@@ -194,12 +198,15 @@ void lntee::Command::send_contract_tx(std::string target, const char *tx, int le
     len = (len % 16 == 0) ? len : (len + 1);
     char sign_tx[512]; // = new char[len];
     //    for (int i = 0; i < 2000; i++) {
-    time_log("Start the contract  send");
+    time_curr("Start the contract  send");
     ecall_lntee_send(Global::enclave, tx, (char *) sign_tx);
-    time_log("Start the contract  send END");
+//    time_log("Start the contract  send END");
     //    }
+    int res =0;
+    ecall_lntee_generate_contract_instance_id(Global::enclave,&res);
+
     router->send(target, message_ptr(
-            new GeneralMessage(payload::MESSAGE_TYPE::Contract_transaction,
+            new GeneralMessage(payload::MESSAGE_TYPE::Internet_test,
                                Global::to_hex((const unsigned char *) sign_tx, len))));
 }
 

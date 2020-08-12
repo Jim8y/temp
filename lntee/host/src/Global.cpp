@@ -7,8 +7,8 @@
 //#include <boost/algorithm/string/classification.hpp>
 std::string Global::ip = "127.0.0.1";
 int Global::port = -1;
-char Global::pubkey[PUBKEY_LEN * 2 + 1] = {'\0'};
-char Global::addr[ADDRESS_LEN * 2 + 1] = {'\0'};
+char Global::pubkey[PUBKEY_LEN * 2 + 3] = {'\0'};
+char Global::addr[ADDRESS_LEN * 2 + 3] = {'\0'};
 oe_enclave_t *Global::enclave = NULL;
 
 static char hexmap[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};

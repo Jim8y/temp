@@ -1,15 +1,11 @@
+add_custom_command(OUTPUT lntee_u.h lntee_u.c lntee_args.h
+        DEPENDS ${CMAKE_SOURCE_DIR}/lntee/lntee.edl
+        COMMAND openenclave::oeedger8r --untrusted ${CMAKE_SOURCE_DIR}/lntee/lntee.edl)
+
 
 file(GLOB LNTEE_HOST_SRCS
         ${CMAKE_SOURCE_DIR}/lntee/host/src/*.cpp
         )
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# Program
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-add_custom_command(OUTPUT lntee_u.h lntee_u.c lntee_args.h
-        DEPENDS ${CMAKE_SOURCE_DIR}/lntee/lntee.edl
-        COMMAND openenclave::oeedger8r --untrusted ${CMAKE_SOURCE_DIR}/lntee/lntee.edl)
 
 add_executable(LNTEE_HOST
         ${LNTEE_HOST_SRCS}

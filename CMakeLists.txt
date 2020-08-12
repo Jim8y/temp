@@ -45,6 +45,9 @@ add_custom_target(sign ALL DEPENDS LNTEE_ENCLAVE.signed)
 # TEST
 ################################ # # # # # # # #
 
+add_custom_target(LNTEE
+        DEPENDS LNTEE_HOST LNTEE_ENCLAVE sign)
+
 add_custom_target(run1
         DEPENDS LNTEE_HOST LNTEE_ENCLAVE
         COMMAND LNTEE_HOST ${CMAKE_SOURCE_DIR}/lntee/host/contract ${CMAKE_BINARY_DIR}/lntee/enclave/LNTEE_ENCLAVE.signed 127.0.0.1 10000)

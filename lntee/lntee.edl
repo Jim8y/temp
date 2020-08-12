@@ -20,7 +20,7 @@ enclave {
 
         public int ecall_lntee_generate_contract_instance_id();
 
-
+        public void ecall_dummy();
 
         // Encrypt the ecdh secret key with the peer ecdh_pubkey
         //public void ecall_lntee_ecdh_start([user_check] const char *ecdh_pubkey,[user_check] char * ecdh_secret);

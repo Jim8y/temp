@@ -21,7 +21,7 @@
 //#define LEN_128
 //#define LEN_256
 //#define LEN_1024
-//#define _TEST_ECDSA_
+#define _TEST_ECDSA_
 //#define _TEST_AES_
 
 static ecall_dispatcher dispatcher;
@@ -136,39 +136,39 @@ int ecall_lntee_init_tee(const char *seed, const char *pubkey, const char *addr)
     // Copy TEE pubkey to the host
     memcpy((void *) pubkey,
            eevm::to_hex_string(Wallet::Instance()->get_account()->pubkey).c_str(),
-           PUBKEY_LEN * 2);
+           PUBKEY_LEN * 2+2);
     memcpy((void *) addr,
            eevm::to_hex_string(Wallet::Instance()->get_account()->address).c_str(),
-           ADDRESS_LEN * 2);
+           ADDRESS_LEN * 2+2);
 
     initial_aes();
 
 
-#ifdef LEN_128
-#define LEN 128
-    char msg[LEN] = "nuocLTIIeYWhZjCg05taqAjPMw1usrHVN3zfXNK4s3LhJIg6mQzTFHTTfC0vnwC6uMb4VCdZyTBBA2bJRnzDlpRoKciVDNBoH44QO5YkudHq66zYh5HozOuGWdGK7M1";
-#endif
-
-#ifdef LEN_256
-#define LEN 256
-    char msg[LEN] ="1NqnGodGaHWEfdLZUqrCkT9mw4QsPZgOWSErhNxJwuAhhAHwNSDNhiv2pzy8N6YcDH6a1Owhn3UTz2UBJM1iw7aXNgkzm28ivLmCST9rqUyZYFuZ5sm6x5GduXburpbLK1NhJxe5Zh49XcxkKi2ZdVKG88coZSebkRUFJdbI7jrczHvc4vPLINzDUHwq1MmoWQpxqM7kspHXUDXop9AGa0iCyOg0jvgy4fefGqS97H21aZSRgYFqZXOtM4PgpCw";
-#endif
-
-#ifdef LEN_1024
-#define LEN 1024
-    char msg[LEN] = "ktsER8hRaw1hr3QkjO8QXd7G2ldhpTe7FcTTzt6WE0beFDTZJJ5H5z96HWSlgXdDLhEg4iyUz9VVlBky330XxvRLwkABgWIj8MCL2UtAMdiMOsQR2WfzRQoFo9W3Vx3Ci4JM2SnnyYzVCHoYs4svweKXIuOAun0mg321W02uxerjst0FEKyFbuZDnJHOpwkblHGXKJ9Z9ZR5ghwP3grlKFGXO6hH3W2RNJXOhx8BD6DocUEcTk8SIe4ElQHvPA53KyEYZgGTpF5NWR4G8IVZNekl7D8DKiyfNROJ0eViWQR7hw1krF0xEF9Jo8V0mc3eVgvEtwYbjoEhIZxIVO2TQTBrvvNAZHgQaJk2gnw4c7cnA6cobDqzZ3jX6W6cKAlh74xgmscjx75JkjIoMuU9FJy9EBlmkcuSQz63v9bvFLkzwsl5vpBhVpfpkuv06sf31my79kzymiMYGbIUdIKO3STdTmSaqbIoXRBHON3qMe3Cjw67wd2mVJv8dzTdg3t5R9CmIw8JIhnfyQfcUFIPhKIO6c8A57GzDlhfBcJZzoW4sn2EGab3YEB47wesiIv69DBVWahMWWQAMYWDEbKgAlbFh6aIlKc6zQtPTIOrjqZv99Gchx3O7A3jKndB9E9IgOB52kuQgG6EGrPiZDqgagCLnkKz96XGUAy2BNzDZL0M14nxOCkXlQjvM5phALG2c3BfqOsUhuJ6wmruY3GgX8plqDbVIL4hbWCRe62FFZrY8X3sQmqfB6K0ktxlcyLsGnVzuWWgHAZGPVCml0tEAFCgABrUqevohDC2YqXIrI7NTdL0MnYzj2uMytCSbhwgunLhcnKjQ5py6LuBmNvyU16HXke7pmPlaAra8xKYNOwZkH8jwHVLS55A0jiuZ9tz8IVQUq9jUvmFZ0N0C3lIVwUmnupAJGcEiI0B62LUMXs6qV2zLKPWqVUl0OwZ7PPKQAogfNbPXEo8A6aL9Q54R9PgKZq5qb7G3X6QE7kEMVzytAKoMPjDCvCSrEfvj1D";
-#endif
-
-#ifdef _TEST_ECDSA_
-    unsigned char output1[32];
-
-    mbedtls_sha256_ret((const unsigned char *) msg, LEN, output1, 0);
-//    for (int i = 0; i < 10000; i++) {
-    ocall_lntee_time_log();
-        ecdsa_sign(output1);
-//    }
-    ocall_lntee_time_log();
-#endif
+//#ifdef LEN_128
+//#define LEN 128
+//    char msg[LEN] = "nuocLTIIeYWhZjCg05taqAjPMw1usrHVN3zfXNK4s3LhJIg6mQzTFHTTfC0vnwC6uMb4VCdZyTBBA2bJRnzDlpRoKciVDNBoH44QO5YkudHq66zYh5HozOuGWdGK7M1";
+//#endif
+//
+//#ifdef LEN_256
+//#define LEN 256
+//    char msg[LEN] ="1NqnGodGaHWEfdLZUqrCkT9mw4QsPZgOWSErhNxJwuAhhAHwNSDNhiv2pzy8N6YcDH6a1Owhn3UTz2UBJM1iw7aXNgkzm28ivLmCST9rqUyZYFuZ5sm6x5GduXburpbLK1NhJxe5Zh49XcxkKi2ZdVKG88coZSebkRUFJdbI7jrczHvc4vPLINzDUHwq1MmoWQpxqM7kspHXUDXop9AGa0iCyOg0jvgy4fefGqS97H21aZSRgYFqZXOtM4PgpCw";
+//#endif
+//
+//#ifdef LEN_1024
+//#define LEN 1024
+//    char msg[LEN] = "ktsER8hRaw1hr3QkjO8QXd7G2ldhpTe7FcTTzt6WE0beFDTZJJ5H5z96HWSlgXdDLhEg4iyUz9VVlBky330XxvRLwkABgWIj8MCL2UtAMdiMOsQR2WfzRQoFo9W3Vx3Ci4JM2SnnyYzVCHoYs4svweKXIuOAun0mg321W02uxerjst0FEKyFbuZDnJHOpwkblHGXKJ9Z9ZR5ghwP3grlKFGXO6hH3W2RNJXOhx8BD6DocUEcTk8SIe4ElQHvPA53KyEYZgGTpF5NWR4G8IVZNekl7D8DKiyfNROJ0eViWQR7hw1krF0xEF9Jo8V0mc3eVgvEtwYbjoEhIZxIVO2TQTBrvvNAZHgQaJk2gnw4c7cnA6cobDqzZ3jX6W6cKAlh74xgmscjx75JkjIoMuU9FJy9EBlmkcuSQz63v9bvFLkzwsl5vpBhVpfpkuv06sf31my79kzymiMYGbIUdIKO3STdTmSaqbIoXRBHON3qMe3Cjw67wd2mVJv8dzTdg3t5R9CmIw8JIhnfyQfcUFIPhKIO6c8A57GzDlhfBcJZzoW4sn2EGab3YEB47wesiIv69DBVWahMWWQAMYWDEbKgAlbFh6aIlKc6zQtPTIOrjqZv99Gchx3O7A3jKndB9E9IgOB52kuQgG6EGrPiZDqgagCLnkKz96XGUAy2BNzDZL0M14nxOCkXlQjvM5phALG2c3BfqOsUhuJ6wmruY3GgX8plqDbVIL4hbWCRe62FFZrY8X3sQmqfB6K0ktxlcyLsGnVzuWWgHAZGPVCml0tEAFCgABrUqevohDC2YqXIrI7NTdL0MnYzj2uMytCSbhwgunLhcnKjQ5py6LuBmNvyU16HXke7pmPlaAra8xKYNOwZkH8jwHVLS55A0jiuZ9tz8IVQUq9jUvmFZ0N0C3lIVwUmnupAJGcEiI0B62LUMXs6qV2zLKPWqVUl0OwZ7PPKQAogfNbPXEo8A6aL9Q54R9PgKZq5qb7G3X6QE7kEMVzytAKoMPjDCvCSrEfvj1D";
+//#endif
+//
+//#ifdef _TEST_ECDSA_
+//    unsigned char output1[32];
+//
+//    mbedtls_sha256_ret((const unsigned char *) msg, LEN, output1, 0);
+////    for (int i = 0; i < 10000; i++) {
+//    ocall_lntee_time_log();
+//        ecdsa_sign(output1);
+////    }
+//    ocall_lntee_time_log();
+//#endif
 
 #ifdef _TEST_AES_
 
@@ -366,3 +366,5 @@ void ecall_lntee_main(const char *contract_definition, char *address, size_t add
     LOG("");
     contract.loadContract(nlohmann::json::parse(contract_definition), &Wallet::Instance()->get_account()->address);
 }
+
+void ecall_dummy(){ int a=0 ; /* Doing nothing */ };

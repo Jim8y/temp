@@ -33,6 +33,7 @@ namespace lntee {
             Command::ms = 0;
         }
 
+        libf2f::Router * getRouter() { return router; }
         /**
          * Connect to a new node
          */
