@@ -153,7 +153,7 @@ int ecdsa_sign(const uint8_t *hash) {
     }
 //    time_curr("End to Sign");
 //    for (int i = 0; i < 10000; i++) {
-        ecdsa_verify(hash, tmp, sig_len);
+//        ecdsa_verify(hash, tmp, sig_len);
 //    }
 //    time_curr("End to Verify");
 //    DEBUG("");

@@ -9,6 +9,7 @@
 #include "../include/command.h"
 //#include <unistd.h>
 #include <eEVM/debug.h>
+
 long int lntee::Command::ms = 0;
 
 void lntee::Command::time_log(const char *tag) {
@@ -28,9 +29,9 @@ void lntee::Command::time_curr(const char *tag) {
 
 void lntee::Command::connect(std::string peer_info) {
     INFO();
-    std::map <std::string, std::string> m_props;
+    std::map<std::string, std::string> m_props;
     using namespace boost::algorithm;
-    std::vector <std::string> tokens;
+    std::vector<std::string> tokens;
     std::cout << "<port>@<ip>@<pubkey>" << std::endl;
     split(tokens, peer_info, is_any_of("@"));
 
@@ -48,11 +49,11 @@ void lntee::Command::connect(std::string peer_info) {
  * @param enc file path of enclave
  * @return
  */
-int lntee::Command::load_enclave(const char* con_path, const char *enc) {
+int lntee::Command::load_enclave(const char *con_path, const char *enc) {
     oe_result_t result;
     // Create the enclave
     result = oe_create_lntee_enclave(
-            enc, OE_ENCLAVE_TYPE_AUTO, OE_ENCLAVE_FLAG_DEBUG, NULL, 0, &Global::enclave);
+            enc, OE_ENCLAVE_TYPE_AUTO, OE_ENCLAVE_FLAG_SIMULATE, NULL, 0, &Global::enclave);
     if (result != OE_OK) {
         fprintf(
                 stderr,
@@ -65,7 +66,7 @@ int lntee::Command::load_enclave(const char* con_path, const char *enc) {
     int ret = 0;
     std::string rand = random_string(100);
     ecall_lntee_init_tee(Global::enclave, &ret, rand.c_str(), Global::pubkey, Global::addr);
-    this->load_contract(con_path,_CONTRACT_);
+    this->load_contract(con_path, _CONTRACT_);
     return ret;
 }
 
@@ -85,7 +86,7 @@ void lntee::Command::load_contract(std::string con_path, std::string contract_na
     //    if (getcwd(cwd, sizeof(cwd)) != NULL) {
     //        printf("Current working dir: %s\n", cwd);
     //    }
-    std::string path = con_path+"/"+ contract_name + ".json";
+    std::string path = con_path + "/" + contract_name + ".json";
     DEBUG("");
     std::cout << path << std::endl;
     // Open the contract definition file
@@ -138,12 +139,13 @@ void lntee::Command::direct_send(std::string target, int amt) {
     Global::from_hex(target.c_str(), (char *) pubkey);
     time_log("Start the direct send");
     INFO();
-//    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 10000; i++) {
         ecall_lntee_direct_send(Global::enclave, (const char *) pubkey, amt, (char *) tx);
-//    }
+    }
+    time_log("End the direct send");
     INFO();
-    int res =0;
-    ecall_lntee_generate_contract_instance_id(Global::enclave,&res);
+    int res = 0;
+    ecall_lntee_generate_contract_instance_id(Global::enclave, &res);
 //    time_log("Start the direct send END");
 //    for (int i = 0; i < 1000; i++) {
 //    DEBUG("DIRECT SEND MSG");
@@ -199,11 +201,13 @@ void lntee::Command::send_contract_tx(std::string target, const char *tx, int le
     char sign_tx[512]; // = new char[len];
     //    for (int i = 0; i < 2000; i++) {
     time_log("Start the contract  send");
-    ecall_lntee_send(Global::enclave, tx, (char *) sign_tx);
-//    time_log("Start the contract  send END");
-    //    }
-    int res =0;
-    ecall_lntee_generate_contract_instance_id(Global::enclave,&res);
+    for (int i = 0; i < 10000; i++) {
+        ecall_lntee_send(Global::enclave, tx, (char *) sign_tx);
+    }
+    time_log("Start the contract  send END");
+
+    int res = 0;
+    ecall_lntee_generate_contract_instance_id(Global::enclave, &res);
 
     router->send(target, message_ptr(
             new GeneralMessage(payload::MESSAGE_TYPE::Internet_test,

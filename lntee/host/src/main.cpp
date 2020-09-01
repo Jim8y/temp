@@ -40,7 +40,7 @@ using namespace libf2f;
 static lntee::Command *cmd;
 
 bool isRun = true;
-
+oe_result_t re;
 void iorun(boost::asio::io_service *ios) {
     ios->run();
     cout << "io ended" << endl;
@@ -110,40 +110,40 @@ int main(int argc, const char *argv[]) {
         return -1;
     }
 
-    string ip = argv[3];
-    Global::ip = ip;
-
-    short port = atoi(argv[4]);
-    Global::port = port;
-
-    boost::asio::io_service ios;
-    LNTeeProtocol p;
-    string line;
-    char b[1024] = {'\0'};
+//    string ip = argv[3];
+//    Global::ip = ip;
+//
+//    short port = atoi(argv[4]);
+//    Global::port = port;
+//
+//    boost::asio::io_service ios;
+//    LNTeeProtocol p;
+//    string line;
+//    char b[1024] = {'\0'};
     INFO();
     start_enclave(argv[1], argv[2]);
     DEBUG("");
-
-    boost::shared_ptr<boost::asio::ip::tcp::acceptor> accp(
-            new boost::asio::ip::tcp::acceptor(ios, boost::asio::ip::tcp::endpoint(
-                    boost::asio::ip::tcp::v4(),
-                    port)));
-
-    Router r(std::move(accp), &p);
-    cmd = new lntee::Command(&r);
-    p.load_command(cmd);
-    boost::thread
-            t(boost::bind(&iorun, &ios));
-
-    while (isRun) {
-        cout << "# " << flush;
-        cin.getline(b, 1024);
-        line = string(b);
-        command_parser(r, line);
-    }
-
-    r.stop();
-    t.join();
+//
+//    boost::shared_ptr<boost::asio::ip::tcp::acceptor> accp(
+//            new boost::asio::ip::tcp::acceptor(ios, boost::asio::ip::tcp::endpoint(
+//                    boost::asio::ip::tcp::v4(),
+//                    port)));
+//
+//    Router r(std::move(accp), &p);
+//    cmd = new lntee::Command(&r);
+//    p.load_command(cmd);
+//    boost::thread
+//            t(boost::bind(&iorun, &ios));
+//
+//    while (isRun) {
+//        cout << "# " << flush;
+//        cin.getline(b, 1024);
+//        line = string(b);
+//        command_parser(r, line);
+//    }
+//
+//    r.stop();
+//    t.join();
 
     return 0;
 }

@@ -17,7 +17,7 @@
 #include "eth_ecp.h"
 #include <map>
 #include <eEVM/debug.h>
-
+#include <openenclave/enclave.h>
 //#define LEN_128
 //#define LEN_256
 //#define LEN_1024
@@ -226,7 +226,7 @@ void ecall_lntee_direct_send(const char *pubkey,
     char cipher[80];
     char plain[80];
     unsigned char py[64];
-    Wallet::Instance()->direct_send(*(eevm::Pubkey *) pubkey, amt);
+//    Wallet::Instance()->direct_send(*(eevm::Pubkey *) pubkey, amt);
     if (Wallet::Instance()->direct_send(*(eevm::Pubkey *) pubkey, amt)) {
         // 0 -15 bytes amt
         // 16 - 79 bytes local_pubkey
@@ -256,7 +256,7 @@ void ecall_lntee_direct_send(const char *pubkey,
         ecdsa_sign(output1);
 #else
         aes_encrypt((unsigned char *) tx, 5, (unsigned char *) cipher);
-        aes_decrypt((char *) cipher, 5, (unsigned char *) plain);
+//        aes_decrypt((char *) cipher, 5, (unsigned char *) plain);
 #endif
     } else {
         cout << "Balance not enough" << endl;
@@ -288,7 +288,7 @@ void ecall_lntee_send(const char *function_call, char *tx_str) {
 
     int size = (script.size() % 16 == 0) ? script.size() / 16 : (script.size() / 16 + 1);
 
-    contract.invoke(Wallet::Instance()->get_account()->address, script);
+//    contract.invoke(Wallet::Instance()->get_account()->address, script);
 
     contract.invoke(Wallet::Instance()->get_account()->address, script);
         DEBUG("SUCCESS");
@@ -298,8 +298,6 @@ void ecall_lntee_send(const char *function_call, char *tx_str) {
         unsigned char output1[32];
 //        this->time_log("End Invoke");
         // DEBUG("SUCCESS");
-
-
 
         ////    print_hex("Method 1", output1, sizeof output1);
         ////    ocall_lntee_time_log();
@@ -324,7 +322,7 @@ void ecall_lntee_send(const char *function_call, char *tx_str) {
         DEBUG("");
         aes_encrypt((unsigned char *) plain, size, (unsigned char *) tx_str);
 
-         aes_decrypt((char *) tx_str, size, (unsigned char *) plain);
+//         aes_decrypt((char *) tx_str, size, (unsigned char *) plain);
 //        char cipher[LEN] = {'\0'};
 //        char plain[LEN] = {'\0'};
 //        aes_encrypt((unsigned char *) msg, LEN/16, (unsigned char *) cipher);
@@ -378,3 +376,27 @@ void ecall_lntee_main(const char *contract_definition, char *address, size_t add
 }
 
 void ecall_dummy(){ int a=0 ; /* Doing nothing */ };
+
+OE_SET_ENCLAVE_SGX(
+        1,    /* ProductID */
+        1,    /* SecurityVersion */
+        true, /* Debug */
+        1024,  /* NumHeapPages */
+        1024,  /* NumStackPages */
+        2);   /* NumTCS */
+
+#define TA_UUID                                            \
+    { /* b843807a-e05c-423c-bcfb-1062cadb483f */           \
+        0xb843807a, 0xe05c, 0x423c,                        \
+        {                                                  \
+            0xbc, 0xfb, 0x10, 0x62, 0xca, 0xdb, 0x48, 0x3f \
+        }                                                  \
+    }
+
+OE_SET_ENCLAVE_OPTEE(
+        TA_UUID,
+        5 * 1024 * 1024,
+        12*2 * 1024,
+        0,
+        "1.0.0",
+        "lntee test")

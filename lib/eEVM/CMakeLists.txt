@@ -3,16 +3,24 @@ project(eevm)
 
 set(CMAKE_CXX_STANDARD 17)
 
+#set(CMAKE_SYSTEM_NAME Linux)
+#set(CMAKE_SYSTEM_PROCESSOR aarch64)
+#set(CMAKE_C_COMPILER aarch64-linux-gnu-gcc)
+#set(CMAKE_CXX_COMPILER aarch64-linux-gnu-g++)
+#set(CMAKE_C_COMPILER_ID GNU)
+
+#message(${CMAKE_CXX_COMPILER})
+
 # set(Boost_ADDITIONAL_VERSIONS "1.67" "1.67.0")
 # find_package(Boost 1.60.0 REQUIRED)
-set(CMAKE_BUILD_TYPE Release)
+#set(CMAKE_BUILD_TYPE Release)
 
-set(CMAKE_CXX_FLAGS "-Wall -Wextra")
-set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+#set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+#set(CMAKE_CXX_FLAGS_DEBUG "-g")
+#set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
 # Set Linux compiler options
-add_compile_options(-Wall)
+#add_compile_options(-Wall)
 
 # -Werror)
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
@@ -46,6 +54,7 @@ set(EEVM_INCLUDE_DIRS
         ${CMAKE_CURRENT_SOURCE_DIR}/include
         )
 
+message(STATUS "EEVM_INCLUDE_DIRS = ${EEVM_INCLUDE_DIRS}")
 
 set(EEVM_CORE_SRCS
         src/disassembler.cpp

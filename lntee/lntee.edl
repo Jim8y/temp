@@ -2,7 +2,6 @@
 // Licensed under the MIT License.
 
 enclave {
-  
     trusted {
         public void ecall_lntee_main([in, string] const char* contract_definition,[out,size=addr_size]char * address,size_t addr_size);
 

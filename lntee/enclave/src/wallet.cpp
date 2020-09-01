@@ -15,7 +15,6 @@ Wallet *Wallet::Instance() {
     return m_pInstance;
 }
 
-
 Wallet::Wallet() {
     this->account = new eevm::SimpleAccount();
 }

@@ -5,23 +5,11 @@
 //#include <eth_ecdh.h>
 
 #include <stdio.h>
-#include <stdlib.h>
 
 #include "mbedtls/ecdh.h"
-#include "mbedtls/config.h"
-#include "mbedtls/platform.h"
-#include "mbedtls/aes.h"
 #include "mbedtls/ecp.h"
-#include "mbedtls/md.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <eEVM/common.h>
 #include <mbedtls/ctr_drbg.h>
 #include <mbedtls/entropy.h>
-#include <eEVM/simple/simpleglobalstate.h>
 
 void test_ecdh() {
 

@@ -273,9 +273,9 @@ namespace eevm {
             struct from_bytes<size_t> {
                 size_t operator()(const uint8_t *&data, size_t &size) {
                     if (size > 8) {
-                        throw decode_error(fmt::format(
-                                "Trying to decode number: {}  is too many bytes for uint64_t",
-                                size));
+//                        throw decode_error(fmt::format(
+//                                "Trying to decode number: {}  is too many bytes for uint64_t",
+//                                size));
                     }
 
                     size_t result = 0;
@@ -318,10 +318,10 @@ namespace eevm {
             struct from_bytes<std::array<uint8_t, N>> {
                 std::array<uint8_t, N> operator()(const uint8_t *&data, size_t &size) {
                     if (size != N) {
-                        throw decode_error(fmt::format(
-                                "Trying to decode {} byte array, but given {} bytes to decode",
-                                N,
-                                size));
+//                        throw decode_error(fmt::format(
+//                                "Trying to decode {} byte array, but given {} bytes to decode",
+//                                N,
+//                                size));
                     }
 
                     std::array<uint8_t, N> result;
@@ -424,11 +424,11 @@ namespace eevm {
                     size_t length_of_length = length - 0xb7;
 
                     if (size < length_of_length) {
-                        throw decode_error(fmt::format(
-                                "Length of next element should be encoded in {} bytes, but only "
-                                "{} remain",
-                                length_of_length,
-                                size));
+//                        throw decode_error(fmt::format(
+//                                "Length of next element should be encoded in {} bytes, but only "
+//                                "{} remain",
+//                                length_of_length,
+//                                size));
                     }
 
                     size -= length_of_length;
@@ -448,11 +448,11 @@ namespace eevm {
                 size_t length_of_length = length - 0xf7;
 
                 if (size < length_of_length) {
-                    throw decode_error(fmt::format(
-                            "Length of next list should be encoded in {} bytes, but only {} "
-                            "remain",
-                            length_of_length,
-                            size));
+//                    throw decode_error(fmt::format(
+//                            "Length of next list should be encoded in {} bytes, but only {} "
+//                            "remain",
+//                            length_of_length,
+//                            size));
                 }
 
                 size -= length_of_length;
@@ -535,9 +535,9 @@ namespace eevm {
 
                 if constexpr (sizeof...(Ts) == 0) {
                     if (contained_length != 0) {
-                        throw decode_error(fmt::format(
-                                "Expected empty list, but data contains {} remaining bytes",
-                                contained_length));
+//                        throw decode_error(fmt::format(
+//                                "Expected empty list, but data contains {} remaining bytes",
+//                                contained_length));
                     }
 
                     return std::make_tuple();
@@ -556,8 +556,8 @@ namespace eevm {
             auto res = decode_details::decode_impl<Ts...>(data, size);
 
             if (size != 0) {
-                throw decode_error(fmt::format(
-                        "Expected to decode entire input, but {} bytes remain", size));
+//                throw decode_error(fmt::format(
+//                        "Expected to decode entire input, but {} bytes remain", size));
             }
 
             return res;
