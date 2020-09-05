@@ -18,6 +18,14 @@
 #include <map>
 #include <eEVM/debug.h>
 #include <openenclave/enclave.h>
+#include <openenclave/corelibc/string.h>
+#include <malloc.h>
+#include <stdint.h>
+#include <stdlib.h>
+//#include <openenclave/internal/print.h>
+//#include <openenclave/internal/tests.h>
+//#include <stdio.h>
+//#include <string.h>
 //#define LEN_128
 //#define LEN_256
 //#define LEN_1024
@@ -27,6 +35,29 @@
 static ecall_dispatcher dispatcher;
 static Contract_Instance contract_instance;
 static SGX_Contract contract;
+
+void ecall_dummy( char *buf,size_t addr_size) {
+//    int a = 0;
+    /* Doing nothing */
+//    buf[0] = 'a';
+//    char *test = (char *) oe_host_malloc(sizeof(char) * 10);//( char *)"helloworldhelloworldhelloworld";
+
+//    test[0] = 'a';
+//    test[1] = 'b';
+//    buf->buf = test;
+//    buf->size = strlen(test);
+     char *a = ( char *)malloc(sizeof(char) * 10);
+    ocall_lntee_time_log();
+//    = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x10, 0x11};
+//    char b[10];
+    for (int i = 0; i < 10; i++) {
+        buf[i] = i+0x10;
+////        printf("%x ", test[i] & 0xff);
+    }
+
+//    stpncpy((char *)buf, (const char *)a, 10);
+    printf("=================== %s", buf);
+};
 
 /**
  * Get random string
@@ -91,62 +122,59 @@ int ecall_lntee_init_tee(const char *seed, const char *pubkey, const char *addr)
     sealed_data_t *sealed_data = NULL;
 
     initial_aes();
-
-    size_t sealed_data_size = 0;
-    int result = dispatcher.seal_data(
-            POLICY_UNIQUE,
-            opt_mgs,
-            opt_msg_len,
-            data,
-            data_size,
-            &sealed_data,
-            &sealed_data_size);
-
-    if (result != OE_OK) {
-        cout << "Host: seal_data failed with " << result << endl;
-    }
+    int result = 0;
+//    size_t n = fputs("fputs(stdout)\n", stdout);
+//    OE_TEST(n == 15);
+    std::string rand = random_string(512);
 
     // Generate prikey according to the hash of sealing result
     mbedtls_sha256_ret(
-            (unsigned char *) sealed_data, sealed_data_size,
+            (unsigned char *) rand.c_str(), 512,
             (unsigned char *) &Wallet::Instance()->get_account()->prikey, 0);
+
+    if (result != OE_OK) {
+//        cout << "Host: seal_data failed with " << result << endl;
+    }
 
     provision_ecdsa_key((char *) &Wallet::Instance()->get_account()->prikey, SECKEY_LEN);
     get_address((unsigned char *) &Wallet::Instance()->get_account()->pubkey,
                 (unsigned char *) &Wallet::Instance()->get_account()->address);
 
-    std::cout << "\n------------------------\n"
-              << std::endl;
 
-
-    std::cout << "ADDRESS: "
-              << eevm::to_hex_string(Wallet::Instance()->get_account()->address) << std::endl;
-    std::cout << "PRIKEY : "
-              << eevm::to_hex_string(Wallet::Instance()->get_account()->prikey)
-              << std::endl;
-    std::cout << "PUBKEY :"
-              << eevm::to_hex_string(Wallet::Instance()->get_account()->pubkey)
-              << std::endl;
-
-    std::cout << "\n------------------------\n"
-              << std::endl;
+//    std::cout << "\n------------------------\n"
+//              << std::endl;
+//
+//
+//    std::cout << "ADDRESS: "
+//              << eevm::to_hex_string(Wallet::Instance()->get_account()->address) << std::endl;
+//    std::cout << "PRIKEY : "
+//              << eevm::to_hex_string(Wallet::Instance()->get_account()->prikey)
+//              << std::endl;
+//    std::cout << "PUBKEY :"
+//              << eevm::to_hex_string(Wallet::Instance()->get_account()->pubkey)
+//              << std::endl;
+//
+//    std::cout << "\n------------------------\n"
+//              << std::endl;
     // For test
     Wallet::Instance()->set_balance(1000000);
-
+    const char *pub = eevm::to_hex_string(Wallet::Instance()->get_account()->pubkey).c_str();
+    char buf[PUBKEY_LEN] = "This is a pub key test";
     // Copy TEE pubkey to the host
     memcpy((void *) pubkey,
-           eevm::to_hex_string(Wallet::Instance()->get_account()->pubkey).c_str(),
-           PUBKEY_LEN * 2+2);
-    memcpy((void *) addr,
-           eevm::to_hex_string(Wallet::Instance()->get_account()->address).c_str(),
-           ADDRESS_LEN * 2+2);
+           (void *) buf,
+           PUBKEY_LEN);
+//    return 0;
+//    memcpy((void *) addr,
+//           eevm::to_hex_string(Wallet::Instance()->get_account()->address).c_str(),
+//           ADDRESS_LEN * 2+2);
 
     initial_aes();
 
 
 //#ifdef LEN_128
-//#define LEN 128
-//    char msg[LEN] = "nuocLTIIeYWhZjCg05taqAjPMw1usrHVN3zfXNK4s3LhJIg6mQzTFHTTfC0vnwC6uMb4VCdZyTBBA2bJRnzDlpRoKciVDNBoH44QO5YkudHq66zYh5HozOuGWdGK7M1";
+#define LEN 128
+    char msg[LEN] = "nuocLTIIeYWhZjCg05taqAjPMw1usrHVN3zfXNK4s3LhJIg6mQzTFHTTfC0vnwC6uMb4VCdZyTBBA2bJRnzDlpRoKciVDNBoH44QO5YkudHq66zYh5HozOuGWdGK7M1";
 //#endif
 //
 //#ifdef LEN_256
@@ -160,28 +188,30 @@ int ecall_lntee_init_tee(const char *seed, const char *pubkey, const char *addr)
 //#endif
 //
 //#ifdef _TEST_ECDSA_
-//    unsigned char output1[32];
-//
-//    mbedtls_sha256_ret((const unsigned char *) msg, LEN, output1, 0);
+    unsigned char output1[32];
+//    memset(output1,0,32);
+
+    mbedtls_sha256_ret((const unsigned char *) msg, LEN, output1, 0);
 ////    for (int i = 0; i < 10000; i++) {
 //    ocall_lntee_time_log();
-//        ecdsa_sign(output1);
+    ecdsa_sign(output1);
 ////    }
 //    ocall_lntee_time_log();
 //#endif
 
-#ifdef _TEST_AES_
-
+//#ifdef _TEST_AES_
+//
     char cipher[LEN] = {'\0'};
     char plain[LEN] = {'\0'};
-////    print_hex("Method 1", output1, sizeof output1);
+//    memcpy((void *)cipher,(void *)plain,LEN);
+//////    print_hex("Method 1", output1, sizeof output1);
     aes_encrypt((unsigned char *) msg, LEN / 16, (unsigned char *) cipher);
-    ocall_lntee_time_log();
-    for (int i = 0; i < 10000; i++) {
-        aes_decrypt((char *) cipher, LEN / 16, (unsigned char *) msg);
-    }
-
-    ocall_lntee_time_log();
+//    ocall_lntee_time_log();
+//    for (int i = 0; i < 10000; i++) {
+    aes_decrypt((char *) cipher, LEN / 16, (unsigned char *) msg);
+//    }
+//
+//    ocall_lntee_time_log();
     //    char cipher[1024] = {'\0'};
 //    char plain[1024] = {'\0'};
 //    DEBUG("");
@@ -194,7 +224,7 @@ int ecall_lntee_init_tee(const char *seed, const char *pubkey, const char *addr)
 //    DEBUG("");
 //    aes_finish();
 //    aes_test();
-#endif
+//#endif
     return result;
 }
 
@@ -291,36 +321,36 @@ void ecall_lntee_send(const char *function_call, char *tx_str) {
 //    contract.invoke(Wallet::Instance()->get_account()->address, script);
 
     contract.invoke(Wallet::Instance()->get_account()->address, script);
-        DEBUG("SUCCESS");
+    DEBUG("SUCCESS");
 
 #ifdef _TEST_ECDSA_
 
-        unsigned char output1[32];
+    unsigned char output1[32];
 //        this->time_log("End Invoke");
-        // DEBUG("SUCCESS");
+    // DEBUG("SUCCESS");
 
-        ////    print_hex("Method 1", output1, sizeof output1);
-        ////    ocall_lntee_time_log();
-        //
-        ////    for (int i = 0; i < 10000; i++) {
-        mbedtls_sha256_ret((unsigned char *) &script[0], script.size(), output1, 0);
-        ecdsa_sign(output1);
+    ////    print_hex("Method 1", output1, sizeof output1);
+    ////    ocall_lntee_time_log();
+    //
+    ////    for (int i = 0; i < 10000; i++) {
+    mbedtls_sha256_ret((unsigned char *) &script[0], script.size(), output1, 0);
+    ecdsa_sign(output1);
 
 //        this->time_log("End Enc");
 //    this->time_curr("Start Dec");
-        //    }
-        //        ocall_lntee_time_log();
-        //    } else {
-        //        DEBUG("FAILED");
-        //        ocall_lntee_time_log();
-        //    }
+    //    }
+    //        ocall_lntee_time_log();
+    //    } else {
+    //        DEBUG("FAILED");
+    //        ocall_lntee_time_log();
+    //    }
 #else
-        char *plain = new char[size * 16];
-        memset(plain, 0, size * 16);
+    char *plain = new char[size * 16];
+    memset(plain, 0, size * 16);
 
-        memcpy((void *) plain, (unsigned char *) &script[0], script.size());
-        DEBUG("");
-        aes_encrypt((unsigned char *) plain, size, (unsigned char *) tx_str);
+    memcpy((void *) plain, (unsigned char *) &script[0], script.size());
+    DEBUG("");
+    aes_encrypt((unsigned char *) plain, size, (unsigned char *) tx_str);
 
 //         aes_decrypt((char *) tx_str, size, (unsigned char *) plain);
 //        char cipher[LEN] = {'\0'};
@@ -375,15 +405,13 @@ void ecall_lntee_main(const char *contract_definition, char *address, size_t add
     contract.loadContract(nlohmann::json::parse(contract_definition), &Wallet::Instance()->get_account()->address);
 }
 
-void ecall_dummy(){ int a=0 ; /* Doing nothing */ };
-
 OE_SET_ENCLAVE_SGX(
-        1,    /* ProductID */
-        1,    /* SecurityVersion */
-        true, /* Debug */
-        1024,  /* NumHeapPages */
-        1024,  /* NumStackPages */
-        2);   /* NumTCS */
+1,    /* ProductID */
+1,    /* SecurityVersion */
+true, /* Debug */
+1024,  /* NumHeapPages */
+1024,  /* NumStackPages */
+2);   /* NumTCS */
 
 #define TA_UUID                                            \
     { /* b843807a-e05c-423c-bcfb-1062cadb483f */           \
@@ -394,9 +422,9 @@ OE_SET_ENCLAVE_SGX(
     }
 
 OE_SET_ENCLAVE_OPTEE(
-        TA_UUID,
-        5 * 1024 * 1024,
-        12*2 * 1024,
-        0,
-        "1.0.0",
-        "lntee test")
+TA_UUID,
+1 * 1024 * 1024,
+12* 1 * 1024,
+0,
+"1.0.0",
+"lntee test")

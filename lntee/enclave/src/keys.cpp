@@ -3,7 +3,7 @@
 #include <eEVM/debug.h>
 #include <mbedtls/aes.h>
 #include <mbedtls/md.h>
-
+#include <openenclave/internal/print.h>
 void ecall_dispatcher::dump_data(
         const char *name, unsigned char *data, size_t data_size) {
     std::cout << "Data name: " << name << std::endl;
@@ -20,7 +20,9 @@ int ecall_dispatcher::generate_iv(unsigned char *iv, unsigned int ivLen) {
 
     memset(iv, 0, ivLen);
     // mbedtls_ctr_drbg_random uses CTR_DRBG to generate random data
+
     ret = mbedtls_ctr_drbg_random(&m_ctr_drbg_contex, iv, ivLen);
+//    oe_host_printf("<><><>><<>><><><><><><><><><><><><><><><><");
     return ret;
 }
 
@@ -89,11 +91,12 @@ oe_result_t ecall_dispatcher::get_seal_key_by_policy(
     result = oe_get_seal_key_by_policy(
             (oe_seal_policy_t) policy, &buf, &buf_size, &info, &info_size);
     if (result != OE_OK) {
-        std::cout << "oe_get_seal_key_by_policy failed with "
-                  << oe_result_str(result) << std::endl;
+//        std::cout << "oe_get_seal_key_by_policy failed with "
+//                  << oe_result_str(result) << std::endl;
         goto exit;
     }
-
+#pragma  Tested here
+return result;
     // fill the return information
     *key_buf = buf;
     *key_buf_size = buf_size;

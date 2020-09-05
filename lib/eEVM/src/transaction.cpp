@@ -2,6 +2,7 @@
 // Licensed under the MIT License.
 
 #include "eEVM/transaction.h"
+
 #include "eEVM/util.h"
 
 namespace eevm {

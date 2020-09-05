@@ -3,8 +3,6 @@
 //
 
 #include "Global.h"
-//#include <boost/algorithm/string/split.hpp>
-//#include <boost/algorithm/string/classification.hpp>
 std::string Global::ip = "127.0.0.1";
 int Global::port = -1;
 char Global::pubkey[PUBKEY_LEN * 2 + 3] = {'\0'};
@@ -23,6 +21,7 @@ static uint8_t hex2int(char input)
         return static_cast<uint8_t>(input - 'a' + 10);
     return -1;
 }
+
 void Global::from_hex(const char *src, char *target)
 {
     while (*src && src[1])

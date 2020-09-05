@@ -9,6 +9,7 @@ extern "C"
 }
 
 #include "address.h"
+
 #include <fmt/format_header_only.h>
 #include <iomanip>
 #include <limits>

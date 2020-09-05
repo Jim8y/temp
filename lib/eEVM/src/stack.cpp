@@ -1,7 +1,9 @@
 
 #include "eEVM/stack.h"
+
 #include "eEVM/exception.h"
 #include "eEVM/util.h"
+
 #include <algorithm>
 #include <limits>
 

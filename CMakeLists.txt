@@ -1,7 +1,8 @@
-cmake_minimum_required(VERSION 3.13)
-project(lntee)
+# cmake_minimum_required(VERSION 3.13)
+# project(lntee)
 
 set(CMAKE_CXX_STANDARD 17)
+#set( CMAKE_VERBOSE_MAKEFILE on )
 #
 #set(CMAKE_BUILD_TYPE Release)
 
@@ -19,13 +20,20 @@ set(CMAKE_CXX_STANDARD 17)
 #message(STATUS "OpenEnclave_INCLUDE_DIR = ${OpenEnclave_INCLUDE_DIR}")
 #message(${OpenEnclave_LIBRARIES})
 #message(${OpenEnclave_LIB_VERSION})
-
-add_subdirectory(lib/eEVM)
-add_subdirectory(lib/libf2f)
+#set(CMAKE_SYSTEM_NAME None)
+set(LNTEE_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
+set(LNTEE_ROOT_BUILD ${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(lntee/enclave)
-add_subdirectory(lntee/host)
 
+ add_subdirectory(lib/eEVM)
+ add_subdirectory(lib/libf2f)
+
+ add_subdirectory(lntee/host)
+
+# add_enclave_test(tests/lntee LNTEE_HOST LNTEE_ENCLAVE)
+message(STATUS "CMAKE_CURRENT_BINARY_DIR = ${CMAKE_CURRENT_BINARY_DIR}")
+message(STATUS "CMAKE_CURRENT_SOURCE_DIR = ${CMAKE_CURRENT_SOURCE_DIR}")
 # Generate key
 #add_custom_command(OUTPUT private.pem public.pem
 #        COMMAND openssl genrsa -out private.pem -3 3072

@@ -63,16 +63,16 @@ int ecall_dispatcher::seal_data(
             &seal_key,
             &seal_key_size);
     if (result != OE_OK) {
-        std::cout << "get_seal_key_and_prep_sealed_data failed with "
-                  << oe_result_str(result) << std::endl;
+       // std::cout << "get_seal_key_and_prep_sealed_data failed with "
+       //           << oe_result_str(result) << std::endl;
         goto exit;
     }
-
+    return 0;
     // generate random initialization vector values
 //    std::cout << "generate random initialization vector values" << std::endl;
     ret = generate_iv(m_sealed_data->iv, IV_SIZE);
     if (ret != 0) {
-        std::cout << "generate_iv failed with " << ret << std::endl;
+       // std::cout << "generate_iv failed with " << ret << std::endl;
         goto exit;
     }
     memcpy(iv, m_sealed_data->iv, IV_SIZE);
@@ -87,7 +87,7 @@ int ecall_dispatcher::seal_data(
             iv,
             m_sealed_data->encrypted_data);
     if (ret != 0) {
-        std::cout << "cipher_data failed with " << ret << std::endl;
+     //   std::cout << "cipher_data failed with " << ret << std::endl;
         goto exit;
     }
 
@@ -100,7 +100,7 @@ int ecall_dispatcher::seal_data(
     ret = sign_sealed_data(
             m_sealed_data, seal_key, seal_key_size, m_sealed_data->signature);
     if (ret != 0) {
-        std::cout << "sign_sealed_data " << ret << std::endl;
+     //   std::cout << "sign_sealed_data " << ret << std::endl;
         goto exit;
     }
     temp_sealed_data = (sealed_data_t *) oe_host_malloc(m_sealed_data->total_size);
@@ -135,6 +135,7 @@ int ecall_dispatcher::unseal_data(
         size_t sealed_data_size,
         unsigned char **data,
         size_t *data_size) {
+
     oe_result_t result = OE_OK;
     unsigned char iv[IV_SIZE];
     unsigned char signature[SIGNATURE_LEN];
@@ -157,8 +158,8 @@ int ecall_dispatcher::unseal_data(
     result =
             get_seal_key_by_keyinfo(key_info, key_info_size, &seal_key, &seal_key_size);
     if (result != OE_OK) {
-        std::cout << "unseal_data failed with " << oe_result_str(result)
-                  << std::endl;
+     //   std::cout << "unseal_data failed with " << oe_result_str(result)
+      //            << std::endl;
         ret = ERROR_GET_SEALKEY;
         goto exit;
     }
@@ -174,17 +175,17 @@ int ecall_dispatcher::unseal_data(
     ret = sign_sealed_data(m_sealed_data, seal_key, seal_key_size, signature);
     if (ret != 0) {
         ret = ERROR_SIGN_SEALED_DATA_FAIL;
-        std::cout << "sign_sealed_data failed with " << ret << std::endl;
+     //   std::cout << "sign_sealed_data failed with " << ret << std::endl;
         goto exit;
     }
 
     // validate signature
     if (memcmp(signature, m_sealed_data->signature, SIGNATURE_LEN) != 0) {
-        std::cout << "signature mismatched";
+    //    std::cout << "signature mismatched";
         ret = ERROR_SIGNATURE_VERIFY_FAIL;
         goto exit;
     }
-    std::cout << "signature validation passed successfully" << std::endl;
+  //  std::cout << "signature validation passed successfully" << std::endl;
 
     // Unseal data: decrypt data with the seal key
     // re-initialization vector values
@@ -205,7 +206,7 @@ int ecall_dispatcher::unseal_data(
             iv,
             data_buf);
     if (ret != 0) {
-        std::cout << "cipher_data failed with " << ret << std::endl;
+     //   std::cout << "cipher_data failed with " << ret << std::endl;
         ret = ERROR_CIPHER_ERROR;
         goto exit;
     }
@@ -241,10 +242,14 @@ oe_result_t ecall_dispatcher::get_seal_key_and_prep_sealed_data(
     result = get_seal_key_by_policy(
             seal_policy, seal_key, seal_key_size, &key_info, &key_info_size);
     if (result != OE_OK) {
-        std::cout << "get_seal_key_by_policy failed with " << oe_result_str(result)
-                  << std::endl;
+      //  std::cout << "get_seal_key_by_policy failed with " << oe_result_str(result)
+     //             << std::endl;
         goto exit;
     }
+#pragma tested here
+    return result;
+
+
 //    std::cout << "seal_key_size " << *seal_key_size << std::endl;
 //    std::cout << "key_info_size " << key_info_size << std::endl;
 //    std::cout << "data_size " << data_size << std::endl;

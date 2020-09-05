@@ -2,10 +2,23 @@
 // Licensed under the MIT License.
 
 enclave {
+    from "/home/sgx/op_qemu/sdk/include/openenclave/edl/logging.edl" import oe_write_ocall;
+    from "/home/sgx/op_qemu/sdk/include/openenclave/edl/fcntl.edl" import *;
+#ifdef OE_SGX
+    from "/home/sgx/op_qemu/sdk/include/openenclave/edl/sgx/platform.edl" import *;
+#else
+    from "/home/sgx/op_qemu/sdk/include/openenclave/edl/optee/platform.edl" import *;
+#endif
+
+struct buffer {
+    char* buf;
+    size_t size;
+};
+
     trusted {
         public void ecall_lntee_main([in, string] const char* contract_definition,[out,size=addr_size]char * address,size_t addr_size);
 
-        public int ecall_lntee_init_tee([in,string]const char * seed, [user_check] const char* pubkey, [user_check]const char* addr);
+        public int ecall_lntee_init_tee([in,string]const char * seed, [out] const char* pubkey, [user_check]const char* addr);
 
 
         // process transaction
@@ -19,7 +32,7 @@ enclave {
 
         public int ecall_lntee_generate_contract_instance_id();
 
-        public void ecall_dummy();
+        public void ecall_dummy([out,size=len] char * buf,size_t len);
 
         // Encrypt the ecdh secret key with the peer ecdh_pubkey
         //public void ecall_lntee_ecdh_start([user_check] const char *ecdh_pubkey,[user_check] char * ecdh_secret);

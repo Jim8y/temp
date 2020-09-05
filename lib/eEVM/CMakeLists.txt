@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(eevm)
 
-set(CMAKE_CXX_STANDARD 17)
+#set(CMAKE_CXX_STANDARD 17)
 
 #set(CMAKE_SYSTEM_NAME Linux)
 #set(CMAKE_SYSTEM_PROCESSOR aarch64)
@@ -23,13 +23,13 @@ set(CMAKE_CXX_STANDARD 17)
 #add_compile_options(-Wall)
 
 # -Werror)
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-    separate_arguments(COVERAGE_FLAGS UNIX_COMMAND "--coverage -fprofile-arcs -ftest-coverage")
-    set(PLATFORM_SPECIFIC_TEST_LIBS "gcov")
-else ()
-    separate_arguments(COVERAGE_FLAGS UNIX_COMMAND "-fprofile-instr-generate -fcoverage-mapping")
-    set(PLATFORM_SPECIFIC_TEST_LIBS "-fprofile-instr-generate")
-endif ()
+#if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+#    separate_arguments(COVERAGE_FLAGS UNIX_COMMAND "--coverage -fprofile-arcs -ftest-coverage")
+#    set(PLATFORM_SPECIFIC_TEST_LIBS "gcov")
+#else ()
+#    separate_arguments(COVERAGE_FLAGS UNIX_COMMAND "-fprofile-instr-generate -fcoverage-mapping")
+#    set(PLATFORM_SPECIFIC_TEST_LIBS "-fprofile-instr-generate")
+#endif ()
 
 file(GLOB KECCAK_SOURCES
         3rdparty/keccak/*.c
@@ -84,36 +84,36 @@ target_link_libraries(eevm
         intx::intx
         )
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# Executables
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-add_executable(eevm_tests
-        tests/main.cpp
-        #        tests/harness.cpp
-        tests/rlp.cpp
-        ${EEVM_SIMPLE_SRCS}
-        )
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # Executables
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# add_executable(eevm_tests
+#         tests/main.cpp
+#         #        tests/harness.cpp
+#         tests/rlp.cpp
+#         ${EEVM_SIMPLE_SRCS}
+#         )
 
-target_include_directories(eevm_tests PRIVATE
-        ${EEVM_INCLUDE_DIRS}
-        )
+# target_include_directories(eevm_tests PRIVATE
+#         ${EEVM_INCLUDE_DIRS}
+#         )
 
-target_compile_options(eevm_tests PRIVATE ${COVERAGE_FLAGS})
-target_link_libraries(eevm_tests eevm ${PLATFORM_SPECIFIC_TEST_LIBS})
+# target_compile_options(eevm_tests PRIVATE ${COVERAGE_FLAGS})
+# target_link_libraries(eevm_tests eevm ${PLATFORM_SPECIFIC_TEST_LIBS})
 
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# Tests
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-enable_testing()
-add_test(
-        NAME eevm_tests
-        COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/tests/unit_test_wrapper.sh eevm_tests
-)
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # Tests
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# enable_testing()
+# add_test(
+#         NAME eevm_tests
+#         COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/tests/unit_test_wrapper.sh eevm_tests
+# )
 
-if (NOT ENV{TEST_DIR})
-    set_tests_properties(eevm_tests
-            PROPERTIES
-            ENVIRONMENT TEST_DIR=${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/test_cases
-            )
-endif ()
+# if (NOT ENV{TEST_DIR})
+#     set_tests_properties(eevm_tests
+#             PROPERTIES
+#             ENVIRONMENT TEST_DIR=${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/test_cases
+#             )
+# endif ()

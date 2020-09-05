@@ -52,6 +52,7 @@ void lntee::Command::connect(std::string peer_info) {
 int lntee::Command::load_enclave(const char *con_path, const char *enc) {
     oe_result_t result;
     // Create the enclave
+    std::cout <<"---> Start to load enclave:"<<std::endl;
     result = oe_create_lntee_enclave(
             enc, OE_ENCLAVE_TYPE_AUTO, OE_ENCLAVE_FLAG_SIMULATE, NULL, 0, &Global::enclave);
     if (result != OE_OK) {
@@ -62,10 +63,27 @@ int lntee::Command::load_enclave(const char *con_path, const char *enc) {
                 oe_result_str(result));
         return 0;
     }
+    std::cout <<"---> Finished loading enclave:"<<std::endl;
     // Generate the TEE account
     int ret = 0;
+//    unsigned char *buf =
+//    buffer buf;
+//    buf.buf = (char *)malloc(sizeof(char) * 10);
+//    buf.size = 10;
+     char test[10] = {0} ;
     std::string rand = random_string(100);
+    ecall_dummy(Global::enclave, test,10);
+    printf("---> bufs = \n");
+    for (int i = 0; i < 10; i++) {
+//        test[i] = i;
+        printf("%x ", test[i] & 0xff);
+    }
+    printf("\n");
+//    std::cout <<"---> buf = "<< buf[0]<<" "<< <<std::endl;
+    std::cout <<"---> Start to initialize enclave:"<<std::endl;
     ecall_lntee_init_tee(Global::enclave, &ret, rand.c_str(), Global::pubkey, Global::addr);
+    std::cout <<"---> End initializing enclave:"<<std::endl;
+    std::cout <<"---> Start to load contrat to enclave:"<<std::endl;
     this->load_contract(con_path, _CONTRACT_);
     return ret;
 }
