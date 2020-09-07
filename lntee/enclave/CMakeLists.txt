@@ -68,5 +68,5 @@ enclave_include_directories(LNTEE_ENCLAVE PRIVATE
         )
 
 enclave_compile_features(LNTEE_ENCLAVE PRIVATE cxx_auto_type)
-message("------- Target compiler flags are: ${CMAKE_CXX_FLAGES}")
+#message("------- Target compiler flags are: ${CMAKE_CXX_FLAGES}")
 #enclave_link_libraries(LNTEE_ENCLAVE oelibc oelibcxx)

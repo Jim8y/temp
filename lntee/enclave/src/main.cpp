@@ -22,6 +22,9 @@
 #include <malloc.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <openenclave/internal/hexdump.h>
+#include "util.h"
+
 //#include <openenclave/internal/print.h>
 //#include <openenclave/internal/tests.h>
 //#include <stdio.h>
@@ -36,26 +39,19 @@ static ecall_dispatcher dispatcher;
 static Contract_Instance contract_instance;
 static SGX_Contract contract;
 
-void ecall_dummy( char *buf,size_t addr_size) {
-//    int a = 0;
-    /* Doing nothing */
-//    buf[0] = 'a';
-//    char *test = (char *) oe_host_malloc(sizeof(char) * 10);//( char *)"helloworldhelloworldhelloworld";
+void ecall_dummy(const char *msg, char *buf, size_t addr_size) {
+    char *a = (char *) malloc(sizeof(char) * 128);
+    ocall_lntee_time_log("This is a message from enclave for testing ocall\
+    This is a message from enclave for testing ocall\
+    This is a message from enclave for testing ocall\
+    This is a message from enclave for testing ocall");
 
-//    test[0] = 'a';
-//    test[1] = 'b';
-//    buf->buf = test;
-//    buf->size = strlen(test);
-     char *a = ( char *)malloc(sizeof(char) * 10);
-    ocall_lntee_time_log();
-//    = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x10, 0x11};
-//    char b[10];
-    for (int i = 0; i < 10; i++) {
-        buf[i] = i+0x10;
+    for (int i = 0; i < 128; i++) {
+        a[i] = i + 'A';
 ////        printf("%x ", test[i] & 0xff);
     }
-
-//    stpncpy((char *)buf, (const char *)a, 10);
+    a[127] = '\0';
+    stpncpy((char *) buf, (const char *) a, 128);
     printf("=================== %s", buf);
 };
 
@@ -102,7 +98,10 @@ int ecall_lntee_unseal_data(
         size_t *data_size) {
     LOG("");
     printf("Enclave: unseal_data\n");
-    return dispatcher.unseal_data(sealed_data, sealed_data_size, data, data_size);
+    return dispatcher.unseal_data(sealed_data,
+                                  sealed_data_size,
+                                  data,
+                                  data_size);
 }
 
 /**
@@ -113,7 +112,11 @@ int ecall_lntee_unseal_data(
  * @param addr TEE account Addr
  * @return int
  */
-int ecall_lntee_init_tee(const char *seed, const char *pubkey, const char *addr) {
+int ecall_lntee_init_tee(const char *seed,
+                         char *pubkey,
+                         size_t pubkey_size,
+                         char *addr,
+                         size_t addr_size) {
     LOG("");
     unsigned char opt_mgs[128] = "hello world";
     size_t opt_msg_len = strlen((char *) opt_mgs);
@@ -130,48 +133,44 @@ int ecall_lntee_init_tee(const char *seed, const char *pubkey, const char *addr)
     // Generate prikey according to the hash of sealing result
     mbedtls_sha256_ret(
             (unsigned char *) rand.c_str(), 512,
-            (unsigned char *) &Wallet::Instance()->get_account()->prikey, 0);
+            (unsigned char *) &Wallet::Instance()->get_account()->prikey,
+            0);
 
     if (result != OE_OK) {
-//        cout << "Host: seal_data failed with " << result << endl;
+        printf("Host: seal_data failed with %d\n", result);
     }
 
-    provision_ecdsa_key((char *) &Wallet::Instance()->get_account()->prikey, SECKEY_LEN);
+    provision_ecdsa_key((char *) &Wallet::Instance()->get_account()->prikey,
+                        SECKEY_LEN);
     get_address((unsigned char *) &Wallet::Instance()->get_account()->pubkey,
                 (unsigned char *) &Wallet::Instance()->get_account()->address);
 
+    printf("\n------------------------------------------------------------------\n");
+    printf("ADDRESS: %s \n",
+           eevm::to_hex_string(Wallet::Instance()->get_account()->address).c_str());
+    printf("PRIKEY : %s \n",
+           eevm::to_hex_string(Wallet::Instance()->get_account()->prikey).c_str());
+    printf("PUBKEY : %s ",
+           eevm::to_hex_string(Wallet::Instance()->get_account()->pubkey).c_str());
+    printf("\n------------------------------------------------------------------\n\n");
 
-//    std::cout << "\n------------------------\n"
-//              << std::endl;
-//
-//
-//    std::cout << "ADDRESS: "
-//              << eevm::to_hex_string(Wallet::Instance()->get_account()->address) << std::endl;
-//    std::cout << "PRIKEY : "
-//              << eevm::to_hex_string(Wallet::Instance()->get_account()->prikey)
-//              << std::endl;
-//    std::cout << "PUBKEY :"
-//              << eevm::to_hex_string(Wallet::Instance()->get_account()->pubkey)
-//              << std::endl;
-//
-//    std::cout << "\n------------------------\n"
-//              << std::endl;
     // For test
     Wallet::Instance()->set_balance(1000000);
-    const char *pub = eevm::to_hex_string(Wallet::Instance()->get_account()->pubkey).c_str();
-    char buf[PUBKEY_LEN] = "This is a pub key test";
-    // Copy TEE pubkey to the host
-    memcpy((void *) pubkey,
-           (void *) buf,
-           PUBKEY_LEN);
-//    return 0;
-//    memcpy((void *) addr,
-//           eevm::to_hex_string(Wallet::Instance()->get_account()->address).c_str(),
-//           ADDRESS_LEN * 2+2);
+
+    stpncpy((char *) pubkey,
+            eevm::to_hex_string(
+                    Wallet::Instance()->get_account()->pubkey).c_str(),
+            PUBKEY_HEX_LEN);
+
+    memcpy((void *) addr,
+           eevm::to_hex_string(
+                   Wallet::Instance()->get_account()->address).c_str(),
+           addr_size);
 
     initial_aes();
 
 
+//    printf("==%s", pubkey);
 //#ifdef LEN_128
 #define LEN 128
     char msg[LEN] = "nuocLTIIeYWhZjCg05taqAjPMw1usrHVN3zfXNK4s3LhJIg6mQzTFHTTfC0vnwC6uMb4VCdZyTBBA2bJRnzDlpRoKciVDNBoH44QO5YkudHq66zYh5HozOuGWdGK7M1";
@@ -236,8 +235,13 @@ int ecall_lntee_init_tee(const char *seed, const char *pubkey, const char *addr)
 void process_transaction(eevm::Transaction *tx) {
     LOG("");
     eevm::Address target;
-    memcpy((void *) &target, (char *) &tx->target, ADDRESS_LEN);
-    const auto success = contract.transfer(tx->origin, target, tx->value);
+    memcpy((void *) &target,
+           (char *) &tx->target,
+           ADDRESS_LEN);
+
+    const auto success = contract.transfer(tx->origin,
+                                           target,
+                                           tx->value);
     if (!success) {
         throw std::runtime_error("Expected transfer to succeed, but it failed");
     }
@@ -257,7 +261,8 @@ void ecall_lntee_direct_send(const char *pubkey,
     char plain[80];
     unsigned char py[64];
 //    Wallet::Instance()->direct_send(*(eevm::Pubkey *) pubkey, amt);
-    if (Wallet::Instance()->direct_send(*(eevm::Pubkey *) pubkey, amt)) {
+    if (Wallet::Instance()->direct_send(*(eevm::Pubkey *) pubkey,
+                                        amt)) {
         // 0 -15 bytes amt
         // 16 - 79 bytes local_pubkey
 //        char cipher[80];
@@ -282,10 +287,15 @@ void ecall_lntee_direct_send(const char *pubkey,
 //        * \param ilen     length of the input data
 //        * \param output   SHA-224/256 checksum result
 //        * \param is224    0 = use SHA256, 1 = use SHA224
-        mbedtls_sha256_ret((const unsigned char *) tx, 144, output1, 0);
+        mbedtls_sha256_ret((const unsigned char *) tx,
+                           144,
+                           output1,
+                           0);
         ecdsa_sign(output1);
 #else
-        aes_encrypt((unsigned char *) tx, 5, (unsigned char *) cipher);
+        aes_encrypt((unsigned char *) tx,
+                    5,
+                    (unsigned char *) cipher);
 //        aes_decrypt((char *) cipher, 5, (unsigned char *) plain);
 #endif
     } else {
@@ -300,7 +310,8 @@ int ecall_lntee_direct_recv(const char *tx) {
     memcpy((void *) &amt, tx, sizeof(int));
     memcpy((void *) pubkey, tx + 16, PUBKEY_LEN);
 
-    if (Wallet::Instance()->direct_receive(*(eevm::Pubkey *) pubkey, amt))
+    if (Wallet::Instance()->direct_receive(*(eevm::Pubkey *) pubkey,
+                                           amt))
         return 0;
 
     return -1;
@@ -333,7 +344,10 @@ void ecall_lntee_send(const char *function_call, char *tx_str) {
     ////    ocall_lntee_time_log();
     //
     ////    for (int i = 0; i < 10000; i++) {
-    mbedtls_sha256_ret((unsigned char *) &script[0], script.size(), output1, 0);
+    mbedtls_sha256_ret((unsigned char *) &script[0],
+                       script.size(),
+                       output1,
+                       0);
     ecdsa_sign(output1);
 
 //        this->time_log("End Enc");
@@ -348,9 +362,13 @@ void ecall_lntee_send(const char *function_call, char *tx_str) {
     char *plain = new char[size * 16];
     memset(plain, 0, size * 16);
 
-    memcpy((void *) plain, (unsigned char *) &script[0], script.size());
+    memcpy((void *) plain,
+           (unsigned char *) &script[0],
+           script.size());
     DEBUG("");
-    aes_encrypt((unsigned char *) plain, size, (unsigned char *) tx_str);
+    aes_encrypt((unsigned char *) plain,
+                size,
+                (unsigned char *) tx_str);
 
 //         aes_decrypt((char *) tx_str, size, (unsigned char *) plain);
 //        char cipher[LEN] = {'\0'};
@@ -382,8 +400,11 @@ int ecall_lntee_recv_transaction(const char *transaction) {
     lntee::from_hex(transaction, (char *) enc_tx);
     eevm::Code plain;
     plain.resize(len);
-    aes_decrypt((char *) enc_tx, len / 16, (unsigned char *) plain.data());
-    if (contract.invoke(Wallet::Instance()->get_account()->address, plain)) {
+    aes_decrypt((char *) enc_tx,
+                len / 16,
+                (unsigned char *) plain.data());
+    if (contract.invoke(Wallet::Instance()->get_account()->address,
+                        plain)) {
         DEBUG("SUCCESS");
         return 0;
     } else {
@@ -400,9 +421,12 @@ int ecall_lntee_recv_transaction(const char *transaction) {
  * @param address
  * @param addr_size
  */
-void ecall_lntee_main(const char *contract_definition, char *address, size_t addr_size) {
+void ecall_lntee_main(const char *contract_definition,
+                      char *address,
+                      size_t addr_size) {
     LOG("");
-    contract.loadContract(nlohmann::json::parse(contract_definition), &Wallet::Instance()->get_account()->address);
+    contract.loadContract(nlohmann::json::parse(contract_definition),
+                          &Wallet::Instance()->get_account()->address);
 }
 
 OE_SET_ENCLAVE_SGX(

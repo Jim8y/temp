@@ -7,9 +7,23 @@
  * call for a log from the enclave
  * @param tag tag of the log
  */
-void ocall_lntee_time_log()
+void ocall_lntee_time_log( const char * msg)
 {
     lntee::Command::time_log("Log from the enclave");
+    std::cout << "\n Message from Enclave : "<<msg <<std::endl;
+}
+
+
+/**
+ * OCall functions
+ * @param str message from enclave
+ */
+void ocall_print_string(const char *str)
+{
+    /* Proxy/Bridge will check the length and null-terminate
+     * the input string to prevent buffer overflow.
+     */
+    printf("%s", str);
 }
 
 /**

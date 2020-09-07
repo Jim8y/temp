@@ -47,12 +47,14 @@ class Global {
 public:
     static std::string ip;
     static int port;
-    static char pubkey[PUBKEY_LEN * 2 + 3];
-    static char addr[ADDRESS_LEN * 2 + 3];
+    static char pubkey[PUBKEY_HEX_LEN+1];
+    static char addr[ADDRESS_HEX_LEN+1];
     static oe_enclave_t *enclave;
-    static void from_hex(const char *src, char *target);
+    static void from_hex(const char *src,
+                         char *target);
 
-    static std::string to_hex(const unsigned char *data, size_t len);
+    static std::string to_hex(const unsigned char *data,
+                              size_t len);
 };
 
 #endif //EEVM_GLOBAL_H

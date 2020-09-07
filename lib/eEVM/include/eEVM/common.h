@@ -16,6 +16,10 @@
 #define PUBKEY_LEN 64
 #define ADDRESS_LEN 20
 
+#define SECKEY_HEX_LEN 64
+#define PUBKEY_HEX_LEN 128
+#define ADDRESS_HEX_LEN 40
+
 #define TC_KEY_NOT_PROVISIONED 0x9001
 
 // #include "encoding.h"

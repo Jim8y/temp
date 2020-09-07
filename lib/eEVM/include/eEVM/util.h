@@ -90,7 +90,7 @@ namespace eevm {
 
     template<typename Iterator>
     std::string to_hex_string(Iterator begin, Iterator end) {
-        return fmt::format("0x{:02x}", fmt::join(begin, end, ""));
+        return fmt::format("{:02x}", fmt::join(begin, end, ""));
     }
 
     template<size_t N>
@@ -103,20 +103,20 @@ namespace eevm {
     }
 
     inline std::string to_hex_string(uint64_t v) {
-        return fmt::format("0x{:x}", v);
+        return fmt::format("{:x}", v);
     }
 
     inline std::string to_hex_string(const uint256_t &v) {
-        return fmt::format("0x{}", intx::hex(v));
+        return fmt::format("{}", intx::hex(v));
     }
 
     inline std::string to_hex_string(const uint512_t &v) {
-        return fmt::format("0x{}", intx::hex(v));
+        return fmt::format("{}", intx::hex(v));
     }
 
     inline std::string to_hex_string_fixed(
             const uint256_t &v, size_t min_hex_chars = 64) {
-        return fmt::format("0x{:0>{}}", intx::hex(v), min_hex_chars);
+        return fmt::format("{:0>{}}", intx::hex(v), min_hex_chars);
     }
 
     inline auto address_to_hex_string(const Address &v) {
@@ -138,7 +138,7 @@ namespace eevm {
         auto s = address_to_hex_string(a);
 
         // Start at index 2 to skip the "0x" prefix
-        const auto h = keccak_256_skip(2, s);
+        const auto h = keccak_256_skip(0, s);
 
         for (size_t i = 0; i < s.size() - 2; ++i) {
             auto &c = s[i + 2];
